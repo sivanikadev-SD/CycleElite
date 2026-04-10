@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — CycleElite</title>
+  <meta name="description" content="CycleElite athlete dashboard — performance metrics, training plans, goals, and coach sessions." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="dashboard-layout">
+
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="sidebar-logo">
+        <div class="logo-icon"><i data-lucide="bike" style="width:18px;height:18px;"></i></div>
+        <span>Cycle<span style="color:var(--primary)">Elite</span></span>
+      </a>
+      <button class="sidebar-close" id="sidebarClose" onclick="document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebarOverlay').classList.remove('show');">
+        <i data-lucide="x" style="width:18px;height:18px;"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Main</div>
+      <a href="dashboard.html" class="sidebar-link active" id="nav-overview">
+        <i data-lucide="layout-dashboard" style="width:18px;height:18px;"></i>
+        <span>Overview</span>
+      </a>
+      <a href="dash-plans.html" class="sidebar-link" id="nav-plans">
+        <i data-lucide="route" style="width:18px;height:18px;"></i>
+        <span>Training Plans</span>
+      </a>
+      <a href="dash-upload.html" class="sidebar-link" id="nav-upload">
+        <i data-lucide="upload-cloud" style="width:18px;height:18px;"></i>
+        <span>Workout Upload</span>
+      </a>
+      <a href="dash-analytics.html" class="sidebar-link" id="nav-analytics">
+        <i data-lucide="bar-chart-2" style="width:18px;height:18px;"></i>
+        <span>Analytics</span>
+      </a>
+
+      <div class="sidebar-section-label">Goals</div>
+      <a href="dash-goals.html" class="sidebar-link" id="nav-goals">
+        <i data-lucide="target" style="width:18px;height:18px;"></i>
+        <span>Goals & Milestones</span>
+      </a>
+      <a href="dash-sessions.html" class="sidebar-link" id="nav-sessions">
+        <i data-lucide="video" style="width:18px;height:18px;"></i>
+        <span>Coach Sessions</span>
+      </a>
+
+      <div class="sidebar-section-label">Communication</div>
+      <a href="dash-messages.html" class="sidebar-link" id="nav-messages">
+        <i data-lucide="message-circle" style="width:18px;height:18px;"></i>
+        <span>Messages</span>
+        <span class="badge-count">3</span>
+      </a>
+
+      <a href="contact.html" class="sidebar-link" id="nav-support">
+        <i data-lucide="help-circle" style="width:18px;height:18px;"></i>
+        <span>Support & Contact</span>
+      </a>
+      <a href="dash-settings.html" class="sidebar-link" id="nav-settings">
+        <i data-lucide="settings" style="width:18px;height:18px;"></i>
+        <span>Settings</span>
+      </a>
+      <a href="index.html" class="sidebar-link" style="color:var(--danger);">
+        <i data-lucide="log-out" style="width:18px;height:18px;"></i>
+        <span>Logout</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="avatar avatar-lg">
+          <img src="images/alex_profile.png" alt="Alex Johnson">
+        </div>
+        <div class="sidebar-user-info">
+          <div class="name">Alex Johnson</div>
+          <div class="role">Pro Athlete · 14 days left</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <div class="dashboard-main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="topbar-menu-btn" id="topbarMenuBtn">
+          <i data-lucide="menu" style="width:18px;height:18px;"></i>
+        </button>
+        <div class="topbar-welcome">
+          <h3>Welcome, <span class="gradient-text-blue">Alex!</span></h3>
+          <p>Monday, 7 April 2026</p>
+        </div>
+      </div>
+      <div class="topbar-search">
+        <span class="search-icon"><i data-lucide="search" style="width:15px;height:15px;"></i></span>
+        <input type="text" placeholder="Search plans, sessions..." />
+      </div>
+      <div class="topbar-right">
+        <button class="btn-icon" onclick="toggleTheme()" title="Toggle theme"><span data-theme-icon></span></button>
+        <button class="btn-icon" onclick="toggleDir()" title="Toggle RTL"><span data-rtl-icon></span></button>
+        <button class="notif-btn" title="Notifications">
+          <i data-lucide="bell" style="width:16px;height:16px;"></i>
+          <span class="notif-dot"></span>
+        </button>
+        <div class="topbar-profile">
+          <div class="avatar">
+            <img src="images/alex_profile.png" alt="Alex Johnson">
+          </div>
+          <div>
+            <div class="name">Alex J.</div>
+            <div class="role">Pro</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <main class="page-content">
+
+      <!-- Page Header -->
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Dashboard</h1>
+          <p class="page-subtitle">Your performance overview for this week</p>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="btn btn-ghost btn-sm">
+            <i data-lucide="download" style="width:14px;height:14px;"></i> Export
+          </button>
+          <a href="analytics.html" class="btn btn-primary btn-sm">
+            <i data-lucide="bar-chart-2" style="width:14px;height:14px;"></i> Full Analytics
+          </a>
+        </div>
+      </div>
+
+      <!-- ── Metric Cards ── -->
+      <div class="dash-grid dash-grid-3" style="margin-bottom:20px;">
+        <div class="dash-metric glass-card-premium" style="padding: 30px;">
+          <div class="dash-metric-content">
+            <div class="dash-metric-label" style="font-size: 0.85rem; font-weight: 600; color: var(--text-3); margin-bottom: 12px;">Distance</div>
+            <div class="dash-metric-value" style="font-size: 2.2rem; font-weight: 800; color: var(--text);">76.5<span style="font-size:1rem;font-weight:600;color:var(--text-4); margin-left: 4px;">km</span></div>
+          </div>
+        </div>
+        <div class="dash-metric glass-card-premium" style="padding: 30px;">
+          <div class="dash-metric-content">
+            <div class="dash-metric-label" style="font-size: 0.85rem; font-weight: 600; color: var(--text-3); margin-bottom: 12px;">Speed</div>
+            <div class="dash-metric-value" style="font-size: 2.2rem; font-weight: 800; color: #fff;">32.8<span style="font-size:1rem;font-weight:600;color:var(--text-4); margin-left: 4px;">km/h</span></div>
+          </div>
+        </div>
+        <div class="dash-metric glass-card-premium" style="padding: 30px;">
+          <div class="dash-metric-content">
+            <div class="dash-metric-label" style="font-size: 0.85rem; font-weight: 600; color: var(--text-3); margin-bottom: 12px;">Training Hours</div>
+            <div class="dash-metric-value" style="font-size: 2.2rem; font-weight: 800; color: #fff;">8.45<span style="font-size:1rem;font-weight:600;color:var(--text-4); margin-left: 4px;">hrs</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Row 2: Charts ── -->
+      <div class="dash-grid dash-grid-2" style="margin-bottom:20px;">
+        <!-- Weekly Performance Chart -->
+        <div class="dash-card glass-card-premium">
+          <div class="dash-card-header">
+            <div>
+              <div class="dash-card-title">Weekly Performance</div>
+              <div style="font-size:0.75rem;color:var(--text-4);">Training progression and stress balance</div>
+            </div>
+          </div>
+          <div class="chart-container" style="height:240px; padding: 20px;">
+            <canvas id="weeklyChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Heart Rate -->
+        <div class="dash-card glass-card-premium">
+          <div class="dash-card-header">
+            <div class="dash-card-title">Live Biometrics</div>
+            <span class="badge badge-primary">● Real-time</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:8px;padding: 20px;">
+            <span style="font-size:3rem;font-weight:800;color:var(--text);">148</span>
+            <span style="font-size:1rem;color:var(--text-4);">bpm</span>
+          </div>
+          <div class="chart-container" style="height:120px; padding: 0 20px;">
+            <canvas id="heartRateChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Row 3: Goals + Sessions + Activity ── -->
+      <div class="dash-grid dash-grid-3" style="margin-bottom:20px;">
+        <!-- Goals & Milestones -->
+        <div class="dash-card glass-card-premium" style="padding: 24px;">
+          <div class="dash-card-header" style="margin-bottom: 24px;">
+            <div class="dash-card-title">Goals & Milestones</div>
+          </div>
+          <div class="goal-item" style="margin-bottom: 20px;">
+            <div class="goal-header" style="display:flex; justify-content: space-between; margin-bottom: 8px;">
+              <span class="goal-name" style="font-weight: 600; color: var(--text);">Race: Ironman 70.3</span>
+              <span class="goal-percent" style="color: var(--secondary); font-weight: 700;">72%</span>
+            </div>
+            <div class="progress-bar" style="height: 6px; background: var(--border-subtle); border-radius: 3px;">
+              <div class="progress-fill" data-width="72%" style="width:0%; height:100%; border-radius: 3px; background: linear-gradient(90deg, var(--primary), var(--secondary));"></div>
+            </div>
+          </div>
+          <div class="goal-item">
+            <div class="goal-header" style="display:flex; justify-content: space-between; margin-bottom: 8px;">
+              <span class="goal-name" style="font-weight: 600; color: var(--text);">FTP Target: 300W</span>
+              <span class="goal-percent" style="color: var(--primary); font-weight: 700;">95%</span>
+            </div>
+            <div class="progress-bar" style="height: 6px; background: var(--border-subtle); border-radius: 3px;">
+              <div class="progress-fill" data-width="95%" style="width:0%; height:100%; border-radius: 3px; background: linear-gradient(90deg, var(--primary), var(--primary-light));"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upcoming Sessions -->
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div class="dash-card-title">Upcoming Sessions</div>
+            <span class="dash-card-action">View Calendar</span>
+          </div>
+          <div class="session-item">
+            <div class="session-date"><div class="day">8</div><div class="month">Apr</div></div>
+            <div class="session-info">
+              <div class="session-title">Coach Call — Michael B.</div>
+              <div class="session-meta"><i data-lucide="video" style="width:11px;height:11px;"></i> Video · 60 min · 08:00 AM</div>
+            </div>
+            <span class="badge badge-primary">Tomorrow</span>
+          </div>
+          <div class="session-item">
+            <div class="session-date"><div class="day">9</div><div class="month">Apr</div></div>
+            <div class="session-info">
+              <div class="session-title">Threshold Intervals</div>
+              <div class="session-meta"><i data-lucide="bike" style="width:11px;height:11px;"></i> Cycling · 90 min · Zone 4</div>
+            </div>
+            <span class="badge badge-success">Planned</span>
+          </div>
+          <div class="session-item">
+            <div class="session-date"><div class="day">11</div><div class="month">Apr</div></div>
+            <div class="session-info">
+              <div class="session-title">Long Endurance Ride</div>
+              <div class="session-meta"><i data-lucide="bike" style="width:11px;height:11px;"></i> 4h · Zone 2 · 120km target</div>
+            </div>
+            <span class="badge badge-success">Planned</span>
+          </div>
+          <div class="session-item">
+            <div class="session-date"><div class="day">12</div><div class="month">Apr</div></div>
+            <div class="session-info">
+              <div class="session-title">Open Water Swim</div>
+              <div class="session-meta"><i data-lucide="waves" style="width:11px;height:11px;"></i> 90 min · Technique focus</div>
+            </div>
+            <span class="badge badge-warning">Optional</span>
+          </div>
+          <a href="coaches.html" class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;margin-top:12px;">
+            <i data-lucide="plus" style="width:14px;height:14px;"></i> Book a Coach Session
+          </a>
+        </div>
+
+        <!-- Activity Feed -->
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div class="dash-card-title">Recent Activity</div>
+            <span class="dash-card-action">View All</span>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon" style="background:var(--primary-glow);color:var(--primary)"><i data-lucide="bike" style="width:16px;height:16px;"></i></div>
+            <div class="activity-content">
+              <div class="activity-title">Morning Tempo Ride</div>
+              <div class="activity-meta">42.8km · 1h 15min · Avg 34.2km/h · 248W</div>
+            </div>
+            <div class="activity-time">2h ago</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon" style="background:var(--secondary-glow);color:var(--secondary)"><i data-lucide="footprints" style="width:16px;height:16px;"></i></div>
+            <div class="activity-content">
+              <div class="activity-title">Brick Run Session</div>
+              <div class="activity-meta">8km · 38min · Avg 4:45/km pace</div>
+            </div>
+            <div class="activity-time">Yesterday</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon" style="background:rgba(6,182,212,0.12);color:var(--info)"><i data-lucide="waves" style="width:16px;height:16px;"></i></div>
+            <div class="activity-content">
+              <div class="activity-title">Open Water Swim</div>
+              <div class="activity-meta">2km · 42min · 2:06/100m pace</div>
+            </div>
+            <div class="activity-time">2 days ago</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon" style="background:rgba(139,92,246,0.1);color:#8B5CF6"><i data-lucide="dumbbell" style="width:16px;height:16px;"></i></div>
+            <div class="activity-content">
+              <div class="activity-title">Strength Session</div>
+              <div class="activity-meta">Core & hip stability · 50 min</div>
+            </div>
+            <div class="activity-time">3 days ago</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon" style="background:var(--primary-glow);color:var(--primary)"><i data-lucide="bike" style="width:16px;height:16px;"></i></div>
+            <div class="activity-content">
+              <div class="activity-title">VO2max Intervals</div>
+              <div class="activity-meta">60km · 2h · 8×5min Z5 efforts</div>
+            </div>
+            <div class="activity-time">4 days ago</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Row 4: Activity Split + Quick Actions ── -->
+      <div class="dash-grid dash-grid-2">
+        <!-- Activity Donut -->
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div class="dash-card-title">Activity Split — This Month</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
+            <div style="height:180px;"><canvas id="activityDonut"></canvas></div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;"><div style="display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;border-radius:50%;background:var(--primary);flex-shrink:0;"></span><span style="font-size:0.82rem;">Cycling</span></div><span style="font-size:0.82rem;font-weight:700;">52%</span></div>
+              <div style="display:flex;align-items:center;justify-content:space-between;"><div style="display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;border-radius:50%;background:var(--secondary);flex-shrink:0;"></span><span style="font-size:0.82rem;">Running</span></div><span style="font-size:0.82rem;font-weight:700;">24%</span></div>
+              <div style="display:flex;align-items:center;justify-content:space-between;"><div style="display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;border-radius:50%;background:var(--info);flex-shrink:0;"></span><span style="font-size:0.82rem;">Swimming</span></div><span style="font-size:0.82rem;font-weight:700;">14%</span></div>
+              <div style="display:flex;align-items:center;justify-content:space-between;"><div style="display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;border-radius:50%;background:var(--warning);flex-shrink:0;"></span><span style="font-size:0.82rem;">Strength</span></div><span style="font-size:0.82rem;font-weight:700;">10%</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div class="dash-card-title">Quick Actions</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <button class="quick-action-btn" onclick="alert('Workout upload feature')">
+              <div class="qa-icon" style="background:var(--primary-glow);color:var(--primary);"><i data-lucide="upload-cloud" style="width:20px;height:20px;"></i></div>
+              <span>Upload Workout</span>
+            </button>
+            <a href="coaches.html" class="quick-action-btn">
+              <div class="qa-icon" style="background:var(--secondary-glow);color:var(--secondary);"><i data-lucide="video" style="width:20px;height:20px;"></i></div>
+              <span>Book Coach</span>
+            </a>
+            <a href="programs.html" class="quick-action-btn">
+              <div class="qa-icon" style="background:rgba(139,92,246,0.12);color:#8B5CF6;"><i data-lucide="route" style="width:20px;height:20px;"></i></div>
+              <span>View Plans</span>
+            </a>
+            <a href="analytics.html" class="quick-action-btn">
+              <div class="qa-icon" style="background:rgba(245,158,11,0.12);color:var(--warning);"><i data-lucide="bar-chart-2" style="width:20px;height:20px;"></i></div>
+              <span>Full Analytics</span>
+            </a>
+            <button class="quick-action-btn" onclick="alert('Goal editor')">
+              <div class="qa-icon" style="background:rgba(6,182,212,0.12);color:var(--info);"><i data-lucide="target" style="width:20px;height:20px;"></i></div>
+              <span>Edit Goals</span>
+            </button>
+            <a href="pricing.html" class="quick-action-btn">
+              <div class="qa-icon" style="background:rgba(239,68,68,0.1);color:var(--danger);"><i data-lucide="crown" style="width:20px;height:20px;"></i></div>
+              <span>Upgrade Plan</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div><!-- /dashboard-main -->
+</div><!-- /dashboard-layout -->
+
+<style>
+.quick-action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all var(--transition);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-2);
+  font-family: 'Inter', sans-serif;
+  text-decoration: none;
+  text-align: center;
+}
+.quick-action-btn:hover { border-color: var(--primary); background: var(--primary-glow); color: var(--primary); transform: translateY(-2px); }
+.qa-icon { width: 44px; height: 44px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; transition: transform var(--transition); }
+.quick-action-btn:hover .qa-icon { transform: scale(1.1); }
+</style>
+
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
+<script>
+  lucide.createIcons();
+  // Animate progress bars after a delay
+  setTimeout(() => {
+    document.querySelectorAll('.progress-fill[data-width]').forEach(bar => {
+      bar.style.width = bar.dataset.width;
+    });
+  }, 400);
+</script>
+</body>
+</html>

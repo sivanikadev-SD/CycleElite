@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Performance Analytics — CycleElite</title>
+  <meta name="description" content="Deep performance analytics for cyclists and triathletes. Power, heart rate, endurance, and progress tracking." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home2_premium.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="home2-premium">
+  <!-- Background Space Layer -->
+  <div class="home2-bg-stars"></div>
+  <div class="home2-light-beams"></div>
+
+  <div class="home2-wrapper">
+    <!-- NAVBAR -->
+    <nav class="nav" id="mainNav">
+      <div class="container nav-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon"><i data-lucide="bike" style="width:20px;height:20px;"></i></div>
+          <span>Cycle<span class="blue">Elite</span></span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="home2.html" class="nav-link">Home 2</a></li>
+          <li><a href="programs.html" class="nav-link">Programs</a></li>
+          <li><a href="coaches.html" class="nav-link">Coaches</a></li>
+          <li><a href="analytics.html" class="nav-link active">Analytics</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="btn-icon" onclick="toggleTheme()"><span data-theme-icon></span></button>
+          <button class="btn-icon" onclick="toggleDir()"><span data-rtl-icon></span></button>
+          <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
+          <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="programs.html" class="mobile-nav-link">Programs</a>
+      <a href="coaches.html" class="mobile-nav-link">Coaches</a>
+      <a href="analytics.html" class="mobile-nav-link active">Analytics</a>
+      <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+      <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
+      <div class="mobile-drawer-actions">
+        <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
+        <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="cn-hero">
+      <div class="container">
+        <div class="cn-hero-grid">
+          <div class="cn-hero-content">
+            <h1 class="std-hero-title" style="text-align: left; margin-top: 0;">Training <br><span class="gradient-text">Analytics</span></h1>
+            <p class="std-hero-desc" style="margin: 0 0 40px; text-align: left; max-width: 520px;">Deep performance metrics for serious athletes. Track power, heart rate, and metabolic efficiency with AI-driven precision indicators.</p>
+            <div class="h2p-hero-actions" style="justify-content: flex-start;">
+              <a href="signup.html" class="h2p-btn h2p-btn-primary">Connect Sensors</a>
+              <a href="#stats" class="h2p-btn h2p-btn-outline">View Demo</a>
+            </div>
+          </div>
+          <div class="cn-hero-img" style="perspective: 1000px;">
+            <img src="images/analytics_hero_bg.png" alt="Advanced Analytics Illustration" class="contact-hero-illustration" style="transform: rotateY(-10deg) rotateX(5deg); border-radius: 20px; box-shadow: var(--shadow-xl);">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container" id="stats">
+      <!-- Filters/Tabs Row -->
+
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:60px; flex-wrap:wrap; gap:20px;">
+          <div class="h2p-tabs" style="display:flex; gap:12px; background:var(--surface-glass); padding:8px; border-radius:12px; border:1px solid var(--border); backdrop-filter: blur(10px);">
+            <button class="h2p-tab active" style="padding:10px 24px; border-radius:10px; border:none; background:var(--primary-glow); color:var(--text); font-size:0.9rem; font-weight:600; cursor:pointer; border: 1px solid var(--primary-light);">Overview</button>
+            <button class="h2p-tab" style="padding:10px 24px; border-radius:10px; border:none; background:transparent; color:var(--text-4); font-size:0.9rem; font-weight:600; cursor:pointer;">Performance</button>
+            <button class="h2p-tab" style="padding:10px 24px; border-radius:10px; border:none; background:transparent; color:var(--text-4); font-size:0.9rem; font-weight:600; cursor:pointer;">Heart Rate</button>
+            <button class="h2p-tab" style="padding:10px 24px; border-radius:10px; border:none; background:transparent; color:var(--text-4); font-size:0.9rem; font-weight:600; cursor:pointer;">Endurance</button>
+          </div>
+          
+          <div style="display:flex; gap:12px; align-items: center;">
+            <div style="background: var(--surface-glass); border: 1px solid var(--border); border-radius: 12px; display:flex; gap:1PX;">
+               <button style="background:transparent; color:var(--text-3); padding: 10px 16px; font-size: 0.85rem; border:none; cursor:pointer; display:flex; align-items:center; gap:8px;"><i data-lucide="filter" style="width:14px;"></i> Filters</button>
+               <div style="width:1px; background: var(--border-subtle); margin: 10px 0;"></div>
+               <button style="background:transparent; color:var(--text-3); padding: 10px 16px; font-size: 0.85rem; border:none; cursor:pointer; display:flex; align-items:center; gap:8px;">Last 10 Weeks <i data-lucide="chevron-down" style="width:14px;"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Weekly Performance Matrix (4 Columns) -->
+        <div style="text-align: left;">
+          <h2 style="font-size:1.8rem; font-weight:700; margin-bottom:32px;">Weekly <span style="color:#3B82F6;">Performance</span></h2>
+          <div class="h2p-performance-matrix reveal">
+            
+            <!-- Metric 1: Distance -->
+            <div class="h2p-mockup-card" style="position:relative; overflow:hidden; padding:28px; background: var(--surface-glass); border-color: var(--border);">
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
+                <div style="width:32px; height:32px; border-radius:8px; background:var(--primary-glow); display:flex; align-items:center; justify-content:center; color:var(--primary);"><i data-lucide="map" style="width:16px;"></i></div>
+                <span style="font-size:0.9rem; color:var(--text-3); font-weight:600;">Distance</span>
+              </div>
+              <div style="font-size:2.4rem; font-weight:800; margin-bottom:4px; letter-spacing:-0.02em;">72.6 <span style="font-size:1rem; font-weight:400; color:var(--text-4);">km</span></div>
+              <div style="font-size:0.85rem; color:var(--text-4);">Last Week</div>
+              <svg style="position:absolute; bottom:0; left:0; width:100%; height:50px; opacity: 0.6;" preserveAspectRatio="none" viewBox="0 0 100 100">
+                <defs><linearGradient id="g-blue" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(37,99,235,0.3)"/><stop offset="100%" stop-color="rgba(37,99,235,0)"/></linearGradient></defs>
+                <path d="M0,80 Q20,60 40,75 T80,40 T100,50 L100,100 L0,100 Z" fill="url(#g-blue)"></path>
+                <path d="M0,80 Q20,60 40,75 T80,40 T100,50" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+            </div>
+
+            <!-- Metric 2: Speed -->
+            <div class="h2p-mockup-card" style="position:relative; overflow:hidden; padding:28px; background: rgba(10, 15, 30, 0.6); border-color: rgba(255,255,255,0.08);">
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
+                <div style="width:32px; height:32px; border-radius:8px; background:rgba(6,182,212,0.1); display:flex; align-items:center; justify-content:center; color:#06B6D4;"><i data-lucide="gauge" style="width:16px;"></i></div>
+                <span style="font-size:0.9rem; color:rgba(255,255,255,0.6); font-weight:600;">Speed</span>
+              </div>
+              <div style="font-size:2.4rem; font-weight:800; margin-bottom:4px; letter-spacing:-0.02em;">32.8 <span style="font-size:1rem; font-weight:400; color:rgba(255,255,255,0.4);">km/h</span></div>
+              <div style="font-size:0.85rem; color:rgba(255,255,255,0.4);">Last Week</div>
+              <svg style="position:absolute; bottom:0; left:0; width:100%; height:50px; opacity: 0.6;" preserveAspectRatio="none" viewBox="0 0 100 100">
+                <defs><linearGradient id="g-cyan" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(6,182,212,0.3)"/><stop offset="100%" stop-color="rgba(6,182,212,0)"/></linearGradient></defs>
+                <path d="M0,70 Q30,90 60,65 T100,45 L100,100 L0,100 Z" fill="url(#g-cyan)"></path>
+                <path d="M0,70 Q30,90 60,65 T100,45" fill="none" stroke="#06B6D4" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+            </div>
+
+            <!-- Metric 3: Calories -->
+            <div class="h2p-mockup-card" style="position:relative; overflow:hidden; padding:28px; background: rgba(10, 15, 30, 0.6); border-color: rgba(255,255,255,0.08);">
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
+                <div style="width:32px; height:32px; border-radius:8px; background:rgba(245,158,11,0.1); display:flex; align-items:center; justify-content:center; color:#F59E0B;"><i data-lucide="flame" style="width:16px;"></i></div>
+                <span style="font-size:0.9rem; color:rgba(255,255,255,0.6); font-weight:600;">Calories</span>
+              </div>
+              <div style="font-size:2.4rem; font-weight:800; margin-bottom:4px; letter-spacing:-0.02em;">1,250 <span style="font-size:1rem; font-weight:400; color:rgba(255,255,255,0.4);">kcal</span></div>
+              <div style="font-size:0.85rem; color:rgba(255,255,255,0.4);">Last Week Burn</div>
+              <svg style="position:absolute; bottom:0; left:0; width:100%; height:50px; opacity: 0.6;" preserveAspectRatio="none" viewBox="0 0 100 100">
+                <defs><linearGradient id="g-orange" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(245,158,11,0.3)"/><stop offset="100%" stop-color="rgba(245,158,11,0)"/></linearGradient></defs>
+                <path d="M0,85 Q40,40 70,75 T100,20 L100,100 L0,100 Z" fill="url(#g-orange)"></path>
+                <path d="M0,85 Q40,40 70,75 T100,20" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+            </div>
+
+            <!-- Metric 4: Duration -->
+            <div class="h2p-mockup-card" style="position:relative; overflow:hidden; padding:28px; background: var(--surface-glass); border-color: var(--border);">
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
+                <div style="width:32px; height:32px; border-radius:8px; background:var(--aurora-2); display:flex; align-items:center; justify-content:center; color:var(--secondary);"><i data-lucide="clock" style="width:16px;"></i></div>
+                <span style="font-size:0.9rem; color:var(--text-3); font-weight:600;">Duration</span>
+              </div>
+              <div style="font-size:2.4rem; font-weight:800; margin-bottom:4px; letter-spacing:-0.02em;">8:45 <span style="font-size:1rem; font-weight:400; color:var(--text-4);">hours</span></div>
+              <div style="font-size:0.85rem; color:var(--text-4);">Last Week Total</div>
+              <svg style="position:absolute; bottom:0; left:0; width:100%; height:50px; opacity: 0.6;" preserveAspectRatio="none" viewBox="0 0 100 100">
+                <defs><linearGradient id="g-green" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(34,197,94,0.3)"/><stop offset="100%" stop-color="rgba(34,197,94,0)"/></linearGradient></defs>
+                <path d="M0,90 Q50,40 100,70 L100,100 L0,100 Z" fill="url(#g-green)"></path>
+                <path d="M0,90 Q50,40 100,70" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- Main Performance Chart Section -->
+    <div style="margin-top:20px; margin-bottom:80px;" class="reveal">
+      <div class="h2p-mockup" style="padding:0; overflow:hidden; border:none; background:var(--surface-glass); border: 1px solid var(--border); transform:none;">
+        <div class="analytics-chart-header" style="padding:32px; border-bottom:1px solid var(--border-subtle);">
+          <div>
+            <div style="font-size:1.4rem; font-weight:700;">Weekly <span class="highlight">Performance</span></div>
+            <div style="font-size:0.9rem; color:var(--text-4);">Detailed power and speed tracking analysis</div>
+          </div>
+          <div style="display:flex; gap:32px; align-items:center;">
+             <div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color: var(--text-3);">
+               <span style="width:10px; height:10px; border-radius:50%; background:var(--primary); box-shadow: 0 0 8px var(--primary-glow); display:inline-block;"></span> Performance
+             </div>
+             <div style="display:flex; align-items:center; gap:12px;">
+                <button style="background: var(--surface-glass); border: 1px solid var(--border); border-radius: 8px; color:var(--text-3); padding: 8px 16px; font-size: 0.8rem; cursor:pointer; display:flex; align-items:center; gap:8px;">
+                   <i data-lucide="bar-chart-2" style="width:14px;"></i> Last 10 Weeks <i data-lucide="chevron-down" style="width:14px;"></i>
+                </button>
+             </div>
+          </div>
+        </div>
+        <div style="height:450px; position:relative; padding:40px 10px 20px;">
+          <canvas id="perfTimelineChart"></canvas>
+          <div style="position:absolute; top: 120px; left: 50%; transform: translateX(-50%); background: var(--primary-glow); border: 1px solid var(--primary-light); backdrop-filter: blur(10px); color: var(--text); padding: 12px 24px; border-radius: 12px; pointer-events: none; z-index: 10;">
+             <div style="font-size: 0.75rem; color: var(--text-4); margin-bottom: 2px;">Value at Peak</div>
+             <div style="font-size: 1.5rem; font-weight: 800;">76.5 <span style="font-size: 0.9rem; color: var(--text-4);">km</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Endurance Stats Section -->
+    <div style="margin-top:60px; margin-bottom:80px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:32px;">
+        <h2 style="font-size: 2rem; font-weight: 800; margin:0;">Endurance <span class="highlight">Stats</span></h2>
+        <div style="display:flex; gap:12px;">
+           <div style="background: var(--surface-glass); border: 1px solid var(--border); border-radius: 12px; display:flex; gap:1PX;">
+               <button style="background:var(--primary-glow); color:var(--primary); border: 1px solid var(--primary-light); border-radius: 10px 0 0 10px; padding: 10px 20px; font-size: 0.8rem; font-weight: 600; cursor:pointer; display:flex; align-items:center; gap:8px;"><i data-lucide="layers" style="width:14px;"></i> Last 4 Weeks</button>
+               <div style="width:1px; background: var(--border-subtle); margin: 10px 0;"></div>
+               <button style="background:transparent; color:var(--text-4); padding: 10px 20px; font-size: 0.8rem; border:none; cursor:pointer; display:flex; align-items:center; gap:8px;">Last 10 Weeks <i data-lucide="chevron-down" style="width:14px;"></i></button>
+            </div>
+        </div>
+      </div>
+      
+      <div class="h2p-pricing-grid reveal">
+        
+        <!-- Stat 1: Total Distance -->
+        <div class="h2p-mockup-card" style="position:relative; overflow:hidden; padding:32px; background: var(--surface-glass); border-color: var(--border);">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+            <div style="width:36px; height:36px; border-radius:10px; background:var(--primary-glow); display:flex; align-items:center; justify-content:center; color:var(--primary);"><i data-lucide="activity" style="width:20px;"></i></div>
+            <span style="font-size:1rem; color:var(--text-3); font-weight:600;">Total Distance</span>
+          </div>
+          <div style="font-size:3.2rem; font-weight:900; margin-bottom:8px; color:var(--text); letter-spacing:-0.03em;">277 <span style="font-size:1.2rem; font-weight:400; color:var(--text-4);">km</span></div>
+          <div style="font-size:0.95rem; color:var(--text-4); font-weight: 500;">Last Month Total</div>
+          <svg style="position:absolute; bottom:0; left:0; width:100%; height:80px; opacity:0.6;" preserveAspectRatio="none" viewBox="0 0 100 100">
+             <path d="M0,80 Q30,60 60,75 T100,50 L100,100 L0,100 Z" fill="url(#g-blue)"></path>
+             <path d="M0,80 Q30,60 60,75 T100,50" fill="none" stroke="#3B82F6" stroke-width="3" stroke-linecap="round"></path>
+          </svg>
+        </div>
+
+        <!-- Stat 2: Avg Speed -->
+        <div class="h2p-mockup-card" style="position:relative; overflow:hidden; padding:32px; background: rgba(10, 15, 30, 0.6); border-color: rgba(255,255,255,0.08);">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+            <div style="width:36px; height:36px; border-radius:10px; background:rgba(6,182,212,0.1); display:flex; align-items:center; justify-content:center; color:#06B6D4;"><i data-lucide="zap" style="width:20px;"></i></div>
+            <span style="font-size:1rem; color:rgba(255,255,255,0.6); font-weight:600;">Avg Speed</span>
+          </div>
+          <div style="font-size:3.2rem; font-weight:900; margin-bottom:8px; color:#fff; letter-spacing:-0.03em;">27.6 <span style="font-size:1.2rem; font-weight:400; color:rgba(255,255,255,0.4);">km/h</span></div>
+          <div style="font-size:0.95rem; color:rgba(255,255,255,0.4); font-weight:500;">Last 10 weeks Avg</div>
+          <svg style="position:absolute; bottom:0; left:0; width:100%; height:80px; opacity:0.6;" preserveAspectRatio="none" viewBox="0 0 100 100">
+             <path d="M0,70 Q40,90 80,60 T100,40 L100,100 L0,100 Z" fill="url(#g-cyan)"></path>
+             <path d="M0,70 Q40,90 80,60 T100,40" fill="none" stroke="#06B6D4" stroke-width="3" stroke-linecap="round"></path>
+          </svg>
+        </div>
+
+        <!-- Stat 3: Max Heart Rate -->
+        <div class="h2p-mockup-card" style="position:relative; overflow:hidden; padding:32px; background: rgba(10, 15, 30, 0.6); border-color: rgba(255,255,255,0.08);">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+            <div style="width:36px; height:36px; border-radius:10px; background:rgba(239,68,68,0.1); display:flex; align-items:center; justify-content:center; color:#EF4444;"><i data-lucide="heart" style="width:20px;"></i></div>
+            <span style="font-size:1rem; color:rgba(255,255,255,0.6); font-weight:600;">Max Heart Rate</span>
+          </div>
+          <div style="font-size:3.2rem; font-weight:900; margin-bottom:8px; color:#fff; letter-spacing:-0.03em;">126 <span style="font-size:1.2rem; font-weight:400; color:rgba(255,255,255,0.4);">bpm</span></div>
+          <div style="font-size:0.95rem; color:rgba(255,255,255,0.4); font-weight:500;">Last Workout Peak</div>
+          <svg style="position:absolute; bottom:0; left:0; width:100%; height:80px; opacity:0.6;" preserveAspectRatio="none" viewBox="0 0 100 100">
+             <defs><linearGradient id="g-red" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(239,68,68,0.3)"/><stop offset="100%" stop-color="rgba(239,68,68,0)"/></linearGradient></defs>
+             <path d="M0,90 Q50,40 100,70 L100,100 L0,100 Z" fill="url(#g-red)"></path>
+             <path d="M0,90 Q50,40 100,70" fill="none" stroke="#EF4444" stroke-width="3" stroke-linecap="round"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Athlete Feature Section -->
+    <div class="h2p-athlete-feature reveal" style="margin-bottom:100px;">
+      
+      <!-- Robert Stackler Featured Card -->
+      <div class="h2p-mockup analytics-flex-card" style="padding:0; overflow:hidden; background:rgba(10, 15, 30, 0.4); border-color:rgba(255,255,255,0.05);">
+        <div class="analytics-flex-img" style="flex:1.2; position:relative; min-height:360px;">
+          <img src="images/robert_stackler.png" alt="Robert Stackler Action" style="width:100%; height:100%; object-fit:cover;" />
+          <div style="position:absolute; inset:0; background:linear-gradient(90deg, transparent 60%, rgba(10,15,30,1) 100%), linear-gradient(0deg, rgba(10,15,30,0.8) 0%, transparent 40%);"></div>
+          <div style="position:absolute; bottom:0; left:0; right:0; padding:40px; z-index: 2;">
+             <div style="font-size:2.8rem; font-weight:900; line-height:1; margin-bottom:8px; letter-spacing:-0.03em;">Robert <span class="highlight">Stackler</span></div>
+             <div style="display:flex; align-items:center; gap:12px; font-size:1.1rem; color:var(--text-2); font-weight:600;">
+               <i data-lucide="award" style="width:20px; color:var(--warning);"></i> Elite Pro | Continental Cycling
+             </div>
+          </div>
+        </div>
+        <div class="analytics-flex-content" style="flex:1; padding:48px; display:flex; flex-direction:column; justify-content:center; gap:32px;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
+            <div>
+              <div class="h2p-stat-val" style="color:var(--text);">899 <span style="font-size:1.1rem; color:var(--text-4); font-weight:500;">km</span></div>
+              <div style="font-size:0.9rem; color:var(--text-4); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-top:8px;">Base Mileage</div>
+            </div>
+            <div>
+              <div class="h2p-stat-val">14.3 <span style="font-size:1.1rem; color:var(--text-2); font-weight:500;">k</span></div>
+              <div style="font-size:0.9rem; color:var(--text-3); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-top:8px;">YTD Elevation</div>
+            </div>
+          </div>
+          <div style="width:100%; height:1px; background:var(--border-subtle);"></div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
+            <div>
+              <div class="h2p-stat-val">512 <span style="font-size:1.1rem; color:var(--text-2); font-weight:500;">TSS</span></div>
+              <div style="font-size:0.9rem; color:var(--text-3); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-top:8px;">Training Load</div>
+            </div>
+            <div>
+              <div class="h2p-stat-val">4.5 <span style="font-size:1.1rem; color:var(--text-2); font-weight:500;">w/kg</span></div>
+              <div style="font-size:0.9rem; color:var(--text-3); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-top:8px;">Power Ratio</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Matt Parker CTA comparison -->
+      <div class="h2p-mockup-card" style="padding:40px; display:flex; flex-direction:column; justify-content:space-between; background:var(--aurora-1); border: 1px solid var(--border);">
+        <div>
+          <div style="font-size:1.8rem; font-weight:800; margin-bottom:4px; letter-spacing:-0.02em;">Matt <span style="color:var(--secondary);">Parker</span></div>
+          <div style="font-size:1rem; color:var(--text-4); margin-bottom:40px; font-weight:500;">Athlete Performance Comparison</div>
+          
+          <div style="margin-bottom:32px;">
+            <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:600; color:var(--text-3); margin-bottom:12px;">
+              <span>Avg Distance</span>
+              <span style="color:var(--text);">401 <span style="color:var(--text-4); font-size:0.75rem;">km</span></span>
+            </div>
+            <div style="height:6px; background:var(--border-subtle); border-radius:3px; overflow:hidden;">
+              <div style="width:75%; height:100%; background:var(--gradient-purple); box-shadow: 0 0 10px var(--primary-glow);"></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:32px;">
+            <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:600; color:rgba(255,255,255,0.5); margin-bottom:12px;">
+              <span>Avg Speed</span>
+              <span style="color:#fff;">27.6 <span style="color:rgba(255,255,255,0.3); font-size:0.75rem;">km/h</span></span>
+            </div>
+            <div style="height:6px; background:rgba(255,255,255,0.05); border-radius:3px; overflow:hidden;">
+              <div style="width:85%; height:100%; background:linear-gradient(90deg, #3B82F6, #06B6D4); box-shadow: 0 0 10px rgba(6,182,212,0.4);"></div>
+            </div>
+          </div>
+        </div>
+        
+        <a href="signup.html" class="h2p-btn h2p-btn-primary" style="width:100%; padding: 18px; border-radius:14px; font-size:1.1rem; gap:12px; display:flex; box-shadow: 0 15px 30px rgba(37,99,235,0.3);">
+          <i data-lucide="zap" style="width:20px;"></i> Get Started Now
+        </a>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="justify-content:flex-start;">
+            <div class="logo-icon"><i data-lucide="bike" style="width:18px;height:18px;"></i></div>
+            <span>Cycle<span class="blue">Elite</span></span>
+          </a>
+          <p>The performance platform for serious cyclists and triathletes. Train with precision, race with confidence.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Twitter"><i data-lucide="twitter" style="width:16px;height:16px;"></i></a>
+            <a href="#" aria-label="Instagram"><i data-lucide="instagram" style="width:16px;height:16px;"></i></a>
+            <a href="#" aria-label="YouTube"><i data-lucide="youtube" style="width:16px;height:16px;"></i></a>
+            <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" style="width:16px;height:16px;"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="programs.html">Training Programs</a></li>
+            <li><a href="coaches.html">Find a Coach</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">API Docs</a></li>
+            <li><a href="#">Status</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 CycleElite. Premium Performance Platform.</p>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    lucide.createIcons();
+
+    const perfCtx = document.getElementById('perfTimelineChart').getContext('2d');
+    if (perfCtx) {
+      const gradient = perfCtx.createLinearGradient(0, 0, 0, 450);
+      gradient.addColorStop(0, 'rgba(59, 130, 246, 0.5)');
+      gradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.1)');
+      gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+
+      new Chart(perfCtx, {
+        type: 'line',
+        data: {
+          labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+          datasets: [{
+            label: 'Performance',
+            data: [45, 52, 48, 70, 85, 80, 60, 75, 78, 92, 110, 105, 88, 95],
+            borderColor: '#3B82F6',
+            borderWidth: 6,
+            pointBackgroundColor: '#fff',
+            pointBorderColor: '#3B82F6',
+            pointBorderWidth: 4,
+            pointRadius: 8,
+            pointHoverRadius: 12,
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderWidth: 6,
+            backgroundColor: gradient,
+            fill: true,
+            tension: 0.45,
+            shadowBlur: 20,
+            shadowColor: 'rgba(59, 130, 246, 0.8)'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: 'rgba(10, 15, 30, 0.95)',
+              titleColor: '#fff',
+              bodyColor: '#3B82F6',
+              borderColor: 'rgba(59, 130, 246, 0.3)',
+              borderWidth: 1,
+              displayColors: false,
+              padding: 16,
+              cornerRadius: 12,
+              titleFont: { size: 14, weight: '700' },
+              bodyFont: { size: 16, weight: '800' }
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { color: 'rgba(255, 255, 255, 0.4)', font: { size: 12, weight: '600' }, padding: 15 }
+            },
+            y: {
+              grid: { color: 'rgba(255, 255, 255, 0.03)', borderDash: [5, 5] },
+              ticks: { display: false }
+            }
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

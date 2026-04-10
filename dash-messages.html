@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Messages — CycleElite</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+<div class="dashboard-layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="sidebar-logo">
+        <div class="logo-icon"><i data-lucide="bike" style="width:18px;height:18px;"></i></div>
+        <span>Cycle<span style="color:var(--primary)">Elite</span></span>
+      </a>
+      <button class="sidebar-close" id="sidebarClose"><i data-lucide="x" style="width:18px;height:18px;"></i></button>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Main</div>
+      <a href="dashboard.html" class="sidebar-link" id="nav-overview"><i data-lucide="layout-dashboard" style="width:18px;height:18px;"></i><span>Overview</span></a>
+      <a href="dash-plans.html" class="sidebar-link" id="nav-plans"><i data-lucide="route" style="width:18px;height:18px;"></i><span>Training Plans</span></a>
+      <a href="dash-upload.html" class="sidebar-link" id="nav-upload"><i data-lucide="upload-cloud" style="width:18px;height:18px;"></i><span>Workout Upload</span></a>
+      <a href="dash-analytics.html" class="sidebar-link" id="nav-analytics"><i data-lucide="bar-chart-2" style="width:18px;height:18px;"></i><span>Analytics</span></a>
+      <div class="sidebar-section-label">Goals</div>
+      <a href="dash-goals.html" class="sidebar-link" id="nav-goals"><i data-lucide="target" style="width:18px;height:18px;"></i><span>Goals & Milestones</span></a>
+      <a href="dash-sessions.html" class="sidebar-link" id="nav-sessions"><i data-lucide="video" style="width:18px;height:18px;"></i><span>Coach Sessions</span></a>
+      <div class="sidebar-section-label">Communication</div>
+      <a href="dash-messages.html" class="sidebar-link active" id="nav-messages"><i data-lucide="message-circle" style="width:18px;height:18px;"></i><span>Messages</span><span class="badge-count">3</span></a>
+      <a href="contact.html" class="sidebar-link" id="nav-support"><i data-lucide="help-circle" style="width:18px;height:18px;"></i><span>Support & Contact</span></a>
+      <a href="dash-settings.html" class="sidebar-link" id="nav-settings"><i data-lucide="settings" style="width:18px;height:18px;"></i><span>Settings</span></a>
+      <a href="index.html" class="sidebar-link" style="color:var(--danger);"><i data-lucide="log-out" style="width:18px;height:18px;"></i><span>Logout</span></a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="avatar avatar-lg"><img src="images/alex_profile.png" alt="Alex Johnson"></div>
+        <div class="sidebar-user-info"><div class="name">Alex Johnson</div><div class="role">Pro Athlete · 14 days left</div></div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="dashboard-main">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="topbar-menu-btn" id="topbarMenuBtn"><i data-lucide="menu" style="width:18px;height:18px;"></i></button>
+        <div class="topbar-welcome"><h3>Athlete <span class="gradient-text-blue">Inbox</span></h3><p>Direct communication with your coaching staff</p></div>
+      </div>
+      <div class="topbar-right">
+        <button class="btn-icon" onclick="toggleTheme()"><span data-theme-icon></span></button>
+        <div class="topbar-profile"><div class="avatar"><img src="images/alex_profile.png" alt="Alex Johnson"></div><div><div class="name">Alex J.</div><div class="role">Pro</div></div></div>
+      </div>
+    </header>
+
+    <main class="page-content" style="padding:0; height:calc(100vh - 80px);">
+      <div style="display:grid; grid-template-columns: 320px 1fr; height: 100%;">
+        <!-- Conversation List -->
+        <div style="border-right: 1px solid var(--border); overflow-y: auto; background: rgba(15,23,42,0.2);">
+          <div style="padding: 24px; border-bottom: 1px solid var(--border);">
+            <div style="position:relative;">
+              <span style="position:absolute; left:12px; top:50%; transform:translateY(-50%); color:var(--text-4);"><i data-lucide="search" style="width:14px;height:14px;"></i></span>
+              <input type="text" placeholder="Search messages..." style="width:100%; height:38px; background:var(--bg-2); border:1px solid var(--border); border-radius:8px; padding-left:36px; color:#fff; font-size:0.85rem;">
+            </div>
+          </div>
+          <div class="message-list">
+            <div style="padding: 20px; border-bottom: 1px solid var(--border); cursor: pointer; background: var(--primary-glow); border-left: 3px solid var(--primary);">
+              <div style="display:flex; gap:12px; align-items:center;">
+                <div style="width:44px; height:44px; border-radius:12px; overflow:hidden;"><img src="images/coach_sarah.png" style="width:100%; height:100%; object-fit:cover;"></div>
+                <div style="flex:1;">
+                  <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-weight:700; font-size:0.9rem;">Sarah Mitchell</span><span style="font-size:0.7rem; color:var(--text-4);">10:24 AM</span></div>
+                  <div style="font-size:0.8rem; color:var(--text-2); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Great job on the threshold sets today! Your power sustained beautifully...</div>
+                </div>
+              </div>
+            </div>
+            <div style="padding: 20px; border-bottom: 1px solid var(--border); cursor: pointer;">
+              <div style="display:flex; gap:12px; align-items:center;">
+                <div style="width:44px; height:44px; border-radius:12px; overflow:hidden;"><img src="images/coach_jake.png" style="width:100%; height:100%; object-fit:cover;"></div>
+                <div style="flex:1;">
+                  <div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-weight:700; font-size:0.9rem;">Jake Roberts</span><span style="font-size:0.7rem; color:var(--text-4);">Yesterday</span></div>
+                  <div style="font-size:0.8rem; color:var(--text-4);">Did you manage to upload the .fit file?</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Area -->
+        <div style="display:flex; flex-direction:column; height: 100%;">
+          <div style="padding: 16px 32px; border-bottom: 1px solid var(--border); display:flex; align-items:center; justify-content:space-between;">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div style="width:40px; height:40px; border-radius:10px; overflow:hidden;"><img src="images/coach_sarah.png" style="width:100%; height:100%; object-fit:cover;"></div>
+              <div><div style="font-weight:700;">Sarah Mitchell</div><div style="font-size:0.75rem; color:var(--success);">Online</div></div>
+            </div>
+            <div style="display:flex; gap:8px;">
+              <button class="btn-icon"><i data-lucide="video" style="width:18px;height:18px;"></i></button>
+              <button class="btn-icon"><i data-lucide="phone" style="width:18px;height:18px;"></i></button>
+              <button class="btn-icon"><i data-lucide="more-vertical" style="width:18px;height:18px;"></i></button>
+            </div>
+          </div>
+          <div style="flex:1; padding: 32px; overflow-y: auto; display:flex; flex-direction:column; gap:20px;">
+            <div style="align-self: flex-start; max-width: 70%; background: var(--bg-2); padding: 16px; border-radius: 0 16px 16px 16px; border: 1px solid var(--border); position:relative;">
+              <p style="font-size:0.9rem; line-height:1.5;">Great job on the threshold sets today! Your power sustained beautifully in the final 5 minutes.</p>
+              <span style="font-size:0.7rem; color:var(--text-4); margin-top:8px; display:block;">10:22 AM</span>
+            </div>
+            <div style="align-self: flex-end; max-width: 70%; background: var(--primary); padding: 16px; border-radius: 16px 16px 0 16px;">
+              <p style="font-size:0.9rem; line-height:1.5; color:#fff;">Thanks Sarah! Feeling much stranger than last month. Ready for the long ride this weekend.</p>
+              <span style="font-size:0.7rem; color:rgba(255,255,255,0.7); text-align:right; margin-top:8px; display:block;">10:24 AM</span>
+            </div>
+          </div>
+          <div style="padding: 24px 32px; border-top: 1px solid var(--border);">
+            <div style="display:flex; gap:12px; background:var(--bg-2); border:1px solid var(--border); border-radius:16px; padding:8px 16px; align-items:center;">
+              <button class="btn-icon" style="flex-shrink:0;"><i data-lucide="paperclip" style="width:18px;height:18px;"></i></button>
+              <input type="text" placeholder="Type a message..." style="flex:1; background:transparent; border:none; color:#fff; padding:12px 0;">
+              <button class="btn btn-primary btn-sm" style="border-radius:12px; width:40px; height:40px; padding:0; justify-content:center;"><i data-lucide="send" style="width:18px;height:18px;"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
+<script>lucide.createIcons();</script>
+</body>
+</html>

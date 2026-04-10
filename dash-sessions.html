@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coach Sessions — CycleElite</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+<div class="dashboard-layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="sidebar-logo">
+        <div class="logo-icon"><i data-lucide="bike" style="width:18px;height:18px;"></i></div>
+        <span>Cycle<span style="color:var(--primary)">Elite</span></span>
+      </a>
+      <button class="sidebar-close" id="sidebarClose"><i data-lucide="x" style="width:18px;height:18px;"></i></button>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Main</div>
+      <a href="dashboard.html" class="sidebar-link" id="nav-overview"><i data-lucide="layout-dashboard" style="width:18px;height:18px;"></i><span>Overview</span></a>
+      <a href="dash-plans.html" class="sidebar-link" id="nav-plans"><i data-lucide="route" style="width:18px;height:18px;"></i><span>Training Plans</span></a>
+      <a href="dash-upload.html" class="sidebar-link" id="nav-upload"><i data-lucide="upload-cloud" style="width:18px;height:18px;"></i><span>Workout Upload</span></a>
+      <a href="dash-analytics.html" class="sidebar-link" id="nav-analytics"><i data-lucide="bar-chart-2" style="width:18px;height:18px;"></i><span>Analytics</span></a>
+      <div class="sidebar-section-label">Goals</div>
+      <a href="dash-goals.html" class="sidebar-link" id="nav-goals"><i data-lucide="target" style="width:18px;height:18px;"></i><span>Goals & Milestones</span></a>
+      <a href="dash-sessions.html" class="sidebar-link active" id="nav-sessions"><i data-lucide="video" style="width:18px;height:18px;"></i><span>Coach Sessions</span></a>
+      <div class="sidebar-section-label">Communication</div>
+      <a href="dash-messages.html" class="sidebar-link" id="nav-messages"><i data-lucide="message-circle" style="width:18px;height:18px;"></i><span>Messages</span><span class="badge-count">3</span></a>
+      <a href="contact.html" class="sidebar-link" id="nav-support"><i data-lucide="help-circle" style="width:18px;height:18px;"></i><span>Support & Contact</span></a>
+      <a href="dash-settings.html" class="sidebar-link" id="nav-settings"><i data-lucide="settings" style="width:18px;height:18px;"></i><span>Settings</span></a>
+      <a href="index.html" class="sidebar-link" style="color:var(--danger);"><i data-lucide="log-out" style="width:18px;height:18px;"></i><span>Logout</span></a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="avatar avatar-lg"><img src="images/alex_profile.png" alt="Alex Johnson"></div>
+        <div class="sidebar-user-info"><div class="name">Alex Johnson</div><div class="role">Pro Athlete · 14 days left</div></div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="dashboard-main">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="topbar-menu-btn" id="topbarMenuBtn"><i data-lucide="menu" style="width:18px;height:18px;"></i></button>
+        <div class="topbar-welcome"><h3>Coach <span class="gradient-text-blue">Sessions</span></h3><p>Schedule and review your professional consultations</p></div>
+      </div>
+      <div class="topbar-right">
+        <button class="btn-icon" onclick="toggleTheme()"><span data-theme-icon></span></button>
+        <div class="topbar-profile"><div class="avatar"><img src="images/alex_profile.png" alt="Alex Johnson"></div><div><div class="name">Alex J.</div><div class="role">Pro</div></div></div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="page-header">
+        <div><h1 class="page-title">Sessions</h1><p class="page-subtitle">Your upcoming calls and historical recordings</p></div>
+        <a href="coaches.html" class="btn btn-primary btn-sm"><i data-lucide="plus" style="width:14px;height:14px;"></i> Schedule Session</a>
+      </div>
+
+      <div class="dash-card glass-card-premium" style="margin-bottom: 24px;">
+        <div class="dash-card-header"><div class="dash-card-title">Next Scheduled Call</div></div>
+        <div style="padding: 24px; display: flex; align-items: center; justify-content: space-between;">
+          <div style="display:flex; gap:20px; align-items:center;">
+            <div style="width:60px; height:60px; border-radius:15px; overflow:hidden;"><img src="images/coach_sarah.png" alt="Coach Sarah" style="width:100%; height:100%; object-fit:cover;"></div>
+            <div>
+              <div style="font-weight:700; font-size:1.1rem; margin-bottom:4px;">Technique Review w/ Sarah Mitchell</div>
+              <div style="font-size:0.85rem; color:var(--text-4); display:flex; gap:16px;">
+                <span><i data-lucide="calendar" style="width:12px; height:12px; margin-right:4px;"></i> Apr 10, 2026</span>
+                <span><i data-lucide="clock" style="width:12px; height:12px; margin-right:4px;"></i> 09:00 AM (60 min)</span>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary">Join Video Call</button>
+        </div>
+      </div>
+
+      <div class="dash-card">
+        <div class="dash-card-header"><div class="dash-card-title">Past Sessions</div></div>
+        <div style="display:flex; flex-direction:column; gap:8px; padding-top:16px;">
+          <div class="activity-item" style="padding:16px; border-radius:12px; background:var(--bg-2); border:1px solid var(--border);">
+            <div class="activity-icon" style="background:var(--primary-glow); color:var(--primary);"><i data-lucide="video"></i></div>
+            <div class="activity-content">
+              <div class="activity-title" style="font-weight:700;">Base Phase Review</div>
+              <div class="activity-meta">Mar 25, 2026 · 45 min · Coach Jake B.</div>
+            </div>
+            <button class="btn btn-ghost btn-sm">Watch Replay</button>
+          </div>
+          <div class="activity-item" style="padding:16px; border-radius:12px; background:var(--bg-2); border:1px solid var(--border);">
+            <div class="activity-icon" style="background:var(--primary-glow); color:var(--primary);"><i data-lucide="video"></i></div>
+            <div class="activity-content">
+              <div class="activity-title" style="font-weight:700;">Nutrition & Hydration Strategy</div>
+              <div class="activity-meta">Mar 10, 2026 · 30 min · Coach Jessica C.</div>
+            </div>
+            <button class="btn btn-ghost btn-sm">Watch Replay</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
+<script>lucide.createIcons();</script>
+</body>
+</html>

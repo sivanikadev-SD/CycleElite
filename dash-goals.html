@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Goals & Milestones — CycleElite</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+<div class="dashboard-layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="sidebar-logo">
+        <div class="logo-icon"><i data-lucide="bike" style="width:18px;height:18px;"></i></div>
+        <span>Cycle<span style="color:var(--primary)">Elite</span></span>
+      </a>
+      <button class="sidebar-close" id="sidebarClose"><i data-lucide="x" style="width:18px;height:18px;"></i></button>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Main</div>
+      <a href="dashboard.html" class="sidebar-link" id="nav-overview"><i data-lucide="layout-dashboard" style="width:18px;height:18px;"></i><span>Overview</span></a>
+      <a href="dash-plans.html" class="sidebar-link" id="nav-plans"><i data-lucide="route" style="width:18px;height:18px;"></i><span>Training Plans</span></a>
+      <a href="dash-upload.html" class="sidebar-link" id="nav-upload"><i data-lucide="upload-cloud" style="width:18px;height:18px;"></i><span>Workout Upload</span></a>
+      <a href="dash-analytics.html" class="sidebar-link" id="nav-analytics"><i data-lucide="bar-chart-2" style="width:18px;height:18px;"></i><span>Analytics</span></a>
+      <div class="sidebar-section-label">Goals</div>
+      <a href="dash-goals.html" class="sidebar-link active" id="nav-goals"><i data-lucide="target" style="width:18px;height:18px;"></i><span>Goals & Milestones</span></a>
+      <a href="dash-sessions.html" class="sidebar-link" id="nav-sessions"><i data-lucide="video" style="width:18px;height:18px;"></i><span>Coach Sessions</span></a>
+      <div class="sidebar-section-label">Communication</div>
+      <a href="dash-messages.html" class="sidebar-link" id="nav-messages"><i data-lucide="message-circle" style="width:18px;height:18px;"></i><span>Messages</span><span class="badge-count">3</span></a>
+      <a href="contact.html" class="sidebar-link" id="nav-support"><i data-lucide="help-circle" style="width:18px;height:18px;"></i><span>Support & Contact</span></a>
+      <a href="dash-settings.html" class="sidebar-link" id="nav-settings"><i data-lucide="settings" style="width:18px;height:18px;"></i><span>Settings</span></a>
+      <a href="index.html" class="sidebar-link" style="color:var(--danger);"><i data-lucide="log-out" style="width:18px;height:18px;"></i><span>Logout</span></a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="avatar avatar-lg"><img src="images/alex_profile.png" alt="Alex Johnson"></div>
+        <div class="sidebar-user-info"><div class="name">Alex Johnson</div><div class="role">Pro Athlete · 14 days left</div></div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="dashboard-main">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="topbar-menu-btn" id="topbarMenuBtn"><i data-lucide="menu" style="width:18px;height:18px;"></i></button>
+        <div class="topbar-welcome"><h3>Milestones <span class="gradient-text-blue">& Goals</span></h3><p>Tracking your multi-year progression</p></div>
+      </div>
+      <div class="topbar-right">
+        <button class="btn-icon" onclick="toggleTheme()"><span data-theme-icon></span></button>
+        <div class="topbar-profile"><div class="avatar"><img src="images/alex_profile.png" alt="Alex Johnson"></div><div><div class="name">Alex J.</div><div class="role">Pro</div></div></div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="page-header">
+        <div><h1 class="page-title">Goals</h1><p class="page-subtitle">Personal bests and future race targets</p></div>
+        <button class="btn btn-primary btn-sm"><i data-lucide="plus" style="width:14px;height:14px;"></i> Set New Goal</button>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;">
+        <div class="dash-card">
+          <div class="dash-card-header"><div class="dash-card-title">Event Countdown</div></div>
+          <div style="text-align:center; padding: 20px;">
+            <div style="font-size: 3rem; font-weight: 800; color: var(--secondary);">84</div>
+            <div style="color:var(--text-4); text-transform:uppercase; letter-spacing:0.1em; font-size:0.8rem;">Days until Ironman 70.3</div>
+          </div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-header"><div class="dash-card-title">Season Progress</div></div>
+          <div style="padding: 20px;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:8px;"><span>Distance: 1,842 / 5,000 km</span><span style="font-weight:700;">36%</span></div>
+            <div class="progress-bar" style="height:8px; background:rgba(255,255,255,0.05); border-radius:4px;"><div class="progress-fill" data-width="36%" style="width:0; height:100%; border-radius:4px; background:var(--primary);"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-card">
+        <div class="dash-card-header"><div class="dash-card-title">Personal Best History</div></div>
+        <div style="overflow-x:auto;">
+          <table style="width:100%; border-collapse:collapse; margin-top:16px;">
+            <thead>
+              <tr style="text-align:left; border-bottom:1px solid var(--border); color:var(--text-4); font-size:0.75rem;">
+                <th style="padding:12px;">METRIC</th>
+                <th style="padding:12px;">RECORD</th>
+                <th style="padding:12px;">DATE</th>
+                <th style="padding:12px;">STATUS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:16px; font-weight:600;">Peak 20m Power</td>
+                <td style="padding:16px;">305W</td>
+                <td style="padding:16px;">Mar 14, 2026</td>
+                <td style="padding:16px;"><span class="badge badge-success">Current PB</span></td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:16px; font-weight:600;">Longest Ride</td>
+                <td style="padding:16px;">162km</td>
+                <td style="padding:16px;">Feb 12, 2026</td>
+                <td style="padding:16px;"><span class="badge badge-primary">Verified</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
+<script>
+  lucide.createIcons();
+  setTimeout(() => {
+    document.querySelectorAll('.progress-fill[data-width]').forEach(bar => { bar.style.width = bar.dataset.width; });
+  }, 400);
+</script>
+</body>
+</html>

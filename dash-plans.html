@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Training Plans — CycleElite</title>
+  <meta name="description" content="View and manage your structured cycling and triathlon training plans." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+<div class="dashboard-layout">
+
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="sidebar-logo">
+        <div class="logo-icon"><i data-lucide="bike" style="width:18px;height:18px;"></i></div>
+        <span>Cycle<span style="color:var(--primary)">Elite</span></span>
+      </a>
+      <button class="sidebar-close" id="sidebarClose" onclick="document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebarOverlay').classList.remove('show');">
+        <i data-lucide="x" style="width:18px;height:18px;"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Main</div>
+      <a href="dashboard.html" class="sidebar-link" id="nav-overview">
+        <i data-lucide="layout-dashboard" style="width:18px;height:18px;"></i>
+        <span>Overview</span>
+      </a>
+      <a href="dash-plans.html" class="sidebar-link active" id="nav-plans">
+        <i data-lucide="route" style="width:18px;height:18px;"></i>
+        <span>Training Plans</span>
+      </a>
+      <a href="dash-upload.html" class="sidebar-link" id="nav-upload">
+        <i data-lucide="upload-cloud" style="width:18px;height:18px;"></i>
+        <span>Workout Upload</span>
+      </a>
+      <a href="dash-analytics.html" class="sidebar-link" id="nav-analytics">
+        <i data-lucide="bar-chart-2" style="width:18px;height:18px;"></i>
+        <span>Analytics</span>
+      </a>
+
+      <div class="sidebar-section-label">Goals</div>
+      <a href="dash-goals.html" class="sidebar-link" id="nav-goals">
+        <i data-lucide="target" style="width:18px;height:18px;"></i>
+        <span>Goals & Milestones</span>
+      </a>
+      <a href="dash-sessions.html" class="sidebar-link" id="nav-sessions">
+        <i data-lucide="video" style="width:18px;height:18px;"></i>
+        <span>Coach Sessions</span>
+      </a>
+
+      <div class="sidebar-section-label">Communication</div>
+      <a href="dash-messages.html" class="sidebar-link" id="nav-messages">
+        <i data-lucide="message-circle" style="width:18px;height:18px;"></i>
+        <span>Messages</span>
+        <span class="badge-count">3</span>
+      </a>
+
+      <a href="contact.html" class="sidebar-link" id="nav-support">
+        <i data-lucide="help-circle" style="width:18px;height:18px;"></i>
+        <span>Support & Contact</span>
+      </a>
+      <a href="dash-settings.html" class="sidebar-link" id="nav-settings">
+        <i data-lucide="settings" style="width:18px;height:18px;"></i>
+        <span>Settings</span>
+      </a>
+      <a href="index.html" class="sidebar-link" style="color:var(--danger);">
+        <i data-lucide="log-out" style="width:18px;height:18px;"></i>
+        <span>Logout</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="avatar avatar-lg">
+          <img src="images/alex_profile.png" alt="Alex Johnson">
+        </div>
+        <div class="sidebar-user-info">
+          <div class="name">Alex Johnson</div>
+          <div class="role">Pro Athlete · 14 days left</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <div class="dashboard-main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="topbar-menu-btn" id="topbarMenuBtn">
+          <i data-lucide="menu" style="width:18px;height:18px;"></i>
+        </button>
+        <div class="topbar-welcome">
+          <h3>Welcome, <span class="gradient-text-blue">Alex!</span></h3>
+          <p>Monday, 7 April 2026</p>
+        </div>
+      </div>
+      <div class="topbar-search">
+        <span class="search-icon"><i data-lucide="search" style="width:15px;height:15px;"></i></span>
+        <input type="text" placeholder="Search plans..." />
+      </div>
+      <div class="topbar-right">
+        <button class="btn-icon" onclick="toggleTheme()" title="Toggle theme"><span data-theme-icon></span></button>
+        <button class="btn-icon" onclick="toggleDir()" title="Toggle RTL"><span data-rtl-icon></span></button>
+        <button class="notif-btn" title="Notifications">
+          <i data-lucide="bell" style="width:16px;height:16px;"></i>
+          <span class="notif-dot"></span>
+        </button>
+        <div class="topbar-profile">
+          <div class="avatar">
+            <img src="images/alex_profile.png" alt="Alex Johnson">
+          </div>
+          <div>
+            <div class="name">Alex J.</div>
+            <div class="role">Pro</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <main class="page-content">
+
+      <!-- Page Header -->
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Training Plans</h1>
+          <p class="page-subtitle">Manage your current schedule and browse specialized plans</p>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <a href="programs.html" class="btn btn-primary btn-sm">
+            <i data-lucide="plus" style="width:14px;height:14px;"></i> Browse Store
+          </a>
+        </div>
+      </div>
+
+      <!-- Active Plan -->
+      <div class="dash-card glass-card-premium" style="margin-bottom: 24px; padding: 32px;">
+        <div style="display:flex; gap: 32px; align-items: center;">
+          <div style="width: 120px; height: 120px; background: var(--primary-glow); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: var(--primary);">
+            <i data-lucide="route" style="width: 50px; height: 50px;"></i>
+          </div>
+          <div style="flex: 1;">
+            <div class="badge badge-primary" style="margin-bottom: 12px;">Active Plan</div>
+            <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 8px;">Ironman 70.3 Domination</h2>
+            <p style="color: var(--text-3); margin-bottom: 20px;">Week 14 of 24 — Build Phase 2. Focus on threshold sustain and aerodynamic efficiency.</p>
+            <div class="progress-bar" style="height: 10px; background: rgba(255,255,255,0.05); border-radius: 5px; margin-bottom: 8px;">
+              <div class="progress-fill" data-width="58%" style="width:0%; height:100%; border-radius: 5px; background: linear-gradient(90deg, var(--primary), var(--secondary));"></div>
+            </div>
+            <div style="display:flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600;">
+              <span style="color: var(--text-4);">58% Complete</span>
+              <span style="color: var(--secondary);">10 Weeks Remaining</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upcoming Workouts -->
+      <div class="dash-grid dash-grid-2">
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div class="dash-card-title">This Week's Schedule</div>
+          </div>
+          <div class="session-item">
+            <div class="session-date"><div class="day">8</div><div class="month">Apr</div></div>
+            <div class="session-info">
+              <div class="session-title">Sweet Spot Intervals</div>
+              <div class="session-meta">Cycling · 75 min · TSS 82</div>
+            </div>
+            <span class="badge badge-primary">Today</span>
+          </div>
+          <div class="session-item">
+            <div class="session-date"><div class="day">9</div><div class="month">Apr</div></div>
+            <div class="session-info">
+              <div class="session-title">Aerobic Run + Strides</div>
+              <div class="session-meta">Running · 60 min · TSS 45</div>
+            </div>
+            <span class="badge badge-success">Tomorrow</span>
+          </div>
+          <div class="session-item">
+            <div class="session-date"><div class="day">10</div><div class="month">Apr</div></div>
+            <div class="session-info">
+              <div class="session-title">Active Recovery Spin</div>
+              <div class="session-meta">Cycling · 45 min · Zone 1</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div class="dash-card-title">Plan Library</div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div style="padding: 16px; border-radius: 12px; background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <div style="font-weight: 700; margin-bottom: 4px;">VO2 Max Booster</div>
+                <div style="font-size: 0.75rem; color: var(--text-4);">4 Weeks · High Intensity</div>
+              </div>
+              <button class="btn btn-ghost btn-sm">Load</button>
+            </div>
+            <div style="padding: 16px; border-radius: 12px; background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <div style="font-weight: 700; margin-bottom: 4px;">Base Endurance Phase</div>
+                <div style="font-size: 0.75rem; color: var(--text-4);">12 Weeks · Aerobic Focus</div>
+              </div>
+              <button class="btn btn-ghost btn-sm">Load</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
+<script>
+  lucide.createIcons();
+  setTimeout(() => {
+    document.querySelectorAll('.progress-fill[data-width]').forEach(bar => {
+      bar.style.width = bar.dataset.width;
+    });
+  }, 400);
+</script>
+</body>
+</html>

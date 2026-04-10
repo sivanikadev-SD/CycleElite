@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — CycleElite</title>
+  <meta name="description" content="Reach out to the CycleElite team for support, partnership inquiries, or expert coaching guidance." />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home2_premium.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body class="home2-premium">
+
+<div class="home2-bg-stars"></div>
+<div class="home2-light-beams"></div>
+
+<div class="home2-wrapper">
+  <!-- NAVBAR -->
+  <nav class="nav" id="mainNav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon"><i data-lucide="bike" style="width:20px;height:20px;"></i></div>
+        <span>Cycle<span class="blue">Elite</span></span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="home2.html" class="nav-link">Home 2</a></li>
+        <li><a href="programs.html" class="nav-link">Programs</a></li>
+        <li><a href="coaches.html" class="nav-link">Coaches</a></li>
+        <li><a href="analytics.html" class="nav-link">Analytics</a></li>
+        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-icon" onclick="toggleTheme()"><span data-theme-icon></span></button>
+        <button class="btn-icon" onclick="toggleDir()"><span data-rtl-icon></span></button>
+        <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
+        <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
+        <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="programs.html" class="mobile-nav-link">Programs</a>
+    <a href="coaches.html" class="mobile-nav-link">Coaches</a>
+    <a href="analytics.html" class="mobile-nav-link">Analytics</a>
+    <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+    <a href="contact.html" class="mobile-nav-link active">Contact</a>
+    <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
+    <div class="mobile-drawer-actions">
+      <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <header class="cn-hero">
+
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="cn-hero-grid">
+        <div>
+          <h1 class="h2p-hero-title">Let's Connect & <br><span class="gradient-text">Elevate Your Performance</span></h1>
+          <p class="h2p-hero-desc">Have questions or need support? We're here to help you on your cycling & triathlon journey.</p>
+          
+          <div class="cn-pill-grid">
+            <div class="cn-feature-pill">
+              <div class="cn-pill-icon icon-orange"><i data-lucide="zap" style="width:18px;"></i></div>
+              <div>
+                <h4>Quick Response</h4>
+                <p>Within 24 hours</p>
+              </div>
+            </div>
+            <div class="cn-feature-pill">
+              <div class="cn-pill-icon icon-blue"><i data-lucide="headphones" style="width:18px;"></i></div>
+              <div>
+                <h4>Expert Support</h4>
+                <p>Coaching experts</p>
+              </div>
+            </div>
+            <div class="cn-feature-pill">
+              <div class="cn-pill-icon icon-green"><i data-lucide="check-circle" style="width:18px;"></i></div>
+              <div>
+                <h4>Personalized Help</h4>
+                <p>Tailored for your goals</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cn-hero-img reveal">
+          <img src="images/contact_hero_illustration.png" alt="Contact Support Illustration">
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <main class="container">
+    <div class="grid-2 reveal" style="margin-top: 60px;">
+      
+      <!-- CONTACT FORM -->
+      <div class="cn-form-wrap">
+        <h2 style="font-size: 1.8rem; margin-bottom: 32px;">Send Us a Message</h2>
+        <form>
+          <div class="cn-input-group">
+            <label><i data-lucide="user" style="width:12px; vertical-align:middle; margin-right:4px;"></i> Full Name</label>
+            <input type="text" class="cn-input" placeholder="Enter your full name">
+          </div>
+          <div class="cn-input-group">
+            <label><i data-lucide="mail" style="width:12px; vertical-align:middle; margin-right:4px;"></i> Email Address</label>
+            <input type="email" class="cn-input" placeholder="Enter your email address">
+          </div>
+          <div class="cn-input-group">
+            <label><i data-lucide="file-text" style="width:12px; vertical-align:middle; margin-right:4px;"></i> Subject</label>
+            <input type="text" class="cn-input" placeholder="What is this regarding?">
+          </div>
+          <div class="cn-input-group">
+            <label><i data-lucide="message-square" style="width:12px; vertical-align:middle; margin-right:4px;"></i> Your Message</label>
+            <textarea class="cn-input" rows="6" placeholder="Write your message here..."></textarea>
+          </div>
+          <button type="submit" class="h2p-btn h2p-btn-primary" style="width: 100%; padding: 16px; margin-top: 20px;">
+            <i data-lucide="send" style="width:18px; margin-right:10px;"></i> Send Message
+          </button>
+        </form>
+      </div>
+
+      <!-- INFO CARDS -->
+      <div>
+        <h2 style="font-size: 1.8rem; margin-bottom: 32px;">Get in <span class="highlight">Touch</span></h2>
+        <div class="cn-info-grid">
+          <div class="cn-info-card">
+            <div class="cn-info-icon-box icon-blue"><i data-lucide="phone"></i></div>
+            <h4>Phone</h4>
+            <p>+1 (555) 123-4567</p>
+            <small>Mon–Fri, 9AM–6PM</small>
+          </div>
+          <div class="cn-info-card">
+            <div class="cn-info-icon-box icon-green"><i data-lucide="mail"></i></div>
+            <h4>Email</h4>
+            <p>support@cyclingcoach.com</p>
+            <small>We reply within 24h</small>
+          </div>
+          <div class="cn-info-card">
+            <div class="cn-info-icon-box icon-purple"><i data-lucide="map-pin"></i></div>
+            <h4>Office</h4>
+            <p>123 Performance Ave,</p>
+            <p>San Francisco, CA 94107</p>
+          </div>
+          <div class="cn-info-card">
+            <div class="cn-info-icon-box icon-orange"><i data-lucide="message-circle"></i></div>
+            <h4>Live Chat</h4>
+            <p>Available on website</p>
+            <small><span style="color:var(--secondary); font-weight:700;">●</span> Online Now</small>
+          </div>
+        </div>
+        
+        <div class="cn-social-bar">
+          <span style="font-size: 0.9rem; color: var(--text-3); align-self: center; margin-right: 12px;">Follow us</span>
+          <a href="#" class="cn-social-icon"><i data-lucide="instagram" style="width:18px;"></i></a>
+          <a href="#" class="cn-social-icon"><i data-lucide="bike" style="width:18px;"></i></a>
+          <a href="#" class="cn-social-icon"><i data-lucide="youtube" style="width:18px;"></i></a>
+          <a href="#" class="cn-social-icon"><i data-lucide="facebook" style="width:18px;"></i></a>
+          <a href="#" class="cn-social-icon"><i data-lucide="twitter" style="width:18px;"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAP SECTION -->
+    <div style="margin-top: 100px;">
+      <h2 style="font-size: 2rem; margin-bottom: 40px;">Find Us on the <span class="highlight">Map</span></h2>
+      <div class="cn-map-grid">
+        <div class="cn-map-wrap">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.4888806282844!2d-122.39572628468167!3d37.788501179756184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085807b0e14a1c9%3A0xe5479ea298eb9ed3!2s123%20Performance%20Ave%2C%20San%20Francisco%2C%20CA%2094107%2C%20USA!5e0!3m2!1sen!2s!4v1689201948382!5m2!1sen!2s" width="100%" height="100%" style="border:0; filter: var(--bg-brightness);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="cn-map-overlay">
+            <i data-lucide="map-pin" style="color: #3B82F6; fill: #3B82F6; fill-opacity: 0.2;"></i>
+            <div>
+              <div style="font-weight: 700; font-size: 0.9rem;">Our Training Hub</div>
+              <div style="font-size: 0.75rem; color: var(--text-3);">123 Performance Ave, San Francisco, CA</div>
+            </div>
+          </div>
+        </div>
+        
+        <article class="cn-cta-card">
+          <div class="cn-cta-img">
+            <img src="images/training_bg.png" alt="Cyclists Training">
+          </div>
+          <div class="cn-cta-content">
+            <h4>Ready to Start Your Journey?</h4>
+            <ul class="cn-check-list">
+              <li><i data-lucide="check-circle"></i> Book a free consultation</li>
+              <li><i data-lucide="check-circle"></i> Get a personalized training plan</li>
+              <li><i data-lucide="check-circle"></i> Connect with expert coaches</li>
+            </ul>
+            <button class="h2p-btn h2p-btn-primary" style="width: 100%; gap: 10px;">
+              <i data-lucide="calendar" style="width:18px;"></i> Book a Free Consultation
+            </button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="justify-content:flex-start;">
+            <div class="logo-icon"><i data-lucide="bike" style="width:18px;height:18px;"></i></div>
+            <span>Cycle<span class="blue">Elite</span></span>
+          </a>
+          <p>The performance platform for serious cyclists and triathletes. Train with precision, race with confidence.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Twitter"><i data-lucide="twitter" style="width:16px;height:16px;"></i></a>
+            <a href="#" aria-label="Instagram"><i data-lucide="instagram" style="width:16px;height:16px;"></i></a>
+            <a href="#" aria-label="YouTube"><i data-lucide="youtube" style="width:16px;height:16px;"></i></a>
+            <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" style="width:16px;height:16px;"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="programs.html">Training Programs</a></li>
+            <li><a href="coaches.html">Find a Coach</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">API Docs</a></li>
+            <li><a href="#">Status</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 CycleElite. Premium Performance Platform.</p>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script src="js/main.js"></script>
+<script>lucide.createIcons();</script>
+</body>
+</html>

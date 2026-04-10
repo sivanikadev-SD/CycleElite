@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home 2 Premium — CycleElite</title>
+  <meta name="description" content="Advanced cycling platform." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home2_premium.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body class="home2-premium">
+
+  <!-- Background Space Layer -->
+  <div class="home2-bg-stars"></div>
+  <div class="home2-light-beams"></div>
+
+  <div class="home2-wrapper">
+    <!-- NAVBAR -->
+    <nav class="nav" id="mainNav">
+      <div class="container nav-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon"><i data-lucide="bike" style="width:20px;height:20px;"></i></div>
+          <span>Cycle<span class="blue">Elite</span></span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="home2.html" class="nav-link">Home 2</a></li>
+          <li><a href="programs.html" class="nav-link">Programs</a></li>
+          <li><a href="coaches.html" class="nav-link">Coaches</a></li>
+          <li><a href="analytics.html" class="nav-link">Analytics</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="btn-icon" onclick="toggleTheme()"><span data-theme-icon></span></button>
+          <button class="btn-icon" onclick="toggleDir()"><span data-rtl-icon></span></button>
+          <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
+          <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" class="mobile-nav-link active">Home</a>
+      <a href="programs.html" class="mobile-nav-link">Programs</a>
+      <a href="coaches.html" class="mobile-nav-link">Coaches</a>
+      <a href="analytics.html" class="mobile-nav-link">Analytics</a>
+      <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+      <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
+      <div class="mobile-drawer-actions">
+        <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
+        <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
+      </div>
+    </div>
+      <section class="h2p-hero" style="position:relative; overflow:hidden; padding: 120px 0 60px;">
+        <div class="hero-bg-standard">
+          <img src="images/index_hero_main.png" alt="Elite Cyclist Performance">
+        </div>
+        <div class="h2p-hero-grid">
+          <div>
+            <h1 class="h2p-hero-title">Elevate Your<br/><span class="gradient-text" style="color:#3B82F6; background:none;">Performance</span></h1>
+            <p class="h2p-hero-desc">Achieve your best with personalized training, context advanced analytics, and progress tracking.</p>
+            <div class="h2p-hero-actions">
+              <a href="signup.html" class="h2p-btn h2p-btn-primary">Start Training</a>
+              <a href="coaches.html" class="h2p-btn h2p-btn-outline"><i data-lucide="user" style="width:16px; margin-right:8px;"></i> Book a Coach</a>
+            </div>
+          </div>
+          
+          <div class="h2p-mockup">
+            <div class="h2p-mockup-header">
+              <div style="font-weight:600; display:flex; align-items:center; gap:8px;"><i data-lucide="activity" style="width:16px; color:#3B82F6;"></i> Performance</div>
+              <div style="font-size:0.7rem; display:flex; gap:16px; color:rgba(255,255,255,0.5);">
+                <span style="color:#fff; border-bottom:2px solid #3B82F6; padding-bottom:4px;">This Week</span>
+                <span>Last Month</span>
+                <span>Season</span>
+              </div>
+            </div>
+            
+            <div class="h2p-mockup-grid">
+              <!-- Mock Chart 1 -->
+              <div class="h2p-mockup-card" style="grid-column: 1 / -1; height:120px; position:relative; overflow:hidden;">
+                <div style="display:flex; justify-content:space-between; margin-bottom:12px;">
+                  <div>
+                    <div style="font-size:0.7rem; color:#3B82F6; font-weight:600; display:flex; align-items:center; gap:4px;"><span style="width:6px; height:6px; background:#3B82F6; border-radius:50%; display:inline-block;"></span> Heart Rate</div>
+                    <div style="font-size:1.5rem; font-weight:700;">145 <span style="font-size:0.7rem; font-weight:400; color:rgba(255,255,255,0.5);">bpm avg</span></div>
+                  </div>
+                  <div>
+                    <div style="font-size:0.7rem; color:rgba(255,255,255,0.5);">Calories</div>
+                    <div style="font-size:1.2rem; font-weight:700;">1,240</div>
+                  </div>
+                </div>
+                <!-- Mock SVG Line -->
+                <svg style="position:absolute; bottom:0; left:0; width:100%; height:60px;" preserveAspectRatio="none" viewBox="0 0 100 100">
+                  <path d="M0,100 L0,50 Q10,20 20,40 T40,30 T60,60 T80,20 T100,40 L100,100 Z" fill="rgba(59,130,246,0.2)"></path>
+                  <path d="M0,50 Q10,20 20,40 T40,30 T60,60 T80,20 T100,40" fill="none" stroke="#3B82F6" stroke-width="2"></path>
+                </svg>
+              </div>
+              
+              <!-- Mock Dial -->
+              <div class="h2p-mockup-card" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px;">
+                <div style="font-size:0.75rem; color:rgba(255,255,255,0.5);">Recovery Score</div>
+                <div style="position:relative; width:80px; height:80px;">
+                  <svg viewBox="0 0 36 36" style="width:100%; height:100%;">
+                    <path style="stroke:rgba(255,255,255,0.1); stroke-width:3; fill:none;" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    <path style="stroke:#06B6D4; stroke-width:3; fill:none; stroke-dasharray: 76, 100;" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  </svg>
+                  <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); font-size:1.2rem; font-weight:700;">76</div>
+                </div>
+              </div>
+              
+              <!-- Mock Stats -->
+              <div class="h2p-mockup-card" style="display:flex; flex-direction:column; justify-content:space-around;">
+                <div>
+                  <div style="font-size:0.7rem; color:rgba(255,255,255,0.5);">Training Load (TSS)</div>
+                  <div style="font-size:1.5rem; font-weight:700;">32.8 <span style="font-size:0.7rem; font-weight:400; color:rgba(255,255,255,0.5);">TSS</span></div>
+                </div>
+                <div>
+                  <div style="font-size:0.7rem; color:rgba(255,255,255,0.5);">Time in Zones</div>
+                  <div style="font-size:1.5rem; font-weight:700;">8.55 <span style="font-size:0.7rem; font-weight:400; color:rgba(255,255,255,0.5);">hrs</span></div>
+                  <!-- Mini sparkline -->
+                  <svg style="width:100%; height:20px; margin-top:8px;" preserveAspectRatio="none" viewBox="0 0 100 20">
+                    <path d="M0,15 L20,15 L30,5 L50,10 L70,8 L85,15 L100,15" fill="none" stroke="#10B981" stroke-width="1.5"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <div class="container">
+      <!-- HERO -->
+
+      <!-- ADVANCED ANALYTICS -->
+      <div class="section-title-line">
+        <h2>Advanced <span class="gradient-text">Analytics</span></h2>
+      </div>
+
+      <div class="h2p-analytics-grid">
+        <div class="h2p-stat-card c-distance">
+          <div class="h2p-stat-header">
+            <div class="h2p-stat-icon"><i data-lucide="clock" style="width:16px;"></i></div>
+            <div>
+              <div class="h2p-stat-title">Distance</div>
+              <div class="h2p-stat-subtitle">Since Last Week</div>
+            </div>
+          </div>
+          <div class="h2p-stat-chart">
+            <svg style="position:absolute; bottom:0; left:0; width:100%; height:100%;" preserveAspectRatio="none" viewBox="0 0 100 100">
+              <path d="M0,80 L20,60 L40,70 L60,40 L80,50 L100,20" fill="none" stroke="#06B6D4" stroke-width="2"></path>
+              <path d="M0,100 L0,80 L20,60 L40,70 L60,40 L80,50 L100,20 L100,100 Z" fill="rgba(6,182,212,0.1)"></path>
+            </svg>
+          </div>
+        </div>
+
+        <div class="h2p-stat-card c-hr">
+          <div class="h2p-stat-header">
+            <div class="h2p-stat-icon"><i data-lucide="shield" style="width:16px;"></i></div>
+            <div>
+              <div class="h2p-stat-title">Heart Rate</div>
+              <div class="h2p-stat-subtitle">Zone Trends</div>
+            </div>
+          </div>
+          <div class="h2p-stat-chart">
+            <svg style="position:absolute; bottom:0; left:0; width:100%; height:100%;" preserveAspectRatio="none" viewBox="0 0 100 100">
+              <path d="M0,90 L20,80 L40,60 L60,50 L80,20 L100,10" fill="none" stroke="#EF4444" stroke-width="2"></path>
+              <path d="M0,100 L0,90 L20,80 L40,60 L60,50 L80,20 L100,10 L100,100 Z" fill="rgba(239,68,68,0.1)"></path>
+            </svg>
+          </div>
+        </div>
+
+        <div class="h2p-stat-card c-cal">
+          <div class="h2p-stat-header">
+            <div class="h2p-stat-icon"><i data-lucide="flame" style="width:16px;"></i></div>
+            <div>
+              <div class="h2p-stat-title">Calories</div>
+              <div class="h2p-stat-subtitle">Expenditure Analysis</div>
+            </div>
+          </div>
+          <div class="h2p-stat-chart">
+            <svg style="position:absolute; bottom:0; left:0; width:100%; height:100%;" preserveAspectRatio="none" viewBox="0 0 100 100">
+              <path d="M0,70 L20,80 L40,50 L60,70 L80,40 L100,50" fill="none" stroke="#F59E0B" stroke-width="2"></path>
+              <path d="M0,100 L0,70 L20,80 L40,50 L60,70 L80,40 L100,50 L100,100 Z" fill="rgba(245,158,11,0.1)"></path>
+            </svg>
+          </div>
+        </div>
+
+        <div class="h2p-stat-card c-time">
+          <div class="h2p-stat-header">
+            <div class="h2p-stat-icon"><i data-lucide="play-circle" style="width:16px;"></i></div>
+            <div>
+              <div class="h2p-stat-title">Training Hours</div>
+              <div class="h2p-stat-subtitle">Volume Tracking</div>
+            </div>
+          </div>
+          <div class="h2p-stat-chart">
+            <svg style="position:absolute; bottom:0; left:0; width:100%; height:100%;" preserveAspectRatio="none" viewBox="0 0 100 100">
+              <path d="M0,60 L20,50 L40,30 L60,40 L80,10 L100,20" fill="none" stroke="#22C55E" stroke-width="2"></path>
+              <path d="M0,100 L0,60 L20,50 L40,30 L60,40 L80,10 L100,20 L100,100 Z" fill="rgba(34,197,94,0.1)"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- BANNER -->
+      <div class="h2p-banner">
+        <img src="images/training_bg.png" alt="Cyclists riding" />
+      </div>
+
+      <!-- PROGRESS TRACKER -->
+      <div class="section-title-line">
+        <h2>Progress <span class="gradient-text">Tracker</span></h2>
+      </div>
+
+      <div class="h2p-progress-grid">
+        <div class="h2p-prog-col">
+          <div class="h2p-prog-bar-wrap">
+            <div class="h2p-prog-bar g1" style="width:75%;"></div>
+          </div>
+          <div class="h2p-prog-val">12.5<span>99</span></div>
+          <div style="font-size:0.75rem; color:rgba(255,255,255,0.4);">A42 - 1 KM</div>
+        </div>
+        <div class="h2p-prog-col">
+          <div class="h2p-prog-bar-wrap">
+            <div class="h2p-prog-bar g2" style="width:60%;"></div>
+          </div>
+          <div class="h2p-prog-val">275.<span>550 KM</span></div>
+          <div style="font-size:0.75rem; color:rgba(255,255,255,0.4);">550 - H6 KM</div>
+        </div>
+        <div class="h2p-prog-col">
+          <div class="h2p-prog-bar-wrap">
+            <div class="h2p-prog-bar g3" style="width:40%;"></div>
+          </div>
+          <div class="h2p-prog-val">34<span>.550 KM</span></div>
+        </div>
+      </div>
+
+      <!-- ELITE COACHING EXPERIENCE -->
+      <div class="section-title-line">
+        <h2>Elite Coaching <span class="gradient-text">Experience</span></h2>
+      </div>
+
+      <div class="h2p-coach-grid">
+        <div class="h2p-coach-card">
+          <div class="h2p-coach-info">
+            <img src="images/coach_sarah.png" class="h2p-coach-img" alt="Sarah Mitchell" />
+            <div class="h2p-coach-details">
+              <h3>Sarah Mitchell</h3>
+              <p>Triathlon</p>
+              <div class="h2p-coach-stats">
+                <span><i data-lucide="star" style="width:12px;display:inline;"></i> 5.0 Rating</span>
+                <span>188 Sessions</span>
+              </div>
+            </div>
+          </div>
+          <button class="h2p-btn-full"><i data-lucide="calendar" style="width:16px;"></i> Book Session</button>
+        </div>
+
+        <div class="h2p-coach-card">
+          <div class="h2p-coach-info">
+            <img src="images/coach_jake.png" class="h2p-coach-img" alt="Jake Roberts" />
+            <div class="h2p-coach-details">
+              <h3>Jake Roberts</h3>
+              <p>Cycling</p>
+              <div class="h2p-coach-stats">
+                <span><i data-lucide="star" style="width:12px;display:inline;"></i> 4.9 Rating</span>
+                <span>224 Sessions</span>
+              </div>
+            </div>
+          </div>
+          <button class="h2p-btn-full"><i data-lucide="calendar" style="width:16px;"></i> Book Session</button>
+        </div>
+
+        <div class="h2p-coach-card">
+          <div class="h2p-coach-info">
+            <img src="images/coach_jessica.png" class="h2p-coach-img" alt="Jessica Carter" />
+            <div class="h2p-coach-details">
+              <h3>Jessica Carter</h3>
+              <p>Swimming</p>
+              <div class="h2p-coach-stats">
+                <span><i data-lucide="star" style="width:12px;display:inline;"></i> 4.8 Rating</span>
+                <span>153 Sessions</span>
+              </div>
+            </div>
+          </div>
+          <button class="h2p-btn-full"><i data-lucide="calendar" style="width:16px;"></i> Book Session</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="nav-logo" style="justify-content:flex-start;">
+              <div class="logo-icon"><i data-lucide="bike" style="width:18px;height:18px;"></i></div>
+              <span>Cycle<span class="blue">Elite</span></span>
+            </a>
+            <p>The performance platform for serious cyclists and triathletes. Train with precision, race with confidence.</p>
+            <div class="footer-social">
+              <a href="#" aria-label="Twitter"><i data-lucide="twitter" style="width:16px;height:16px;"></i></a>
+              <a href="#" aria-label="Instagram"><i data-lucide="instagram" style="width:16px;height:16px;"></i></a>
+              <a href="#" aria-label="YouTube"><i data-lucide="youtube" style="width:16px;height:16px;"></i></a>
+              <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" style="width:16px;height:16px;"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Platform</h4>
+            <ul>
+              <li><a href="programs.html">Training Programs</a></li>
+              <li><a href="coaches.html">Find a Coach</a></li>
+              <li><a href="analytics.html">Analytics</a></li>
+              <li><a href="dashboard.html">Dashboard</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Community</a></li>
+              <li><a href="#">API Docs</a></li>
+              <li><a href="#">Status</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2024 CycleElite. Premium Performance Platform.</p>
+          <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+</body>
+</html>

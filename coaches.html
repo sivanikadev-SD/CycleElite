@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expert Coaches — CycleElite</title>
+  <meta name="description" content="Connect with world-class certified cycling and triathlon coaches. Book your session today." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home2_premium.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body class="home2-premium">
+  <!-- Background Space Layer -->
+  <div class="home2-bg-stars"></div>
+  <div class="home2-light-beams"></div>
+
+  <div class="home2-wrapper">
+    <!-- NAVBAR -->
+    <nav class="nav" id="mainNav">
+      <div class="container nav-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon"><i data-lucide="bike" style="width:20px;height:20px;"></i></div>
+          <span>Cycle<span class="blue">Elite</span></span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="home2.html" class="nav-link">Home 2</a></li>
+          <li><a href="programs.html" class="nav-link">Programs</a></li>
+          <li><a href="coaches.html" class="nav-link active">Coaches</a></li>
+          <li><a href="analytics.html" class="nav-link">Analytics</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="btn-icon" onclick="toggleTheme()"><span data-theme-icon></span></button>
+          <button class="btn-icon" onclick="toggleDir()"><span data-rtl-icon></span></button>
+          <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
+          <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="programs.html" class="mobile-nav-link">Programs</a>
+      <a href="coaches.html" class="mobile-nav-link active">Coaches</a>
+      <a href="analytics.html" class="mobile-nav-link">Analytics</a>
+      <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+      <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
+      <div class="mobile-drawer-actions">
+        <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
+        <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
+      </div>
+    </div>
+      <section class="std-hero">
+        <div class="hero-bg-standard">
+          <img src="images/coaches_hero_bg.png" alt="Expert Coaching">
+        </div>
+        <div class="container">
+          <h1 class="std-hero-title">Meet Our<br/><span class="gradient-text">Expert Coaches</span></h1>
+          <p class="std-hero-desc">Connect with world-class certified cycling and triathlon coaches. Every expert on our platform is UCI, USAT, or equivalent certified.</p>
+          <div class="h2p-hero-actions" style="justify-content:center;">
+            <a href="signup.html" class="h2p-btn h2p-btn-primary">Find Your Coach</a>
+            <a href="pricing.html" class="h2p-btn h2p-btn-outline">View Packages</a>
+          </div>
+        </div>
+      </section>
+
+
+    <div class="container">
+      <!-- HERO -->
+
+
+<!-- Filter bar -->
+<section class="section" style="padding-top:48px;">
+  <div class="container">
+    <div class="coaches-filter" style="margin-bottom:40px; background: var(--surface-glass); border: 1px solid var(--border); padding: 16px 24px; border-radius: 16px; backdrop-filter: blur(10px); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+      <div class="filter-group" style="display:flex; align-items:center; gap:16px;">
+        <span class="filter-label" style="font-size:0.85rem; color:var(--text-4); font-weight:600;">Specialty:</span>
+        <div class="filter-pills" style="display:flex; gap:8px;"    >
+          <button class="filter-pill active" style="padding:6px 16px; border-radius:20px; border:1px solid #3B82F6; background:rgba(59,130,246,0.1); color:#3B82F6; font-size:0.8rem; font-weight:600; cursor:pointer;">All</button>
+          <button class="filter-pill" style="padding:6px 16px; border-radius:20px; border:1px solid var(--border-subtle); background:var(--surface-glass); color:var(--text-3); font-size:0.8rem; font-weight:500; cursor:pointer;">Cycling</button>
+          <button class="filter-pill" style="padding:6px 16px; border-radius:20px; border:1px solid var(--border-subtle); background:var(--surface-glass); color:var(--text-3); font-size:0.8rem; font-weight:500; cursor:pointer;">Triathlon</button>
+        </div>
+      </div>
+      <div class="filter-group">
+        <select class="filter-select" style="background:var(--surface-glass); border:1px solid var(--border); color:var(--text); padding:8px 16px; border-radius:8px; font-size:0.85rem; outline:none;">
+          <option>Top Rated</option>
+          <option>Most Athletes</option>
+          <option>Price: Low to High</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="h2p-coach-grid">
+
+      <!-- Coach 1 -->
+      <div class="h2p-coach-card">
+        <div class="h2p-coach-info">
+          <div style="position:relative;">
+            <img src="images/coach_sarah.png" class="h2p-coach-img" alt="Sarah Mitchell" />
+            <div style="position:absolute; bottom:-5px; right:-5px; background:var(--secondary); border-radius:50%; width:20px; height:20px; display:flex; align-items:center; justify-content:center; border:2px solid var(--space-bg); color: #fff;"><i data-lucide="shield-check" style="width:10px;"></i></div>
+          </div>
+          <div class="h2p-coach-details">
+            <h3>Sarah Mitchell</h3>
+            <p style="color:#3B82F6; font-weight:600; text-transform:uppercase; font-size:0.75rem; letter-spacing:1px;">Triathlon</p>
+            <div class="h2p-coach-stats">
+              <span><i data-lucide="star" style="width:12px; display:inline;"></i> 5.0 Rating</span>
+              <span>188 Sessions</span>
+            </div>
+          </div>
+        </div>
+        <div class="h2p-coach-details-expanded" style="margin-top:16px;">
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+            <span class="h2p-tag" style="background:rgba(59,130,246,0.1); color:#3B82F6; font-size:0.7rem; padding:4px 10px; border-radius:12px; font-weight:700;">IRONMAN® Specialist</span>
+            <span class="h2p-tag" style="background:rgba(16,185,129,0.1); color:#10B981; font-size:0.7rem; padding:4px 10px; border-radius:12px; font-weight:700;">USAT Level III</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--text-2); line-height:1.6; font-style:italic; margin-bottom:16px;">"My philosophy centers on metabolic efficiency—training your body to utilize fat as a primary fuel source at race-pace intensities."</p>
+          <div style="display:flex; justify-content:space-between; align-items:center; background:var(--surface-glass); padding:12px; border-radius:12px; margin-bottom:16px;">
+             <div style="text-align:center;">
+               <div style="font-size:1.1rem; font-weight:700; color:var(--text);">94%</div>
+               <div style="font-size:0.65rem; color:var(--text-4);">PB Success</div>
+             </div>
+             <div style="width:1px; height:24px; background:var(--border-subtle);"></div>
+             <div style="text-align:center;">
+               <div style="font-size:1.1rem; font-weight:700; color:#fff;">4.8k+</div>
+               <div style="font-size:0.65rem; color:rgba(255,255,255,0.4);">Coach Hours</div>
+             </div>
+          </div>
+        </div>
+        <a href="signup.html" class="h2p-btn-full" style="text-decoration:none;"><i data-lucide="calendar" style="width:16px;"></i> Book Consultation</a>
+      </div>
+
+      <!-- Coach 2 -->
+      <div class="h2p-coach-card">
+        <div class="h2p-coach-info">
+          <div style="position:relative;">
+            <img src="images/coach_jake.png" class="h2p-coach-img" alt="Jake Roberts" />
+            <div style="position:absolute; bottom:-5px; right:-5px; background:var(--secondary); border-radius:50%; width:20px; height:20px; display:flex; align-items:center; justify-content:center; border:2px solid var(--space-bg); color: #fff;"><i data-lucide="shield-check" style="width:10px;"></i></div>
+          </div>
+          <div class="h2p-coach-details">
+            <h3 >Jake Roberts</h3>
+            <p style="color:var(--primary); font-weight:600; text-transform:uppercase; font-size:0.75rem; letter-spacing:1px;">Cycling</p>
+            <div class="h2p-coach-stats">
+              <span><i data-lucide="star" style="width:12px; display:inline;"></i> 4.9 Rating</span>
+              <span>224 Sessions</span>
+            </div>
+          </div>
+        </div>
+        <div class="h2p-coach-details-expanded" style="margin-top:16px;">
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+            <span class="h2p-tag" style="background:rgba(245,158,11,0.1); color:#F59E0B; font-size:0.7rem; padding:4px 10px; border-radius:12px; font-weight:700;">CLIMBING</span>
+            <span class="h2p-tag" style="background:rgba(6,182,212,0.1); color:#06B6D4; font-size:0.7rem; padding:4px 10px; border-radius:12px; font-weight:700;">W/KG OPTIMIZATION</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--text-2); line-height:1.6; font-style:italic; margin-bottom:16px;">"Power-to-weight ratio is the ultimate metric for gravity-defying performance. I build the engine and refine the chassis."</p>
+          <div style="display:flex; justify-content:space-between; align-items:center; background:var(--surface-glass); padding:12px; border-radius:12px; margin-bottom:16px;">
+             <div style="text-align:center;">
+               <div style="font-size:1.1rem; font-weight:700; color:var(--text);">98%</div>
+               <div style="font-size:0.65rem; color:var(--text-3);">Retention</div>
+             </div>
+             <div style="width:1px; height:24px; background:var(--border-subtle);"></div>
+             <div style="text-align:center;">
+               <div style="font-size:1.1rem; font-weight:700; color:var(--text);">12wks</div>
+               <div style="font-size:0.65rem; color:var(--text-3);">Avg Transition</div>
+             </div>
+          </div>
+        </div>
+        <a href="signup.html" class="h2p-btn-full" style="text-decoration:none;"><i data-lucide="calendar" style="width:16px;"></i> Book Consultation</a>
+      </div>
+
+      <!-- Coach 3 -->
+      <div class="h2p-coach-card">
+        <div class="h2p-coach-info">
+          <div style="position:relative;">
+            <img src="images/coach_jessica.png" class="h2p-coach-img" alt="Jessica Carter" />
+            <div style="position:absolute; bottom:-5px; right:-5px; background:#10B981; border-radius:50%; width:20px; height:20px; display:flex; align-items:center; justify-content:center; border:2px solid #050b14;"><i data-lucide="shield-check" style="width:10px; color:#fff;"></i></div>
+          </div>
+          <div class="h2p-coach-details">
+            <h3>Jessica Carter</h3>
+            <p style="color:#3B82F6; font-weight:600; text-transform:uppercase; font-size:0.75rem; letter-spacing:1px;">Cytathlon</p>
+            <div class="h2p-coach-stats">
+              <span><i data-lucide="star" style="width:12px; display:inline;"></i> 4.8 Rating</span>
+              <span>153 Sessions</span>
+            </div>
+          </div>
+        </div>
+        <div class="h2p-coach-details-expanded" style="margin-top:16px;">
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+            <span class="h2p-tag" style="background:rgba(139,92,246,0.1); color:#8B5CF6; font-size:0.7rem; padding:4px 10px; border-radius:12px; font-weight:700;">GRAVEL / XC</span>
+            <span class="h2p-tag" style="background:rgba(236,72,153,0.1); color:#EC4899; font-size:0.7rem; padding:4px 10px; border-radius:12px; font-weight:700;">TECHNICAL SKILLS</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--text-2); line-height:1.6; font-style:italic; margin-bottom:16px;">"Success on dirt requires more than just a big FTP. I integrate technical handling with psychological resilience."</p>
+          <div style="display:flex; justify-content:space-between; align-items:center; background:var(--surface-glass); padding:12px; border-radius:12px; margin-bottom:16px;">
+             <div style="text-align:center;">
+               <div style="font-size:1.1rem; font-weight:700; color:var(--text);">1.2k+</div>
+               <div style="font-size:0.65rem; color:var(--text-3);">Race Starts</div>
+             </div>
+             <div style="width:1px; height:24px; background:var(--border-subtle);"></div>
+             <div style="text-align:center;">
+               <div style="font-size:1.1rem; font-weight:700; color:var(--text);">91%</div>
+               <div style="font-size:0.65rem; color:var(--text-3);">Client PR rate</div>
+             </div>
+          </div>
+        </div>
+        <a href="signup.html" class="h2p-btn-full" style="text-decoration:none;"><i data-lucide="calendar" style="width:16px;"></i> Book Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <!-- CTA SECTION -->
+      <div class="section-title-line">
+        <h2>Coach <span class="gradient-text">Matching</span></h2>
+      </div>
+
+      <div class="h2p-banner h2p-banner-flex" style="min-height: 350px;">
+        <img src="images/training_bg.png" alt="Cyclists riding" style="opacity:0.4;" />
+        <div class="h2p-banner-content" style="position:relative; z-index:2; padding:20px; max-width:600px; width: 100%;">
+          <h2 style="font-size:2.5rem; margin-bottom:16px;">Let Us <span class="highlight">Match You</span></h2>
+          <p style="color:var(--text-2); margin-bottom:32px;">Answer 5 quick questions and our algorithm will find your perfect coach match.</p>
+          <div class="h2p-banner-actions" style="display:flex; justify-content:center;">
+            <a href="signup.html" class="h2p-btn h2p-btn-primary">Find My Coach</a>
+            <a href="pricing.html" class="h2p-btn h2p-btn-outline">View Packages</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="nav-logo" style="justify-content:flex-start;">
+              <div class="logo-icon"><i data-lucide="bike" style="width:18px;height:18px;"></i></div>
+              <span>Cycle<span class="blue">Elite</span></span>
+            </a>
+            <p>The performance platform for serious cyclists and triathletes. Train with precision, race with confidence.</p>
+            <div class="footer-social">
+              <a href="#" aria-label="Twitter"><i data-lucide="twitter" style="width:16px;height:16px;"></i></a>
+              <a href="#" aria-label="Instagram"><i data-lucide="instagram" style="width:16px;height:16px;"></i></a>
+              <a href="#" aria-label="YouTube"><i data-lucide="youtube" style="width:16px;height:16px;"></i></a>
+              <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" style="width:16px;height:16px;"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Platform</h4>
+            <ul>
+              <li><a href="programs.html">Training Programs</a></li>
+              <li><a href="coaches.html">Find a Coach</a></li>
+              <li><a href="analytics.html">Analytics</a></li>
+              <li><a href="dashboard.html">Dashboard</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Community</a></li>
+              <li><a href="#">API Docs</a></li>
+              <li><a href="#">Status</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2024 CycleElite. Premium Performance Platform.</p>
+          <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

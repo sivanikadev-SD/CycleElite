@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programs Premium — CycleElite</title>
+  <meta name="description" content="Find your perfect training plan." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home2_premium.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body class="home2-premium">
+
+  <!-- Background Space Layer -->
+  <div class="home2-bg-stars"></div>
+  <div class="home2-light-beams"></div>
+
+  <div class="home2-wrapper">
+    <!-- NAVBAR -->
+    <nav class="nav" id="mainNav">
+      <div class="container nav-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon"><i data-lucide="bike" style="width:20px;height:20px;"></i></div>
+          <span>Cycle<span class="blue">Elite</span></span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="home2.html" class="nav-link">Home 2</a></li>
+          <li><a href="programs.html" class="nav-link active">Programs</a></li>
+          <li><a href="coaches.html" class="nav-link">Coaches</a></li>
+          <li><a href="analytics.html" class="nav-link">Analytics</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="btn-icon" onclick="toggleTheme()"><span data-theme-icon></span></button>
+          <button class="btn-icon" onclick="toggleDir()"><span data-rtl-icon></span></button>
+          <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
+          <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="programs.html" class="mobile-nav-link active">Programs</a>
+      <a href="coaches.html" class="mobile-nav-link">Coaches</a>
+      <a href="analytics.html" class="mobile-nav-link">Analytics</a>
+      <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+      <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
+      <div class="mobile-drawer-actions">
+        <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
+        <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
+      </div>
+    </div>
+      <!-- HERO -->
+      <section class="std-hero">
+        <div class="hero-bg-standard">
+          <img src="images/programs_hero_bg.png" alt="Cyclists training">
+        </div>
+        <div class="container">
+          <h1 class="std-hero-title">Find Your Perfect <br><span class="gradient-text">Training Plan</span></h1>
+          <p class="std-hero-desc">Transform your performance with structured training plans tailored to your specific goals and experience level.</p>
+          <div class="h2p-hero-actions" style="justify-content:center;">
+            <a href="signup.html" class="h2p-btn h2p-btn-primary">Start Training</a>
+            <a href="coaches.html" class="h2p-btn h2p-btn-outline"><i data-lucide="user" style="width:16px; margin-right:8px;"></i> Book a Coach</a>
+          </div>
+        </div>
+      </section>
+
+    <div class="container">
+      
+
+
+      <!-- CARDS -->
+      <div class="pg-cards-grid">
+        
+        <!-- Beginner -->
+        <div class="pg-card beginner">
+          <div class="pg-card-top">
+            <div class="pg-card-badge"><i data-lucide="target" style="width:14px;"></i> 4 weeks</div>
+            <h2 class="pg-card-title">Beginner</h2>
+            <div class="pg-card-wave">
+              <svg preserveAspectRatio="none" viewBox="0 0 100 100" style="width:100%; height:100%;">
+                <path d="M0,80 L20,60 L40,70 L60,40 L80,50 L100,20 L100,100 L0,100 Z" fill="rgba(6,182,212,0.15)"></path>
+                <path d="M0,80 L20,60 L40,70 L60,40 L80,50 L100,20" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="pg-card-bottom">
+            <p class="pg-card-desc">Kickstart your journey with foundational workouts designed for structural durability and aerobic efficiency.</p>
+            <ul class="pg-card-features">
+              <li><i data-lucide="check" style="width:14px; height:14px;"></i> <strong>Aerobic Base</strong>: Z2 metabolic conditioning</li>
+              <li><i data-lucide="check" style="width:14px; height:14px;"></i> <strong>Pedal Mechanics</strong>: Cadence drills for efficiency</li>
+              <li><i data-lucide="check" style="width:14px; height:14px;"></i> <strong>Core Stability</strong>: On-bike postural strength</li>
+            </ul>
+            <a href="signup.html" class="pg-btn">View Full Curriculum</a>
+          </div>
+        </div>
+
+        <!-- Intermediate -->
+        <div class="pg-card intermediate">
+          <div class="pg-card-top">
+            <div class="pg-card-badge"><i data-lucide="activity" style="width:14px;"></i> 8 weeks</div>
+            <h2 class="pg-card-title">Intermediate</h2>
+            <div class="pg-card-wave">
+              <svg preserveAspectRatio="none" viewBox="0 0 100 100" style="width:100%; height:100%;">
+                <path d="M0,60 L20,45 L40,50 L60,30 L80,40 L100,20 L100,100 L0,100 Z" fill="rgba(139,92,246,0.15)"></path>
+                <path d="M0,60 L20,45 L40,50 L60,30 L80,40 L100,20" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="pg-card-bottom">
+            <p class="pg-card-desc">Enhance your performance with structured interval training and threshold expansion protocols.</p>
+            <ul class="pg-card-features">
+              <li><i data-lucide="check" style="width:14px; height:14px;"></i> <strong>Threshold</strong>: Sweet Spot and FTP density</li>
+              <li><i data-lucide="check" style="width:14px; height:14px;"></i> <strong>Power Profile</strong>: 5-minute anaerobic capacity</li>
+              <li><i data-lucide="check" style="width:14px; height:14px;"></i> <strong>Periodization</strong>: Optimized load/recovery cycles</li>
+            </ul>
+            <a href="signup.html" class="pg-btn">View Full Curriculum</a>
+          </div>
+        </div>
+
+        <!-- Pro -->
+        <div class="pg-card pro">
+          <div class="pg-card-top">
+            <div class="pg-card-badge"><i data-lucide="zap" style="width:14px;"></i> 12 weeks</div>
+            <h2 class="pg-card-title">Pro</h2>
+            <div class="pg-card-wave">
+              <svg preserveAspectRatio="none" viewBox="0 0 100 100" style="width:100%; height:100%;">
+                <path d="M0,50 L20,30 L40,40 L60,20 L80,30 L100,10 L100,100 L0,100 Z" fill="rgba(16,185,129,0.15)"></path>
+                <path d="M0,50 L20,30 L40,40 L60,20 L80,30 L100,10" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="pg-card-bottom">
+            <p class="pg-card-desc">Maximize your absolute potential with high-volume, high-intensity professional preparation.</p>
+            <ul class="pg-card-features">
+              <li><i data-lucide="check" style="width:14px; height:14px;"></i> <strong>VO2 Max</strong>: Micro-interval and max aerobic work</li>
+              <li><i data-lucide="check" style="width:14px; height:14px;"></i> <strong>Race Specificity</strong>: TT, Crit, or Climbing peaks</li>
+              <li><i data-lucide="check" style="width:14px; height:14px;"></i> <strong>Bio-Metrics</strong>: Advanced HRV & metabolic tracking</li>
+            </ul>
+            <a href="signup.html" class="pg-btn">View Full Curriculum</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- MID SECTION TITLE -->
+      <div style="text-align:center; margin: 80px 0 40px;">
+        <div class="section-badge" style="display:inline-flex; margin-bottom:16px;"><i data-lucide="book-open" style="width:12px; height:12px;"></i> Training Framework</div>
+        <h2 style="font-size:2.5rem; font-weight:800; margin-bottom:16px;">The CycleElite <span class="highlight">Curriculum</span></h2>
+        <p style="color:var(--text-3); font-size:1.1rem; max-width:700px; margin:0 auto;">Our plans are built on the 'LoadDelta' methodology, ensuring every watt of effort results in measurable physiological adaptation.</p>
+      </div>
+
+      <!-- TECHNICAL CURRICULUM GRID -->
+      <div class="pg-curriculum-grid">
+        <div class="h2p-mockup-card" style="padding:32px; background:var(--surface-glass); border:1px solid var(--border);">
+           <h3 style="font-size:1.1rem; font-weight:700; color:var(--info); margin-bottom:20px;">Phase 1: Foundation</h3>
+           <p style="font-size:0.9rem; color:var(--text-3); line-height:1.6; margin-bottom:20px;">Weeks 1-4 focus on neuromuscular coordination and aerobic base expansion. We prioritize posture and metabolic efficiency over raw intensity.</p>
+           <div style="font-size:0.75rem; font-weight:700; color:var(--text-4); text-transform:uppercase; letter-spacing:1px; margin-bottom:12px;">Key Drills</div>
+           <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; font-size:0.85rem; color:var(--text-2);">
+             <li>• High-cadence spin-ups</li>
+             <li>• Unilateral pedal strokes</li>
+             <li>• Z2 endurance saturation</li>
+           </ul>
+        </div>
+        <div class="h2p-mockup-card" style="padding:32px; background:var(--surface-glass); border:1px solid var(--border);">
+           <h3 style="font-size:1.1rem; font-weight:700; color:var(--primary-light); margin-bottom:20px;">Phase 2: Power Density</h3>
+           <p style="font-size:0.9rem; color:var(--text-3); line-height:1.6; margin-bottom:20px;">Weeks 5-8 introduce 'Sweet Spot' protocols and FTP-specific blocks. These sessions increase your ability to sustain high power for extended periods.</p>
+           <div style="font-size:0.75rem; font-weight:700; color:var(--text-4); text-transform:uppercase; letter-spacing:1px; margin-bottom:12px;">Key Drills</div>
+           <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; font-size:0.85rem; color:var(--text-2);">
+             <li>• 2x20min FTP Intervals</li>
+             <li>• Over-Under threshold sets</li>
+             <li>• Sustained climbing simulations</li>
+           </ul>
+        </div>
+        <div class="h2p-mockup-card" style="padding:32px; background:var(--surface-glass); border:1px solid var(--border);">
+           <h3 style="font-size:1.1rem; font-weight:700; color:var(--secondary); margin-bottom:20px;">Phase 3: Peak & Taper</h3>
+           <p style="font-size:0.9rem; color:var(--text-3); line-height:1.6; margin-bottom:20px;">Weeks 9-12 focus on event-specific intensity and volume reduction. We sharpen your top-end speed while shedding tactical fatigue.</p>
+           <div style="font-size:0.75rem; font-weight:700; color:var(--text-4); text-transform:uppercase; letter-spacing:1px; margin-bottom:12px;">Key Drills</div>
+           <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; font-size:0.85rem; color:var(--text-2);">
+             <li>• High-torque sprint starts</li>
+             <li>• V02 max micro-intervals</li>
+             <li>• Dynamic race simulations</li>
+           </ul>
+        </div>
+      </div>
+
+      <!-- FEATURED CARDS -->
+      <div class="pg-feat-grid">
+        <div class="pg-feat-card">
+          <img src="images/matt_parker_cycling.png" alt="Matt Parker Cycling" style="object-position: center 30%;" />
+          <div class="pg-feat-overlay">
+            <div class="pg-feat-info">
+              <h3>Matt Parker</h3>
+              <p>Cycling</p>
+            </div>
+            <a href="signup.html" class="h2p-btn h2p-btn-primary" style="min-width: 140px;"><i data-lucide="arrow-up-right" style="width:16px; margin-right:6px;"></i> Get Started</a>
+          </div>
+        </div>
+
+        <div class="pg-feat-card">
+          <img src="images/laura_martinez_triathlon.png" alt="Laura Martinez Triathlon" />
+          <div class="pg-feat-overlay">
+            <div class="pg-feat-info">
+              <h3>Laura Martinez</h3>
+              <p>Triathlon</p>
+            </div>
+            <a href="coaches.html" class="h2p-btn h2p-btn-outline" style="min-width: 140px;"><i data-lucide="calendar" style="width:16px; margin-right:6px;"></i> Book Session</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="nav-logo" style="justify-content:flex-start;">
+              <div class="logo-icon"><i data-lucide="bike" style="width:18px;height:18px;"></i></div>
+              <span>Cycle<span class="blue">Elite</span></span>
+            </a>
+            <p>The performance platform for serious cyclists and triathletes. Train with precision, race with confidence.</p>
+            <div class="footer-social">
+              <a href="#" aria-label="Twitter"><i data-lucide="twitter" style="width:16px;height:16px;"></i></a>
+              <a href="#" aria-label="Instagram"><i data-lucide="instagram" style="width:16px;height:16px;"></i></a>
+              <a href="#" aria-label="YouTube"><i data-lucide="youtube" style="width:16px;height:16px;"></i></a>
+              <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" style="width:16px;height:16px;"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Platform</h4>
+            <ul>
+              <li><a href="programs.html">Training Programs</a></li>
+              <li><a href="coaches.html">Find a Coach</a></li>
+              <li><a href="analytics.html">Analytics</a></li>
+              <li><a href="dashboard.html">Dashboard</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Community</a></li>
+              <li><a href="#">API Docs</a></li>
+              <li><a href="#">Status</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2024 CycleElite. Premium Performance Platform.</p>
+          <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+</body>
+</html>
