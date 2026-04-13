@@ -1,359 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home 2 Premium — CycleElite</title>
-  <meta name="description" content="Advanced cycling platform." />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/home2_premium.css" />
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elite Performance — CycleElite Nexus</title>
+    <meta name="description" content="State-of-the-art training for elite athletes." />
+    <link rel="icon" type="image/png" href="images/site_icon.png" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/home2_nexus.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- Theme & RTL — must be in <head> so onclick handlers work -->
+    <script>
+      (function() {
+        var SVG_SUN  = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
+        var SVG_MOON = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
+        var SVG_LTR  = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" y1="6" x2="3" y2="6"/><line x1="15" y1="12" x2="3" y2="12"/><line x1="17" y1="18" x2="3" y2="18"/></svg>';
+        var SVG_RTL  = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="12" x2="9" y2="12"/><line x1="21" y1="18" x2="7" y2="18"/></svg>';
+
+        function gs(k, d) { try { return localStorage.getItem(k) || d; } catch(e) { return d; } }
+        function ss(k, v) { try { localStorage.setItem(k, v); } catch(e) {} }
+
+        window._theme = gs('cycle-theme', 'dark');
+        window._dir   = gs('cycle-dir',   'ltr');
+
+        function applyAll() {
+          document.documentElement.setAttribute('data-theme', window._theme);
+          document.documentElement.setAttribute('dir', window._dir);
+          document.documentElement.lang = window._dir === 'rtl' ? 'ar' : 'en';
+          if (document.body) {
+            document.body.setAttribute('data-theme', window._theme);
+          }
+          document.querySelectorAll('[data-theme-icon]').forEach(function(el) {
+            el.innerHTML = window._theme === 'dark' ? SVG_SUN : SVG_MOON;
+          });
+          document.querySelectorAll('[data-rtl-icon]').forEach(function(el) {
+            el.innerHTML = window._dir === 'rtl' ? SVG_RTL : SVG_LTR;
+          });
+        }
+
+        window.toggleTheme = function() {
+          window._theme = window._theme === 'dark' ? 'light' : 'dark';
+          ss('cycle-theme', window._theme);
+          applyAll();
+        };
+
+        window.toggleDir = function() {
+          window._dir = window._dir === 'rtl' ? 'ltr' : 'rtl';
+          ss('cycle-dir', window._dir);
+          applyAll();
+        };
+
+        // Apply immediately for flash-free load
+        applyAll();
+        document.addEventListener('DOMContentLoaded', applyAll);
+      })();
+    </script>
 </head>
-<body class="home2-premium">
+<body class="home2-nexus">
 
-  <!-- Background Space Layer -->
-  <div class="home2-bg-stars"></div>
-  <div class="home2-light-beams"></div>
-
-  <div class="home2-wrapper">
     <!-- NAVBAR -->
     <nav class="nav" id="mainNav">
       <div class="container nav-inner">
         <a href="index.html" class="nav-logo">
-          <div class="logo-icon"><i data-lucide="bike" style="width:20px;height:20px;"></i></div>
+          <div class="logo-icon"><img src="images/site_icon.png" alt="CycleElite"></div>
           <span>Cycle<span class="blue">Elite</span></span>
         </a>
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="home2.html" class="nav-link active">Home 2</a></li>
+          <li><a href="home2.html" class="nav-link active">Nexus</a></li>
           <li><a href="programs.html" class="nav-link">Programs</a></li>
           <li><a href="coaches.html" class="nav-link">Coaches</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="analytics.html" class="nav-link">Analytics</a></li>
           <li><a href="pricing.html" class="nav-link">Pricing</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
           <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
         </ul>
         <div class="nav-actions">
-          <button class="btn-icon" onclick="toggleTheme()"><span data-theme-icon></span></button>
-          <button class="btn-icon" onclick="toggleDir()"><span data-rtl-icon></span></button>
-          <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
-          <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
+          <button class="btn-icon" onclick="toggleTheme()" aria-label="Toggle Theme">
+            <span data-theme-icon>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            </span>
+          </button>
+          <button class="btn-icon" onclick="toggleDir()" aria-label="Toggle RTL">
+            <span data-rtl-icon>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-align-left"><line x1="21" y1="6" x2="3" y2="6"/><line x1="15" y1="12" x2="3" y2="12"/><line x1="17" y1="18" x2="3" y2="18"/></svg>
+            </span>
+          </button>
+          <a href="login.html" class="btn btn-secondary btn-sm">Sign In</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Join Elite</a>
           <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
         </div>
       </div>
     </nav>
 
+    <!-- MOBILE DRAWER -->
     <div class="mobile-drawer" id="mobileDrawer">
       <a href="index.html" class="mobile-nav-link">Home</a>
-      <a href="home2.html" class="mobile-nav-link active">Home 2</a>
+      <a href="home2.html" class="mobile-nav-link active">Nexus</a>
       <a href="programs.html" class="mobile-nav-link">Programs</a>
       <a href="coaches.html" class="mobile-nav-link">Coaches</a>
       <a href="analytics.html" class="mobile-nav-link">Analytics</a>
       <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
       <a href="contact.html" class="mobile-nav-link">Contact</a>
       <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
       <div class="mobile-drawer-actions">
-        <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
-        <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
+        <a href="login.html" class="btn btn-secondary btn-sm">Sign In</a>
+        <a href="signup.html" class="btn btn-primary btn-sm">Join Elite</a>
       </div>
     </div>
-      <section class="h2p-hero" style="position:relative; overflow:hidden; padding: 120px 0 60px;">
-        <div class="hero-bg-standard">
-          <img src="images/index_hero_main.png" alt="Elite Cyclist Performance">
+
+    <!-- HERO SECTION -->
+    <header class="nexus-hero">
+        <div class="nexus-hero-bg">
+            <img src="images/home2_hero_new.png" alt="High speed cycling">
         </div>
-        <div class="h2p-hero-grid">
-          <div>
-            <h1 class="h2p-hero-title">Elevate Your<br/><span class="gradient-text" style="color:#3B82F6; background:none;">Performance</span></h1>
-            <p class="h2p-hero-desc">Achieve your best with personalized training, context advanced analytics, and progress tracking.</p>
-            <div class="h2p-hero-actions">
-              <a href="signup.html" class="h2p-btn h2p-btn-primary">Start Training</a>
-              <a href="coaches.html" class="h2p-btn h2p-btn-outline"><i data-lucide="user" style="width:16px; margin-right:8px;"></i> Book a Coach</a>
-            </div>
-          </div>
-          
-          <div class="h2p-mockup">
-            <div class="h2p-mockup-header">
-              <div style="font-weight:600; display:flex; align-items:center; gap:8px;"><i data-lucide="activity" style="width:16px; color:#3B82F6;"></i> Performance</div>
-              <div style="font-size:0.7rem; display:flex; gap:16px; color:rgba(255,255,255,0.5);">
-                <span style="color:#fff; border-bottom:2px solid #3B82F6; padding-bottom:4px;">This Week</span>
-                <span>Last Month</span>
-                <span>Season</span>
-              </div>
-            </div>
-            
-            <div class="h2p-mockup-grid">
-              <!-- Mock Chart 1 -->
-              <div class="h2p-mockup-card" style="grid-column: 1 / -1; height:120px; position:relative; overflow:hidden;">
-                <div style="display:flex; justify-content:space-between; margin-bottom:12px;">
-                  <div>
-                    <div style="font-size:0.7rem; color:#3B82F6; font-weight:600; display:flex; align-items:center; gap:4px;"><span style="width:6px; height:6px; background:#3B82F6; border-radius:50%; display:inline-block;"></span> Heart Rate</div>
-                    <div style="font-size:1.5rem; font-weight:700;">145 <span style="font-size:0.7rem; font-weight:400; color:rgba(255,255,255,0.5);">bpm avg</span></div>
-                  </div>
-                  <div>
-                    <div style="font-size:0.7rem; color:rgba(255,255,255,0.5);">Calories</div>
-                    <div style="font-size:1.2rem; font-weight:700;">1,240</div>
-                  </div>
-                </div>
-                <!-- Mock SVG Line -->
-                <svg style="position:absolute; bottom:0; left:0; width:100%; height:60px;" preserveAspectRatio="none" viewBox="0 0 100 100">
-                  <path d="M0,100 L0,50 Q10,20 20,40 T40,30 T60,60 T80,20 T100,40 L100,100 Z" fill="rgba(59,130,246,0.2)"></path>
-                  <path d="M0,50 Q10,20 20,40 T40,30 T60,60 T80,20 T100,40" fill="none" stroke="#3B82F6" stroke-width="2"></path>
-                </svg>
-              </div>
-              
-              <!-- Mock Dial -->
-              <div class="h2p-mockup-card" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px;">
-                <div style="font-size:0.75rem; color:rgba(255,255,255,0.5);">Recovery Score</div>
-                <div style="position:relative; width:80px; height:80px;">
-                  <svg viewBox="0 0 36 36" style="width:100%; height:100%;">
-                    <path style="stroke:rgba(255,255,255,0.1); stroke-width:3; fill:none;" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    <path style="stroke:#06B6D4; stroke-width:3; fill:none; stroke-dasharray: 76, 100;" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                  </svg>
-                  <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); font-size:1.2rem; font-weight:700;">76</div>
-                </div>
-              </div>
-              
-              <!-- Mock Stats -->
-              <div class="h2p-mockup-card" style="display:flex; flex-direction:column; justify-content:space-around;">
-                <div>
-                  <div style="font-size:0.7rem; color:rgba(255,255,255,0.5);">Training Load (TSS)</div>
-                  <div style="font-size:1.5rem; font-weight:700;">32.8 <span style="font-size:0.7rem; font-weight:400; color:rgba(255,255,255,0.5);">TSS</span></div>
-                </div>
-                <div>
-                  <div style="font-size:0.7rem; color:rgba(255,255,255,0.5);">Time in Zones</div>
-                  <div style="font-size:1.5rem; font-weight:700;">8.55 <span style="font-size:0.7rem; font-weight:400; color:rgba(255,255,255,0.5);">hrs</span></div>
-                  <!-- Mini sparkline -->
-                  <svg style="width:100%; height:20px; margin-top:8px;" preserveAspectRatio="none" viewBox="0 0 100 20">
-                    <path d="M0,15 L20,15 L30,5 L50,10 L70,8 L85,15 L100,15" fill="none" stroke="#10B981" stroke-width="1.5"></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    <div class="container">
-      <!-- HERO -->
-
-      <!-- ADVANCED ANALYTICS -->
-      <div class="section-title-line">
-        <h2>Advanced <span class="gradient-text">Analytics</span></h2>
-      </div>
-
-      <div class="h2p-analytics-grid">
-        <div class="h2p-stat-card c-distance">
-          <div class="h2p-stat-header">
-            <div class="h2p-stat-icon"><i data-lucide="clock" style="width:16px;"></i></div>
+        <div class="container" style="position:relative; z-index: 5;">
             <div>
-              <div class="h2p-stat-title">Distance</div>
-              <div class="h2p-stat-subtitle">Since Last Week</div>
+                <div class="hero-tag">
+                    <span class="pulse"></span>
+                    Nexus Performance v2.0
+                </div>
+                <h1 class="nexus-hero-title">Beyond<br><span>Performance</span></h1>
+                <p class="nexus-hero-desc">Experience the future of athletic training. AI-driven insights, elite coach network, and immersive analytics tailored for your journey.</p>
+                <div class="h2p-hero-actions" style="margin-top: 40px; display: flex; gap: 20px;">
+                    <a href="signup.html" class="nexus-btn nexus-btn-primary btn-hover-effect">Get Started Free</a>
+                    <a href="analytics.html" class="nexus-btn nexus-btn-glass btn-hover-effect">
+                        <i data-lucide="line-chart" style="width:20px;"></i>
+                        Explore Stats
+                    </a>
+                </div>
             </div>
-          </div>
-          <div class="h2p-stat-chart">
-            <svg style="position:absolute; bottom:0; left:0; width:100%; height:100%;" preserveAspectRatio="none" viewBox="0 0 100 100">
-              <path d="M0,80 L20,60 L40,70 L60,40 L80,50 L100,20" fill="none" stroke="#06B6D4" stroke-width="2"></path>
-              <path d="M0,100 L0,80 L20,60 L40,70 L60,40 L80,50 L100,20 L100,100 Z" fill="rgba(6,182,212,0.1)"></path>
-            </svg>
-          </div>
         </div>
+    </header>
 
-        <div class="h2p-stat-card c-hr">
-          <div class="h2p-stat-header">
-            <div class="h2p-stat-icon"><i data-lucide="shield" style="width:16px;"></i></div>
-            <div>
-              <div class="h2p-stat-title">Heart Rate</div>
-              <div class="h2p-stat-subtitle">Zone Trends</div>
+    <!-- CORE FEATURES -->
+    <section class="nexus-section">
+        <div class="container">
+            <div class="section-title-line">
+                <h2>Nexus <span class="gradient-text">Ecosystem</span></h2>
             </div>
-          </div>
-          <div class="h2p-stat-chart">
-            <svg style="position:absolute; bottom:0; left:0; width:100%; height:100%;" preserveAspectRatio="none" viewBox="0 0 100 100">
-              <path d="M0,90 L20,80 L40,60 L60,50 L80,20 L100,10" fill="none" stroke="#EF4444" stroke-width="2"></path>
-              <path d="M0,100 L0,90 L20,80 L40,60 L60,50 L80,20 L100,10 L100,100 Z" fill="rgba(239,68,68,0.1)"></path>
-            </svg>
-          </div>
+            <div class="nexus-grid-3">
+                <div class="nexus-card">
+                    <div class="nexus-card-icon"><i data-lucide="zap"></i></div>
+                    <h3>Precision Power</h3>
+                    <p>Real-time biomechanical analysis and power modeling to optimize every pedal stroke for maximum efficiency.</p>
+                </div>
+                <div class="nexus-card">
+                    <div class="nexus-card-icon"><i data-lucide="shield"></i></div>
+                    <h3>Advanced Recovery</h3>
+                    <p>Biometric monitoring and AI-guided recovery plans to ensure you stay at peak performance without burn-out.</p>
+                </div>
+                <div class="nexus-card">
+                    <div class="nexus-card-icon"><i data-lucide="globe"></i></div>
+                    <h3>Global Network</h3>
+                    <p>Connect with professional coaches and elite athletes worldwide through our high-speed secure neural link.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="h2p-stat-card c-cal">
-          <div class="h2p-stat-header">
-            <div class="h2p-stat-icon"><i data-lucide="flame" style="width:16px;"></i></div>
-            <div>
-              <div class="h2p-stat-title">Calories</div>
-              <div class="h2p-stat-subtitle">Expenditure Analysis</div>
+    <!-- LIVE DATA PREVIEW -->
+    <section class="nexus-section" style="padding-top:0;">
+        <div class="container">
+            <div class="nexus-preview-wrap">
+                <div class="nexus-preview-grid">
+                    <div>
+                        <div class="section-badge"><i data-lucide="activity" style="width:12px;"></i> Live Interface</div>
+                        <h2 class="section-title" style="margin-top:16px;">Smarter <span class="gradient-text">Insights</span></h2>
+                        <p class="section-desc" style="text-align: left; margin-left: 0;">Our state-of-the-art interface brings your data to life. Monitor your training load (TSS), metabolic rate, and recovery score in one seamless view.</p>
+                        
+                        <div class="nexus-stats-grid" style="margin-top:32px;">
+                            <div class="nexus-stat-box">
+                                <div class="nexus-stat-val">342</div>
+                                <div class="nexus-stat-lbl">Weekly TSS</div>
+                            </div>
+                            <div class="nexus-stat-box">
+                                <div class="nexus-stat-val">98%</div>
+                                <div class="nexus-stat-lbl">Recovery</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="position:relative;">
+                        <div class="phone-frame" style="width:300px; height:600px; margin: 0 auto; border: 12px solid #1E293B; border-radius: 40px; box-shadow: var(--shadow-xl); overflow: hidden;">
+                            <img src="images/app_screen.png" alt="App Preview" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <!-- Floating Badges -->
+                        <div class="floating-ui" style="top: 20%; right: -20px;">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <div style="width:32px; height:32px; background:var(--primary); border-radius:8px; display:flex; align-items:center; justify-content:center;"><i data-lucide="heart" style="width:16px; color:#fff;"></i></div>
+                                <div>
+                                    <div style="font-size:0.7rem; color:var(--text-4);">Heart Rate</div>
+                                    <div style="font-weight:700; font-size:1rem;">154 BPM</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="floating-ui" style="bottom: 25%; left: -20px; animation-delay: 1.5s;">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <div style="width:32px; height:32px; background:var(--secondary); border-radius:8px; display:flex; align-items:center; justify-content:center;"><i data-lucide="zap" style="width:16px; color:#fff;"></i></div>
+                                <div>
+                                    <div style="font-size:0.7rem; color:var(--text-4);">Power Avg</div>
+                                    <div style="font-weight:700; font-size:1rem;">285 Watts</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="h2p-stat-chart">
-            <svg style="position:absolute; bottom:0; left:0; width:100%; height:100%;" preserveAspectRatio="none" viewBox="0 0 100 100">
-              <path d="M0,70 L20,80 L40,50 L60,70 L80,40 L100,50" fill="none" stroke="#F59E0B" stroke-width="2"></path>
-              <path d="M0,100 L0,70 L20,80 L40,50 L60,70 L80,40 L100,50 L100,100 Z" fill="rgba(245,158,11,0.1)"></path>
-            </svg>
-          </div>
         </div>
+    </section>
 
-        <div class="h2p-stat-card c-time">
-          <div class="h2p-stat-header">
-            <div class="h2p-stat-icon"><i data-lucide="play-circle" style="width:16px;"></i></div>
-            <div>
-              <div class="h2p-stat-title">Training Hours</div>
-              <div class="h2p-stat-subtitle">Volume Tracking</div>
-            </div>
-          </div>
-          <div class="h2p-stat-chart">
-            <svg style="position:absolute; bottom:0; left:0; width:100%; height:100%;" preserveAspectRatio="none" viewBox="0 0 100 100">
-              <path d="M0,60 L20,50 L40,30 L60,40 L80,10 L100,20" fill="none" stroke="#22C55E" stroke-width="2"></path>
-              <path d="M0,100 L0,60 L20,50 L40,30 L60,40 L80,10 L100,20 L100,100 Z" fill="rgba(34,197,94,0.1)"></path>
-            </svg>
+    <!-- COACHING CTA -->
+    <section class="nexus-section">
+      <div class="container" style="text-align: center;">
+        <div>
+          <h2 class="nexus-hero-title" style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 32px;">Ready for the <span>Next Level?</span></h2>
+          <p class="nexus-hero-desc" style="margin: 0 auto 48px;">Join thousands of athletes who have already pushed their limits with the CycleElite Nexus ecosystem.</p>
+          <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+            <a href="signup.html" class="nexus-btn nexus-btn-primary btn-hover-effect">Create Elite Account</a>
+            <a href="coaches.html" class="nexus-btn nexus-btn-glass btn-hover-effect">Meet the Coaches</a>
           </div>
         </div>
       </div>
-
-      <!-- BANNER -->
-      <div class="h2p-banner">
-        <img src="images/training_bg.png" alt="Cyclists riding" />
-      </div>
-
-      <!-- PROGRESS TRACKER -->
-      <div class="section-title-line">
-        <h2>Progress <span class="gradient-text">Tracker</span></h2>
-      </div>
-
-      <div class="h2p-progress-grid">
-        <div class="h2p-prog-col">
-          <div class="h2p-prog-bar-wrap">
-            <div class="h2p-prog-bar g1" style="width:75%;"></div>
-          </div>
-          <div class="h2p-prog-val">12.5<span>99</span></div>
-          <div style="font-size:0.75rem; color:rgba(255,255,255,0.4);">A42 - 1 KM</div>
-        </div>
-        <div class="h2p-prog-col">
-          <div class="h2p-prog-bar-wrap">
-            <div class="h2p-prog-bar g2" style="width:60%;"></div>
-          </div>
-          <div class="h2p-prog-val">275.<span>550 KM</span></div>
-          <div style="font-size:0.75rem; color:rgba(255,255,255,0.4);">550 - H6 KM</div>
-        </div>
-        <div class="h2p-prog-col">
-          <div class="h2p-prog-bar-wrap">
-            <div class="h2p-prog-bar g3" style="width:40%;"></div>
-          </div>
-          <div class="h2p-prog-val">34<span>.550 KM</span></div>
-        </div>
-      </div>
-
-      <!-- ELITE COACHING EXPERIENCE -->
-      <div class="section-title-line">
-        <h2>Elite Coaching <span class="gradient-text">Experience</span></h2>
-      </div>
-
-      <div class="h2p-coach-grid">
-        <div class="h2p-coach-card">
-          <div class="h2p-coach-info">
-            <img src="images/coach_sarah.png" class="h2p-coach-img" alt="Sarah Mitchell" />
-            <div class="h2p-coach-details">
-              <h3>Sarah Mitchell</h3>
-              <p>Triathlon</p>
-              <div class="h2p-coach-stats">
-                <span><i data-lucide="star" style="width:12px;display:inline;"></i> 5.0 Rating</span>
-                <span>188 Sessions</span>
-              </div>
-            </div>
-          </div>
-          <button class="h2p-btn-full"><i data-lucide="calendar" style="width:16px;"></i> Book Session</button>
-        </div>
-
-        <div class="h2p-coach-card">
-          <div class="h2p-coach-info">
-            <img src="images/coach_jake.png" class="h2p-coach-img" alt="Jake Roberts" />
-            <div class="h2p-coach-details">
-              <h3>Jake Roberts</h3>
-              <p>Cycling</p>
-              <div class="h2p-coach-stats">
-                <span><i data-lucide="star" style="width:12px;display:inline;"></i> 4.9 Rating</span>
-                <span>224 Sessions</span>
-              </div>
-            </div>
-          </div>
-          <button class="h2p-btn-full"><i data-lucide="calendar" style="width:16px;"></i> Book Session</button>
-        </div>
-
-        <div class="h2p-coach-card">
-          <div class="h2p-coach-info">
-            <img src="images/coach_jessica.png" class="h2p-coach-img" alt="Jessica Carter" />
-            <div class="h2p-coach-details">
-              <h3>Jessica Carter</h3>
-              <p>Swimming</p>
-              <div class="h2p-coach-stats">
-                <span><i data-lucide="star" style="width:12px;display:inline;"></i> 4.8 Rating</span>
-                <span>153 Sessions</span>
-              </div>
-            </div>
-          </div>
-          <button class="h2p-btn-full"><i data-lucide="calendar" style="width:16px;"></i> Book Session</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
+    </section>
 
     <footer class="footer">
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <a href="index.html" class="nav-logo" style="justify-content:flex-start;">
-              <div class="logo-icon"><i data-lucide="bike" style="width:18px;height:18px;"></i></div>
+            <a href="index.html" class="nav-logo" style="margin-bottom:20px;">
+              <div class="logo-icon"><img src="images/site_icon.png" alt="CycleElite"></div>
               <span>Cycle<span class="blue">Elite</span></span>
             </a>
-            <p>The performance platform for serious cyclists and triathletes. Train with precision, race with confidence.</p>
-            <div class="footer-social">
-              <a href="#" aria-label="Twitter"><i data-lucide="twitter" style="width:16px;height:16px;"></i></a>
-              <a href="#" aria-label="Instagram"><i data-lucide="instagram" style="width:16px;height:16px;"></i></a>
-              <a href="#" aria-label="YouTube"><i data-lucide="youtube" style="width:16px;height:16px;"></i></a>
-              <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" style="width:16px;height:16px;"></i></a>
+            <p style="color:var(--text-4); font-size:0.9rem; line-height:1.6; margin-bottom:24px;">The world's most advanced digital training platform for endurance athletes. Engineered for performance, built for the podium.</p>
+            <div class="social-links">
+               <a href="#" class="social-link"><img src="images/twitter.png" alt="Twitter"></a>
+               <a href="#" class="social-link"><img src="images/instagram.png" alt="Instagram"></a>
+               <a href="#" class="social-link"><img src="images/youtube.png" alt="Youtube"></a>
+               <a href="#" class="social-link"><img src="images/linkedin.png" alt="Linkedin"></a>
             </div>
           </div>
-          <div class="footer-col">
-            <h4>Platform</h4>
-            <ul>
-              <li><a href="programs.html">Training Programs</a></li>
-              <li><a href="coaches.html">Find a Coach</a></li>
-              <li><a href="analytics.html">Analytics</a></li>
-              <li><a href="dashboard.html">Dashboard</a></li>
-              <li><a href="pricing.html">Pricing</a></li>
+          <div>
+            <h4 style="margin-bottom:24px;">Platform</h4>
+            <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:12px;">
+              <li><a href="programs.html" style="color:var(--text-3); text-decoration:none; font-size:0.9rem;">Training Programs</a></li>
+              <li><a href="analytics.html" style="color:var(--text-3); text-decoration:none; font-size:0.9rem;">AI Analytics</a></li>
+              <li><a href="coaches.html" style="color:var(--text-3); text-decoration:none; font-size:0.9rem;">Elite Coaches</a></li>
+              <li><a href="pricing.html" style="color:var(--text-3); text-decoration:none; font-size:0.9rem;">Membership Plans</a></li>
             </ul>
           </div>
-          <div class="footer-col">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Press</a></li>
+          <div>
+            <h4 style="margin-bottom:24px;">Resources</h4>
+            <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:12px;">
+              <li><a href="#" style="color:var(--text-3); text-decoration:none; font-size:0.9rem;">Help Center</a></li>
+              <li><a href="#" style="color:var(--text-3); text-decoration:none; font-size:0.9rem;">Community Hub</a></li>
+              <li><a href="#" style="color:var(--text-3); text-decoration:none; font-size:0.9rem;">Technical Specs</a></li>
+              <li><a href="contact.html" style="color:var(--text-3); text-decoration:none; font-size:0.9rem;">Support</a></li>
             </ul>
           </div>
-          <div class="footer-col">
-            <h4>Support</h4>
-            <ul>
-              <li><a href="#">Help Center</a></li>
-              <li><a href="#">Community</a></li>
-              <li><a href="#">API Docs</a></li>
-              <li><a href="#">Status</a></li>
-            </ul>
+          <div>
+            <h4 style="margin-bottom:24px;">Download App</h4>
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              <a href="#" style="background:var(--surface); border:1px solid var(--border); padding:10px; border-radius:12px; display:flex; align-items:center; gap:12px; text-decoration:none;">
+                <i data-lucide="apple" style="width:24px; color:var(--text);"></i>
+                <div style="text-align:left;">
+                  <div style="font-size:0.6rem; color:var(--text-4);">App Store</div>
+                  <div style="font-size:0.8rem; font-weight:700; color:var(--text);">Download Now</div>
+                </div>
+              </a>
+              <a href="#" style="background:var(--surface); border:1px solid var(--border); padding:10px; border-radius:12px; display:flex; align-items:center; gap:12px; text-decoration:none;">
+                <i data-lucide="play" style="width:20px; color:var(--text); padding-left:4px;"></i>
+                <div style="text-align:left;">
+                  <div style="font-size:0.6rem; color:var(--text-4);">Google Play</div>
+                  <div style="font-size:0.8rem; font-weight:700; color:var(--text);">Coming Soon</div>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
-        <div class="footer-bottom">
-          <p>© 2024 CycleElite. Premium Performance Platform.</p>
-          <div class="footer-links">
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">Cookies</a>
+        <div style="margin-top:80px; padding-top:24px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
+          <p style="color:var(--text-4); font-size:0.85rem;">© 2026 CycleElite. All performance rights reserved.</p>
+          <div style="display:flex; gap:24px;">
+            <a href="#" style="color:var(--text-4); font-size:0.85rem; text-decoration:none;">Privacy Policy</a>
+            <a href="#" style="color:var(--text-4); font-size:0.85rem; text-decoration:none;">Terms of Service</a>
           </div>
         </div>
       </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <!-- SCRIPTS -->
     <script>
-      lucide.createIcons();
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            var nav = document.getElementById('mainNav');
+            if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile Drawer
+        document.getElementById('navToggle').addEventListener('click', function() {
+            document.getElementById('mobileDrawer').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Init Lucide icons
+        if (typeof lucide !== 'undefined') lucide.createIcons();
     </script>
 </body>
 </html>

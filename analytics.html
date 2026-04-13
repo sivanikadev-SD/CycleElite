@@ -5,10 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Performance Analytics — CycleElite</title>
   <meta name="description" content="Deep performance analytics for cyclists and triathletes. Power, heart rate, endurance, and progress tracking." />
+  <link rel="icon" type="image/png" href="images/site_icon.png" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/home2_premium.css" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Theme & RTL — defined in <head> so onclick handlers always work -->
+  <script>
+    (function() {
+      var SVG_SUN  = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
+      var SVG_MOON = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
+      var SVG_LTR  = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" y1="6" x2="3" y2="6"/><line x1="15" y1="12" x2="3" y2="12"/><line x1="17" y1="18" x2="3" y2="18"/></svg>';
+      var SVG_RTL  = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="12" x2="9" y2="12"/><line x1="21" y1="18" x2="7" y2="18"/></svg>';
+
+      function gs(k, d) { try { return localStorage.getItem(k) || d; } catch(e) { return d; } }
+      function ss(k, v) { try { localStorage.setItem(k, v); } catch(e) {} }
+
+      window._theme = gs('cycle-theme', 'dark');
+      window._dir   = gs('cycle-dir',   'ltr');
+
+      function applyAll() {
+        document.documentElement.setAttribute('data-theme', window._theme);
+        document.documentElement.setAttribute('dir', window._dir);
+        document.documentElement.lang = window._dir === 'rtl' ? 'ar' : 'en';
+        if (document.body) document.body.setAttribute('data-theme', window._theme);
+        document.querySelectorAll('[data-theme-icon]').forEach(function(el) {
+          el.innerHTML = window._theme === 'dark' ? SVG_SUN : SVG_MOON;
+        });
+        document.querySelectorAll('[data-rtl-icon]').forEach(function(el) {
+          el.innerHTML = window._dir === 'rtl' ? SVG_RTL : SVG_LTR;
+        });
+      }
+
+      window.toggleTheme = function() {
+        window._theme = window._theme === 'dark' ? 'light' : 'dark';
+        ss('cycle-theme', window._theme);
+        applyAll();
+      };
+
+      window.toggleDir = function() {
+        window._dir = window._dir === 'rtl' ? 'ltr' : 'rtl';
+        ss('cycle-dir', window._dir);
+        applyAll();
+      };
+
+      applyAll();
+      document.addEventListener('DOMContentLoaded', applyAll);
+    })();
+  </script>
 </head>
 <body class="home2-premium">
   <!-- Background Space Layer -->
@@ -20,7 +64,7 @@
     <nav class="nav" id="mainNav">
       <div class="container nav-inner">
         <a href="index.html" class="nav-logo">
-          <div class="logo-icon"><i data-lucide="bike" style="width:20px;height:20px;"></i></div>
+          <div class="logo-icon"><img src="images/site_icon.png" alt="CycleElite"></div>
           <span>Cycle<span class="blue">Elite</span></span>
         </a>
         <ul class="nav-menu">
@@ -34,8 +78,16 @@
           <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
         </ul>
         <div class="nav-actions">
-          <button class="btn-icon" onclick="toggleTheme()"><span data-theme-icon></span></button>
-          <button class="btn-icon" onclick="toggleDir()"><span data-rtl-icon></span></button>
+          <button class="btn-icon" onclick="toggleTheme()" aria-label="Toggle Theme">
+            <span data-theme-icon>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            </span>
+          </button>
+          <button class="btn-icon" onclick="toggleDir()" aria-label="Toggle RTL">
+            <span data-rtl-icon>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-align-left"><line x1="21" y1="6" x2="3" y2="6"/><line x1="15" y1="12" x2="3" y2="12"/><line x1="17" y1="18" x2="3" y2="18"/></svg>
+            </span>
+          </button>
           <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
           <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
           <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
@@ -108,7 +160,7 @@
                 <div style="width:32px; height:32px; border-radius:8px; background:var(--primary-glow); display:flex; align-items:center; justify-content:center; color:var(--primary);"><i data-lucide="map" style="width:16px;"></i></div>
                 <span style="font-size:0.9rem; color:var(--text-3); font-weight:600;">Distance</span>
               </div>
-              <div style="font-size:2.4rem; font-weight:800; margin-bottom:4px; letter-spacing:-0.02em;">72.6 <span style="font-size:1rem; font-weight:400; color:var(--text-4);">km</span></div>
+              <div style="font-size:2.4rem; font-weight:800; margin-bottom:4px; letter-spacing:-0.02em; display:flex; align-items:baseline; gap:8px;">72.6 <span style="font-size:1rem; font-weight:400; color:var(--text-4); white-space:nowrap;">km</span></div>
               <div style="font-size:0.85rem; color:var(--text-4);">Last Week</div>
               <svg style="position:absolute; bottom:0; left:0; width:100%; height:50px; opacity: 0.6;" preserveAspectRatio="none" viewBox="0 0 100 100">
                 <defs><linearGradient id="g-blue" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(37,99,235,0.3)"/><stop offset="100%" stop-color="rgba(37,99,235,0)"/></linearGradient></defs>
@@ -116,44 +168,44 @@
                 <path d="M0,80 Q20,60 40,75 T80,40 T100,50" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"></path>
               </svg>
             </div>
-
+            <br>
             <!-- Metric 2: Speed -->
-            <div class="h2p-mockup-card" style="position:relative; overflow:hidden; padding:28px; background: rgba(10, 15, 30, 0.6); border-color: rgba(255,255,255,0.08);">
+            <div class="h2p-mockup-card" style="position:relative; overflow:hidden; padding:28px; background: var(--surface-glass); border-color: var(--border);">
               <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
                 <div style="width:32px; height:32px; border-radius:8px; background:rgba(6,182,212,0.1); display:flex; align-items:center; justify-content:center; color:#06B6D4;"><i data-lucide="gauge" style="width:16px;"></i></div>
-                <span style="font-size:0.9rem; color:rgba(255,255,255,0.6); font-weight:600;">Speed</span>
+                <span style="font-size:0.9rem; color:var(--text-3); font-weight:600;">Speed</span>
               </div>
-              <div style="font-size:2.4rem; font-weight:800; margin-bottom:4px; letter-spacing:-0.02em;">32.8 <span style="font-size:1rem; font-weight:400; color:rgba(255,255,255,0.4);">km/h</span></div>
-              <div style="font-size:0.85rem; color:rgba(255,255,255,0.4);">Last Week</div>
+              <div style="font-size:2.4rem; font-weight:800; margin-bottom:4px; letter-spacing:-0.02em; color:var(--text); display:flex; align-items:baseline; gap:8px;">32.8 <span style="font-size:1rem; font-weight:400; color:var(--text-4); white-space:nowrap;">km/h</span></div>
+              <div style="font-size:0.85rem; color:var(--text-4);">Last Week</div>
               <svg style="position:absolute; bottom:0; left:0; width:100%; height:50px; opacity: 0.6;" preserveAspectRatio="none" viewBox="0 0 100 100">
                 <defs><linearGradient id="g-cyan" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(6,182,212,0.3)"/><stop offset="100%" stop-color="rgba(6,182,212,0)"/></linearGradient></defs>
                 <path d="M0,70 Q30,90 60,65 T100,45 L100,100 L0,100 Z" fill="url(#g-cyan)"></path>
                 <path d="M0,70 Q30,90 60,65 T100,45" fill="none" stroke="#06B6D4" stroke-width="2" stroke-linecap="round"></path>
               </svg>
             </div>
-
+            <br>
             <!-- Metric 3: Calories -->
-            <div class="h2p-mockup-card" style="position:relative; overflow:hidden; padding:28px; background: rgba(10, 15, 30, 0.6); border-color: rgba(255,255,255,0.08);">
+            <div class="h2p-mockup-card" style="position:relative; overflow:hidden; padding:28px; background: var(--surface-glass); border-color: var(--border);">
               <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
                 <div style="width:32px; height:32px; border-radius:8px; background:rgba(245,158,11,0.1); display:flex; align-items:center; justify-content:center; color:#F59E0B;"><i data-lucide="flame" style="width:16px;"></i></div>
-                <span style="font-size:0.9rem; color:rgba(255,255,255,0.6); font-weight:600;">Calories</span>
+                <span style="font-size:0.9rem; color:var(--text-3); font-weight:600;">Calories</span>
               </div>
-              <div style="font-size:2.4rem; font-weight:800; margin-bottom:4px; letter-spacing:-0.02em;">1,250 <span style="font-size:1rem; font-weight:400; color:rgba(255,255,255,0.4);">kcal</span></div>
-              <div style="font-size:0.85rem; color:rgba(255,255,255,0.4);">Last Week Burn</div>
+              <div style="font-size:2.4rem; font-weight:800; margin-bottom:4px; letter-spacing:-0.02em; color:var(--text); display:flex; align-items:baseline; gap:8px;">1,250 <span style="font-size:1rem; font-weight:400; color:var(--text-4); white-space:nowrap;">kcal</span></div>
+              <div style="font-size:0.85rem; color:var(--text-4);">Last Week Burn</div>
               <svg style="position:absolute; bottom:0; left:0; width:100%; height:50px; opacity: 0.6;" preserveAspectRatio="none" viewBox="0 0 100 100">
                 <defs><linearGradient id="g-orange" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(245,158,11,0.3)"/><stop offset="100%" stop-color="rgba(245,158,11,0)"/></linearGradient></defs>
                 <path d="M0,85 Q40,40 70,75 T100,20 L100,100 L0,100 Z" fill="url(#g-orange)"></path>
                 <path d="M0,85 Q40,40 70,75 T100,20" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"></path>
               </svg>
             </div>
-
+            <br>
             <!-- Metric 4: Duration -->
             <div class="h2p-mockup-card" style="position:relative; overflow:hidden; padding:28px; background: var(--surface-glass); border-color: var(--border);">
               <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
                 <div style="width:32px; height:32px; border-radius:8px; background:var(--aurora-2); display:flex; align-items:center; justify-content:center; color:var(--secondary);"><i data-lucide="clock" style="width:16px;"></i></div>
                 <span style="font-size:0.9rem; color:var(--text-3); font-weight:600;">Duration</span>
               </div>
-              <div style="font-size:2.4rem; font-weight:800; margin-bottom:4px; letter-spacing:-0.02em;">8:45 <span style="font-size:1rem; font-weight:400; color:var(--text-4);">hours</span></div>
+              <div style="font-size:2.4rem; font-weight:800; margin-bottom:4px; letter-spacing:-0.02em; display:flex; align-items:baseline; gap:8px;">8:45 <span style="font-size:1rem; font-weight:400; color:var(--text-4); white-space:nowrap;">hours</span></div>
               <div style="font-size:0.85rem; color:var(--text-4);">Last Week Total</div>
               <svg style="position:absolute; bottom:0; left:0; width:100%; height:50px; opacity: 0.6;" preserveAspectRatio="none" viewBox="0 0 100 100">
                 <defs><linearGradient id="g-green" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(34,197,94,0.3)"/><stop offset="100%" stop-color="rgba(34,197,94,0)"/></linearGradient></defs>
@@ -165,6 +217,48 @@
         </div>
       </section>
 
+    <!-- APP SHOWCASE -->
+    <section class="section">
+      <div class="container">
+        <div class="app-showcase-grid reveal">
+          <div class="app-content-col">
+            <div class="section-badge"><i data-lucide="smartphone" style="width:12px; height:12px;"></i> Mobile App</div>
+            <h2 class="section-title" style="margin-bottom:24px; line-height: 1.2;">Your Data, <span style="color: var(--primary);">Wherever</span><br><span style="color: var(--secondary);">You Ride</span></h2>
+            <p class="section-desc" style="margin-bottom:32px; text-align: left; margin-left: 0;">Get real-time insights during your ride and analyze your performance immediately after. Our mobile app syncs instantly with all your devices.</p>
+            <div style="display:flex; flex-direction:column; gap:20px;">
+              <div class="flex items-center gap-4">
+                <div class="btn-icon blue" style="width:40px; height:40px;"><i data-lucide="bluetooth" style="width:18px;"></i></div>
+                <div>
+                  <div style="font-weight:700; font-size:0.95rem;">Seamless Sync</div>
+                  <div style="font-size:0.85rem; color:var(--text-4);">Connects with Garmin, Wahoo, & more.</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="btn-icon green" style="width:40px; height:40px;"><i data-lucide="zap" style="width:18px;"></i></div>
+                <div>
+                  <div style="font-weight:700; font-size:0.95rem;">Live Performance</div>
+                  <div style="font-size:0.85rem; color:var(--text-4);">Real-time power & heart rate analysis.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="app-mockup">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <img src="images/app_screen.png" alt="CycleElite App" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+            </div>
+            <div class="app-float-card animate-float" style="top:20%; left:-40px;">
+              <div class="btn-icon blue" style="background:var(--primary); color:#fff; width:36px; height:36px;"><i data-lucide="trending-up" style="width:16px;"></i></div>
+              <div>
+                <div style="font-size:0.7rem; color:var(--text-4);">Weekly TSS</div>
+                <div style="font-weight:800; font-size:1rem;">482 pts</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Main Performance Chart Section -->
     <div style="margin-top:20px; margin-bottom:80px;" class="reveal">
       <div class="h2p-mockup" style="padding:0; overflow:hidden; border:none; background:var(--surface-glass); border: 1px solid var(--border); transform:none;">
@@ -224,13 +318,13 @@
         </div>
 
         <!-- Stat 2: Avg Speed -->
-        <div class="h2p-mockup-card" style="position:relative; overflow:hidden; padding:32px; background: rgba(10, 15, 30, 0.6); border-color: rgba(255,255,255,0.08);">
+        <div class="h2p-mockup-card" style="position:relative; overflow:hidden; padding:32px; background: var(--surface-glass); border-color: var(--border);">
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
             <div style="width:36px; height:36px; border-radius:10px; background:rgba(6,182,212,0.1); display:flex; align-items:center; justify-content:center; color:#06B6D4;"><i data-lucide="zap" style="width:20px;"></i></div>
-            <span style="font-size:1rem; color:rgba(255,255,255,0.6); font-weight:600;">Avg Speed</span>
+            <span style="font-size:1rem; color:var(--text-3); font-weight:600;">Avg Speed</span>
           </div>
-          <div style="font-size:3.2rem; font-weight:900; margin-bottom:8px; color:#fff; letter-spacing:-0.03em;">27.6 <span style="font-size:1.2rem; font-weight:400; color:rgba(255,255,255,0.4);">km/h</span></div>
-          <div style="font-size:0.95rem; color:rgba(255,255,255,0.4); font-weight:500;">Last 10 weeks Avg</div>
+          <div style="font-size:3.2rem; font-weight:900; margin-bottom:8px; color:var(--text); letter-spacing:-0.03em;">27.6 <span style="font-size:1.2rem; font-weight:400; color:var(--text-4);">km/h</span></div>
+          <div style="font-size:0.95rem; color:var(--text-4); font-weight:500;">Last 10 weeks Avg</div>
           <svg style="position:absolute; bottom:0; left:0; width:100%; height:80px; opacity:0.6;" preserveAspectRatio="none" viewBox="0 0 100 100">
              <path d="M0,70 Q40,90 80,60 T100,40 L100,100 L0,100 Z" fill="url(#g-cyan)"></path>
              <path d="M0,70 Q40,90 80,60 T100,40" fill="none" stroke="#06B6D4" stroke-width="3" stroke-linecap="round"></path>
@@ -238,13 +332,13 @@
         </div>
 
         <!-- Stat 3: Max Heart Rate -->
-        <div class="h2p-mockup-card" style="position:relative; overflow:hidden; padding:32px; background: rgba(10, 15, 30, 0.6); border-color: rgba(255,255,255,0.08);">
+        <div class="h2p-mockup-card" style="position:relative; overflow:hidden; padding:32px; background: var(--surface-glass); border-color: var(--border);">
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
             <div style="width:36px; height:36px; border-radius:10px; background:rgba(239,68,68,0.1); display:flex; align-items:center; justify-content:center; color:#EF4444;"><i data-lucide="heart" style="width:20px;"></i></div>
-            <span style="font-size:1rem; color:rgba(255,255,255,0.6); font-weight:600;">Max Heart Rate</span>
+            <span style="font-size:1rem; color:var(--text-3); font-weight:600;">Max Heart Rate</span>
           </div>
-          <div style="font-size:3.2rem; font-weight:900; margin-bottom:8px; color:#fff; letter-spacing:-0.03em;">126 <span style="font-size:1.2rem; font-weight:400; color:rgba(255,255,255,0.4);">bpm</span></div>
-          <div style="font-size:0.95rem; color:rgba(255,255,255,0.4); font-weight:500;">Last Workout Peak</div>
+          <div style="font-size:3.2rem; font-weight:900; margin-bottom:8px; color:var(--text); letter-spacing:-0.03em;">126 <span style="font-size:1.2rem; font-weight:400; color:var(--text-4);">bpm</span></div>
+          <div style="font-size:0.95rem; color:var(--text-4); font-weight:500;">Last Workout Peak</div>
           <svg style="position:absolute; bottom:0; left:0; width:100%; height:80px; opacity:0.6;" preserveAspectRatio="none" viewBox="0 0 100 100">
              <defs><linearGradient id="g-red" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(239,68,68,0.3)"/><stop offset="100%" stop-color="rgba(239,68,68,0)"/></linearGradient></defs>
              <path d="M0,90 Q50,40 100,70 L100,100 L0,100 Z" fill="url(#g-red)"></path>
@@ -260,13 +354,13 @@
     <div class="h2p-athlete-feature reveal" style="margin-bottom:100px;">
       
       <!-- Robert Stackler Featured Card -->
-      <div class="h2p-mockup analytics-flex-card" style="padding:0; overflow:hidden; background:rgba(10, 15, 30, 0.4); border-color:rgba(255,255,255,0.05);">
+      <div class="h2p-mockup analytics-flex-card" style="padding:0; overflow:hidden; background:var(--surface-glass); border-color:var(--border);">
         <div class="analytics-flex-img" style="flex:1.2; position:relative; min-height:360px;">
           <img src="images/robert_stackler.png" alt="Robert Stackler Action" style="width:100%; height:100%; object-fit:cover;" />
-          <div style="position:absolute; inset:0; background:linear-gradient(90deg, transparent 60%, rgba(10,15,30,1) 100%), linear-gradient(0deg, rgba(10,15,30,0.8) 0%, transparent 40%);"></div>
+          <div style="position:absolute; inset:0; background:linear-gradient(90deg, transparent 60%, var(--bg-2) 100%), linear-gradient(0deg, rgba(0,0,0,0.7) 0%, transparent 40%);"></div>
           <div style="position:absolute; bottom:0; left:0; right:0; padding:40px; z-index: 2;">
-             <div style="font-size:2.8rem; font-weight:900; line-height:1; margin-bottom:8px; letter-spacing:-0.03em;">Robert <span class="highlight">Stackler</span></div>
-             <div style="display:flex; align-items:center; gap:12px; font-size:1.1rem; color:var(--text-2); font-weight:600;">
+             <div style="font-size:2.8rem; font-weight:900; line-height:1; margin-bottom:8px; letter-spacing:-0.03em; color:#fff; text-shadow:0 2px 12px rgba(0,0,0,0.8);">Robert <span class="highlight">Stackler</span></div>
+             <div style="display:flex; align-items:center; gap:12px; font-size:1.1rem; color:rgba(255,255,255,0.8); font-weight:600;">
                <i data-lucide="award" style="width:20px; color:var(--warning);"></i> Elite Pro | Continental Cycling
              </div>
           </div>
@@ -278,19 +372,19 @@
               <div style="font-size:0.9rem; color:var(--text-4); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-top:8px;">Base Mileage</div>
             </div>
             <div>
-              <div class="h2p-stat-val">14.3 <span style="font-size:1.1rem; color:var(--text-2); font-weight:500;">k</span></div>
-              <div style="font-size:0.9rem; color:var(--text-3); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-top:8px;">YTD Elevation</div>
+              <div class="h2p-stat-val" style="color:var(--text);">14.3 <span style="font-size:1.1rem; color:var(--text-4); font-weight:500;">k</span></div>
+              <div style="font-size:0.9rem; color:var(--text-4); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-top:8px;">YTD Elevation</div>
             </div>
           </div>
           <div style="width:100%; height:1px; background:var(--border-subtle);"></div>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
             <div>
-              <div class="h2p-stat-val">512 <span style="font-size:1.1rem; color:var(--text-2); font-weight:500;">TSS</span></div>
-              <div style="font-size:0.9rem; color:var(--text-3); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-top:8px;">Training Load</div>
+              <div class="h2p-stat-val" style="color:var(--text);">512 <span style="font-size:1.1rem; color:var(--text-4); font-weight:500;">TSS</span></div>
+              <div style="font-size:0.9rem; color:var(--text-4); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-top:8px;">Training Load</div>
             </div>
             <div>
-              <div class="h2p-stat-val">4.5 <span style="font-size:1.1rem; color:var(--text-2); font-weight:500;">w/kg</span></div>
-              <div style="font-size:0.9rem; color:var(--text-3); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-top:8px;">Power Ratio</div>
+              <div class="h2p-stat-val" style="color:var(--text);">4.5 <span style="font-size:1.1rem; color:var(--text-4); font-weight:500;">w/kg</span></div>
+              <div style="font-size:0.9rem; color:var(--text-4); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-top:8px;">Power Ratio</div>
             </div>
           </div>
         </div>
@@ -313,11 +407,11 @@
           </div>
 
           <div style="margin-bottom:32px;">
-            <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:600; color:rgba(255,255,255,0.5); margin-bottom:12px;">
+            <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:600; color:var(--text-3); margin-bottom:12px;">
               <span>Avg Speed</span>
-              <span style="color:#fff;">27.6 <span style="color:rgba(255,255,255,0.3); font-size:0.75rem;">km/h</span></span>
+              <span style="color:var(--text);">27.6 <span style="color:var(--text-4); font-size:0.75rem;">km/h</span></span>
             </div>
-            <div style="height:6px; background:rgba(255,255,255,0.05); border-radius:3px; overflow:hidden;">
+            <div style="height:6px; background:var(--border-subtle); border-radius:3px; overflow:hidden;">
               <div style="width:85%; height:100%; background:linear-gradient(90deg, #3B82F6, #06B6D4); box-shadow: 0 0 10px rgba(6,182,212,0.4);"></div>
             </div>
           </div>
@@ -331,20 +425,149 @@
     </div>
   </div>
 
+  <!-- TRAINING ZONE BREAKDOWN -->
+  <section class="section" style="padding:80px 0;">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:40px; flex-wrap:wrap; gap:16px;">
+        <div>
+          <div class="section-badge" style="margin-bottom:12px;"><i data-lucide="activity" style="width:12px;"></i> Power Analysis</div>
+          <h2 class="section-title" style="margin:0;">Training <span class="gradient-text">Zone Breakdown</span></h2>
+        </div>
+        <div style="font-size:0.85rem; color:var(--text-4);">Last 4 Weeks Average</div>
+      </div>
+      <div class="h2p-mockup-card reveal" style="padding:40px; background:var(--surface-glass); border-color:var(--border);">
+        <div style="display:flex; flex-direction:column; gap:20px;">
+          <div style="display:grid; grid-template-columns:90px 1fr 60px; align-items:center; gap:20px;">
+            <div><div style="font-size:0.75rem; font-weight:700; color:#22C55E; letter-spacing:0.08em;">ZONE 1</div><div style="font-size:0.8rem; color:var(--text-4);">Recovery</div></div>
+            <div style="height:10px; background:var(--border-subtle); border-radius:99px; overflow:hidden;"><div style="width:12%; height:100%; background:linear-gradient(90deg,#22C55E,#4ADE80); border-radius:99px;"></div></div>
+            <div style="font-size:0.9rem; font-weight:700; color:var(--text); text-align:right;">12%</div>
+          </div>
+          <div style="display:grid; grid-template-columns:90px 1fr 60px; align-items:center; gap:20px;">
+            <div><div style="font-size:0.75rem; font-weight:700; color:#3B82F6; letter-spacing:0.08em;">ZONE 2</div><div style="font-size:0.8rem; color:var(--text-4);">Endurance</div></div>
+            <div style="height:10px; background:var(--border-subtle); border-radius:99px; overflow:hidden;"><div style="width:38%; height:100%; background:linear-gradient(90deg,#3B82F6,#60A5FA); border-radius:99px;"></div></div>
+            <div style="font-size:0.9rem; font-weight:700; color:var(--text); text-align:right;">38%</div>
+          </div>
+          <div style="display:grid; grid-template-columns:90px 1fr 60px; align-items:center; gap:20px;">
+            <div><div style="font-size:0.75rem; font-weight:700; color:#06B6D4; letter-spacing:0.08em;">ZONE 3</div><div style="font-size:0.8rem; color:var(--text-4);">Tempo</div></div>
+            <div style="height:10px; background:var(--border-subtle); border-radius:99px; overflow:hidden;"><div style="width:28%; height:100%; background:linear-gradient(90deg,#06B6D4,#22D3EE); border-radius:99px;"></div></div>
+            <div style="font-size:0.9rem; font-weight:700; color:var(--text); text-align:right;">28%</div>
+          </div>
+          <div style="display:grid; grid-template-columns:90px 1fr 60px; align-items:center; gap:20px;">
+            <div><div style="font-size:0.75rem; font-weight:700; color:#F59E0B; letter-spacing:0.08em;">ZONE 4</div><div style="font-size:0.8rem; color:var(--text-4);">Threshold</div></div>
+            <div style="height:10px; background:var(--border-subtle); border-radius:99px; overflow:hidden;"><div style="width:16%; height:100%; background:linear-gradient(90deg,#F59E0B,#FCD34D); border-radius:99px;"></div></div>
+            <div style="font-size:0.9rem; font-weight:700; color:var(--text); text-align:right;">16%</div>
+          </div>
+          <div style="display:grid; grid-template-columns:90px 1fr 60px; align-items:center; gap:20px;">
+            <div><div style="font-size:0.75rem; font-weight:700; color:#EF4444; letter-spacing:0.08em;">ZONE 5</div><div style="font-size:0.8rem; color:var(--text-4);">VO2 Max</div></div>
+            <div style="height:10px; background:var(--border-subtle); border-radius:99px; overflow:hidden;"><div style="width:6%; height:100%; background:linear-gradient(90deg,#EF4444,#F87171); border-radius:99px;"></div></div>
+            <div style="font-size:0.9rem; font-weight:700; color:var(--text); text-align:right;">6%</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:36px; padding-top:28px; border-top:1px solid var(--border-subtle);">
+          <div style="background:var(--primary-glow); border:1px solid var(--primary-light); border-radius:99px; padding:8px 20px; font-size:0.82rem; font-weight:600; color:var(--primary); display:flex; align-items:center; gap:6px;"><i data-lucide="trending-up" style="width:13px;"></i> 14h 20m Total</div>
+          <div style="background:var(--surface-glass); border:1px solid var(--border); border-radius:99px; padding:8px 20px; font-size:0.82rem; font-weight:600; color:var(--text-3); display:flex; align-items:center; gap:6px;"><i data-lucide="zap" style="width:13px;"></i> FTP: 285W</div>
+          <div style="background:var(--surface-glass); border:1px solid var(--border); border-radius:99px; padding:8px 20px; font-size:0.82rem; font-weight:600; color:var(--text-3); display:flex; align-items:center; gap:6px;"><i data-lucide="heart" style="width:13px;"></i> Avg HR: 142 bpm</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI INSIGHTS -->
+  <section class="section" style="padding:0 0 80px;">
+    <div class="container">
+      <div style="margin-bottom:40px;">
+        <div class="section-badge" style="margin-bottom:12px;"><i data-lucide="cpu" style="width:12px;"></i> AI Engine</div>
+        <h2 class="section-title" style="margin:0;">Smart <span class="gradient-text">Performance Insights</span></h2>
+      </div>
+      <div class="reveal" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px;">
+        <div class="h2p-mockup-card" style="padding:28px; background:var(--surface-glass); border-color:var(--border); display:flex; flex-direction:column; gap:16px;">
+          <div style="width:44px; height:44px; border-radius:12px; background:rgba(59,130,246,0.12); display:flex; align-items:center; justify-content:center; color:#3B82F6;"><i data-lucide="trending-up" style="width:22px;"></i></div>
+          <div>
+            <div style="font-size:0.75rem; font-weight:700; color:#3B82F6; letter-spacing:0.08em; margin-bottom:8px;">POWER TREND</div>
+            <div style="font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:8px;">FTP increased 8W this month</div>
+            <div style="font-size:0.85rem; color:var(--text-4); line-height:1.6;">Your threshold power has steadily improved. Consider a structured 4-week build block to consolidate gains.</div>
+          </div>
+          <div style="margin-top:auto; padding-top:16px; border-top:1px solid var(--border-subtle); font-size:0.8rem; color:#3B82F6; font-weight:600; display:flex; align-items:center; gap:6px;"><i data-lucide="arrow-right" style="width:13px;"></i> View Workout Plan</div>
+        </div>
+        <div class="h2p-mockup-card" style="padding:28px; background:var(--surface-glass); border-color:var(--border); display:flex; flex-direction:column; gap:16px;">
+          <div style="width:44px; height:44px; border-radius:12px; background:rgba(16,185,129,0.12); display:flex; align-items:center; justify-content:center; color:#10B981;"><i data-lucide="shield-check" style="width:22px;"></i></div>
+          <div>
+            <div style="font-size:0.75rem; font-weight:700; color:#10B981; letter-spacing:0.08em; margin-bottom:8px;">RECOVERY STATUS</div>
+            <div style="font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:8px;">Optimal — ready to perform</div>
+            <div style="font-size:0.85rem; color:var(--text-4); line-height:1.6;">HRV score is 92 — top 15% for your age group. You are primed for a high-intensity session today.</div>
+          </div>
+          <div style="margin-top:auto; padding-top:16px; border-top:1px solid var(--border-subtle); font-size:0.8rem; color:#10B981; font-weight:600; display:flex; align-items:center; gap:6px;"><i data-lucide="arrow-right" style="width:13px;"></i> See Recovery Plan</div>
+        </div>
+        <div class="h2p-mockup-card" style="padding:28px; background:var(--surface-glass); border-color:var(--border); display:flex; flex-direction:column; gap:16px;">
+          <div style="width:44px; height:44px; border-radius:12px; background:rgba(245,158,11,0.12); display:flex; align-items:center; justify-content:center; color:#F59E0B;"><i data-lucide="alert-triangle" style="width:22px;"></i></div>
+          <div>
+            <div style="font-size:0.75rem; font-weight:700; color:#F59E0B; letter-spacing:0.08em; margin-bottom:8px;">OVERTRAINING RISK</div>
+            <div style="font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:8px;">TSS load elevated — taper advised</div>
+            <div style="font-size:0.85rem; color:var(--text-4); line-height:1.6;">Your chronic training load suggests a rest day or easy spin tomorrow to prevent performance decline.</div>
+          </div>
+          <div style="margin-top:auto; padding-top:16px; border-top:1px solid var(--border-subtle); font-size:0.8rem; color:#F59E0B; font-weight:600; display:flex; align-items:center; gap:6px;"><i data-lucide="arrow-right" style="width:13px;"></i> Adjust Training Load</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONAL RECORDS -->
+  <section class="section" style="padding:0 0 100px;">
+    <div class="container">
+      <div style="margin-bottom:40px;">
+        <div class="section-badge" style="margin-bottom:12px;"><i data-lucide="trophy" style="width:12px;"></i> All Time Bests</div>
+        <h2 class="section-title" style="margin:0;">Personal <span class="gradient-text">Records</span></h2>
+      </div>
+      <div class="reveal" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px;">
+        <div class="h2p-mockup-card" style="padding:24px; background:var(--surface-glass); border-color:var(--border); text-align:center;">
+          <div style="width:40px; height:40px; border-radius:10px; background:rgba(59,130,246,0.1); display:flex; align-items:center; justify-content:center; color:#3B82F6; margin:0 auto 16px;"><i data-lucide="zap" style="width:18px;"></i></div>
+          <div style="font-size:2rem; font-weight:900; color:var(--text); letter-spacing:-0.03em;">312<span style="font-size:0.9rem; font-weight:500; color:var(--text-4);"> W</span></div>
+          <div style="font-size:0.75rem; font-weight:700; color:var(--text-4); text-transform:uppercase; letter-spacing:0.08em; margin-top:6px;">Peak Power</div>
+        </div>
+        <div class="h2p-mockup-card" style="padding:24px; background:var(--surface-glass); border-color:var(--border); text-align:center;">
+          <div style="width:40px; height:40px; border-radius:10px; background:rgba(239,68,68,0.1); display:flex; align-items:center; justify-content:center; color:#EF4444; margin:0 auto 16px;"><i data-lucide="heart" style="width:18px;"></i></div>
+          <div style="font-size:2rem; font-weight:900; color:var(--text); letter-spacing:-0.03em;">189<span style="font-size:0.9rem; font-weight:500; color:var(--text-4);"> bpm</span></div>
+          <div style="font-size:0.75rem; font-weight:700; color:var(--text-4); text-transform:uppercase; letter-spacing:0.08em; margin-top:6px;">Max Heart Rate</div>
+        </div>
+        <div class="h2p-mockup-card" style="padding:24px; background:var(--surface-glass); border-color:var(--border); text-align:center;">
+          <div style="width:40px; height:40px; border-radius:10px; background:rgba(16,185,129,0.1); display:flex; align-items:center; justify-content:center; color:#10B981; margin:0 auto 16px;"><i data-lucide="map" style="width:18px;"></i></div>
+          <div style="font-size:2rem; font-weight:900; color:var(--text); letter-spacing:-0.03em;">224<span style="font-size:0.9rem; font-weight:500; color:var(--text-4);"> km</span></div>
+          <div style="font-size:0.75rem; font-weight:700; color:var(--text-4); text-transform:uppercase; letter-spacing:0.08em; margin-top:6px;">Longest Ride</div>
+        </div>
+        <div class="h2p-mockup-card" style="padding:24px; background:var(--surface-glass); border-color:var(--border); text-align:center;">
+          <div style="width:40px; height:40px; border-radius:10px; background:rgba(168,85,247,0.1); display:flex; align-items:center; justify-content:center; color:#A855F7; margin:0 auto 16px;"><i data-lucide="mountain" style="width:18px;"></i></div>
+          <div style="font-size:2rem; font-weight:900; color:var(--text); letter-spacing:-0.03em;">4.2<span style="font-size:0.9rem; font-weight:500; color:var(--text-4);"> km</span></div>
+          <div style="font-size:0.75rem; font-weight:700; color:var(--text-4); text-transform:uppercase; letter-spacing:0.08em; margin-top:6px;">Max Elevation</div>
+        </div>
+        <div class="h2p-mockup-card" style="padding:24px; background:var(--surface-glass); border-color:var(--border); text-align:center;">
+          <div style="width:40px; height:40px; border-radius:10px; background:rgba(6,182,212,0.1); display:flex; align-items:center; justify-content:center; color:#06B6D4; margin:0 auto 16px;"><i data-lucide="gauge" style="width:18px;"></i></div>
+          <div style="font-size:2rem; font-weight:900; color:var(--text); letter-spacing:-0.03em;">61.4<span style="font-size:0.9rem; font-weight:500; color:var(--text-4);"> km/h</span></div>
+          <div style="font-size:0.75rem; font-weight:700; color:var(--text-4); text-transform:uppercase; letter-spacing:0.08em; margin-top:6px;">Top Speed</div>
+        </div>
+        <div class="h2p-mockup-card" style="padding:24px; background:var(--surface-glass); border-color:var(--border); text-align:center;">
+          <div style="width:40px; height:40px; border-radius:10px; background:rgba(245,158,11,0.1); display:flex; align-items:center; justify-content:center; color:#F59E0B; margin:0 auto 16px;"><i data-lucide="clock" style="width:18px;"></i></div>
+          <div style="font-size:2rem; font-weight:900; color:var(--text); letter-spacing:-0.03em;">9:42<span style="font-size:0.9rem; font-weight:500; color:var(--text-4);"> h</span></div>
+          <div style="font-size:0.75rem; font-weight:700; color:var(--text-4); text-transform:uppercase; letter-spacing:0.08em; margin-top:6px;">Best Week Vol.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer class="footer">
+
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="nav-logo" style="justify-content:flex-start;">
-            <div class="logo-icon"><i data-lucide="bike" style="width:18px;height:18px;"></i></div>
+          <div class="logo-icon"><img src="images/site_icon.png" alt="CycleElite" style="width:16px;height:16px;"></div>
             <span>Cycle<span class="blue">Elite</span></span>
           </a>
           <p>The performance platform for serious cyclists and triathletes. Train with precision, race with confidence.</p>
           <div class="footer-social">
-            <a href="#" aria-label="Twitter"><i data-lucide="twitter" style="width:16px;height:16px;"></i></a>
-            <a href="#" aria-label="Instagram"><i data-lucide="instagram" style="width:16px;height:16px;"></i></a>
-            <a href="#" aria-label="YouTube"><i data-lucide="youtube" style="width:16px;height:16px;"></i></a>
-            <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" style="width:16px;height:16px;"></i></a>
+            <a href="#" aria-label="Twitter"><img src="images/twitter.png" alt="Twitter"></a>
+            <a href="#" aria-label="Instagram"><img src="images/instagram.png" alt="Instagram"></a>
+            <a href="#" aria-label="YouTube"><img src="images/youtube.png" alt="YouTube"></a>
+            <a href="#" aria-label="LinkedIn"><img src="images/linkedin.png" alt="LinkedIn"></a>
           </div>
         </div>
         <div class="footer-col">
@@ -387,38 +610,53 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
   <script>
     lucide.createIcons();
 
-    const perfCtx = document.getElementById('perfTimelineChart').getContext('2d');
-    if (perfCtx) {
-      const gradient = perfCtx.createLinearGradient(0, 0, 0, 450);
-      gradient.addColorStop(0, 'rgba(59, 130, 246, 0.5)');
-      gradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.1)');
-      gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+    document.getElementById('navToggle').addEventListener('click', function() {
+        document.getElementById('mobileDrawer').classList.toggle('active');
+        this.classList.toggle('active');
+    });
 
-      new Chart(perfCtx, {
+    // Navbar scroll
+    window.addEventListener('scroll', function() {
+        var nav = document.getElementById('mainNav');
+        if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Scroll reveal
+    var revealEls = document.querySelectorAll('.reveal');
+    var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+    }, { threshold: 0.1 });
+    revealEls.forEach(function(el) { io.observe(el); });
+
+    // Chart — uses correct canvas ID: perfTimelineChart
+    var chartCanvas = document.getElementById('perfTimelineChart');
+    if (chartCanvas) {
+      var ctx = chartCanvas.getContext('2d');
+      var gradient = ctx.createLinearGradient(0, 0, 0, 400);
+      gradient.addColorStop(0, 'rgba(59, 130, 246, 0.4)');
+      gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+      new Chart(ctx, {
         type: 'line',
         data: {
-          labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+          labels: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat','Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
           datasets: [{
             label: 'Performance',
             data: [45, 52, 48, 70, 85, 80, 60, 75, 78, 92, 110, 105, 88, 95],
             borderColor: '#3B82F6',
-            borderWidth: 6,
+            borderWidth: 4,
             pointBackgroundColor: '#fff',
             pointBorderColor: '#3B82F6',
-            pointBorderWidth: 4,
-            pointRadius: 8,
-            pointHoverRadius: 12,
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderWidth: 6,
+            pointBorderWidth: 3,
+            pointRadius: 6,
+            pointHoverRadius: 10,
             backgroundColor: gradient,
             fill: true,
-            tension: 0.45,
-            shadowBlur: 20,
-            shadowColor: 'rgba(59, 130, 246, 0.8)'
+            tension: 0.45
           }]
         },
         options: {
@@ -427,25 +665,25 @@
           plugins: {
             legend: { display: false },
             tooltip: {
-              backgroundColor: 'rgba(10, 15, 30, 0.95)',
+              backgroundColor: 'rgba(10,15,30,0.95)',
               titleColor: '#fff',
               bodyColor: '#3B82F6',
-              borderColor: 'rgba(59, 130, 246, 0.3)',
+              borderColor: 'rgba(59,130,246,0.3)',
               borderWidth: 1,
               displayColors: false,
-              padding: 16,
-              cornerRadius: 12,
-              titleFont: { size: 14, weight: '700' },
-              bodyFont: { size: 16, weight: '800' }
+              padding: 14,
+              cornerRadius: 10,
+              titleFont: { size: 13, weight: '700' },
+              bodyFont: { size: 15, weight: '800' }
             }
           },
           scales: {
             x: {
               grid: { display: false },
-              ticks: { color: 'rgba(255, 255, 255, 0.4)', font: { size: 12, weight: '600' }, padding: 15 }
+              ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 11, weight: '600' }, padding: 12 }
             },
             y: {
-              grid: { color: 'rgba(255, 255, 255, 0.03)', borderDash: [5, 5] },
+              grid: { color: 'rgba(255,255,255,0.04)', borderDash: [4,4] },
               ticks: { display: false }
             }
           }
@@ -455,3 +693,4 @@
   </script>
 </body>
 </html>
+

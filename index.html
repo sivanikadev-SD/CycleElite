@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CycleElite — Premium Performance Platform</title>
   <meta name="description" content="Advanced cycling & triathlon platform with AI-powered analytics, performance graphs, and elite coach network." />
+  <link rel="icon" type="image/png" href="images/site_icon.png" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/home.css" />
   <link rel="stylesheet" href="css/home2.css" />
@@ -17,7 +18,7 @@
 <nav class="nav" id="mainNav">
   <div class="container nav-inner">
     <a href="index.html" class="nav-logo">
-      <div class="logo-icon"><i data-lucide="bike" style="width:20px;height:20px;"></i></div>
+      <div class="logo-icon"><img src="images/site_icon.png" alt="CycleElite"></div>
       <span>Cycle<span class="blue">Elite</span></span>
     </a>
     <ul class="nav-menu">
@@ -135,14 +136,14 @@
       </div>
 
       <!-- Float cards -->
-      <div class="hero2-float glass-card" style="top:0;right:-20px;">
+      <div class="hero2-float glass-card hero2-float-top">
         <div class="hero2-float-icon"><i data-lucide="trending-up" style="width:16px;height:16px;color:var(--secondary);"></i></div>
         <div>
           <div style="font-size:0.78rem;font-weight:700;">FTP Increased</div>
           <div style="font-size:0.7rem;color:var(--text-3);">+18W this month</div>
         </div>
       </div>
-      <div class="hero2-float glass-card" style="bottom:60px;left:-20px;animation-delay:0.7s;">
+      <div class="hero2-float glass-card hero2-float-bottom">
         <div class="hero2-float-icon"><i data-lucide="heart-pulse" style="width:16px;height:16px;color:var(--danger);"></i></div>
         <div>
           <div style="font-size:0.78rem;font-weight:700;">Recovery Score</div>
@@ -375,6 +376,36 @@
   </div>
 </section>
 
+<!-- FAQ SECTION -->
+<section class="section faq-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge"><i data-lucide="help-circle" style="width:12px; height:12px;"></i> FAQs</div>
+      <h2 class="section-title">Commonly <span class="highlight">Asked</span></h2>
+    </div>
+    <div class="faq-grid reveal">
+      <div class="faq-item">
+        <div class="faq-header" onclick="this.parentElement.classList.toggle('active')">
+          <span class="faq-title">How does the AI training adjustment work?</span>
+          <i data-lucide="chevron-down" class="faq-icon" style="width:18px;"></i>
+        </div>
+        <div class="faq-body">
+          <div class="faq-content">Our LoadDelta engine analyzes your HRV, sleep data, and past 48 hours of TSS (Training Stress Score). If it detects excessive fatigue or a "supercompensation" window, it automatically scales your upcoming session intensity by up to 15%.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-header" onclick="this.parentElement.classList.toggle('active')">
+          <span class="faq-title">What sensors can I connect?</span>
+          <i data-lucide="chevron-down" class="faq-icon" style="width:18px;"></i>
+        </div>
+        <div class="faq-body">
+          <div class="faq-content">CycleElite connects with all ANT+ and Bluetooth Smart sensors including Power Meters (dual-sided supported), Heart Rate Monitors, Cadence sensors, and Core body temperature sensors.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== PREMIUM CTA GRADIENT ===================== -->
 <section class="premium-cta-section section-sm">
   <div class="container">
@@ -409,15 +440,15 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="nav-logo" style="justify-content:flex-start;">
-          <div class="logo-icon"><i data-lucide="bike" style="width:18px;height:18px;"></i></div>
+          <div class="logo-icon"><img src="images/site_icon.png" alt="CycleElite" style="width:16px;height:16px;"></div>
           <span>Cycle<span class="blue">Elite</span></span>
         </a>
         <p>The performance platform for serious cyclists and triathletes. Train with precision, race with confidence.</p>
         <div class="footer-social">
-          <a href="#" aria-label="Twitter"><i data-lucide="twitter" style="width:16px;height:16px;"></i></a>
-          <a href="#" aria-label="Instagram"><i data-lucide="instagram" style="width:16px;height:16px;"></i></a>
-          <a href="#" aria-label="YouTube"><i data-lucide="youtube" style="width:16px;height:16px;"></i></a>
-          <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" style="width:16px;height:16px;"></i></a>
+          <a href="#" aria-label="Twitter"><img src="images/twitter.png" alt="Twitter"></a>
+          <a href="#" aria-label="Instagram"><img src="images/instagram.png" alt="Instagram"></a>
+          <a href="#" aria-label="YouTube"><img src="images/youtube.png" alt="YouTube"></a>
+          <a href="#" aria-label="LinkedIn"><img src="images/linkedin.png" alt="LinkedIn"></a>
         </div>
       </div>
       <div class="footer-col">

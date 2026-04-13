@@ -156,6 +156,9 @@
 /* Hero Dashboard */
 .hero2-right {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero2-dashboard {
@@ -198,6 +201,18 @@
   animation: float 4s ease-in-out infinite;
   box-shadow: var(--shadow-lg);
   border-radius: var(--radius-lg);
+  z-index: 3;
+}
+
+.hero2-float-top {
+  top: 0;
+  right: -20px;
+}
+
+.hero2-float-bottom {
+  bottom: 60px;
+  left: -20px;
+  animation-delay: 0.7s;
 }
 
 .hero2-float-icon {
@@ -256,6 +271,7 @@
   display: grid;
   grid-template-columns: 1.6fr 1fr;
   gap: 20px;
+  width: 100%;
 }
 
 .analytics-side-col {
@@ -374,6 +390,7 @@
   box-shadow: var(--shadow-lg);
   position: relative;
   overflow: hidden;
+  color: #fff !important; /* Force white text */
 }
 
 .premium-cta-card > * {
@@ -385,7 +402,7 @@
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(90deg, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.7) 100%);
+  background: linear-gradient(90deg, rgba(15,23,42,0.96) 0%, rgba(15,23,42,0.8) 100%);
   z-index: 0;
 }
 
@@ -394,9 +411,10 @@
   font-weight: 800;
   letter-spacing: -0.02em;
   margin-bottom: 12px;
+  color: #fff !important;
 }
 
-.premium-cta-desc { font-size: 0.9rem; color: var(--text-3); line-height: 1.7; margin-bottom: 24px; }
+.premium-cta-desc { font-size: 0.9rem; color: rgba(255,255,255,0.7) !important; line-height: 1.7; margin-bottom: 24px; }
 
 .premium-cta-perks {
   display: grid;
@@ -410,7 +428,7 @@
   gap: 8px;
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--text-2);
+  color: rgba(255,255,255,0.9) !important;
 }
 
 .methodology-grid {
@@ -427,7 +445,10 @@
   .hero2-desc { max-width: 100%; }
   .hero2-actions { justify-content: center; }
   .hero2-trust { justify-content: center; }
-  .hero2-float { display: none; }
+  .hero2-float { display: none !important; }
+  .hero2-float-top, .hero2-float-bottom { display: none !important; }
+  .hero2-right { width: 100%; max-width: 540px; margin: 0 auto; order: 2; overflow: hidden; }
+  .hero2-left { order: 1; }
   .analytics-grid { grid-template-columns: 1fr; }
   .progress-viz-grid { grid-template-columns: 1fr; }
   .premium-features-grid { grid-template-columns: repeat(2, 1fr); }
@@ -449,6 +470,9 @@
   .premium-cta-card { padding: 28px; }
   .methodology-grid { grid-template-columns: 1fr; }
   .pv-card { overflow: hidden; width: 100%; }
+  .hero2-right { max-width: 100%; }
+  .hero2-dashboard { padding: 16px; width: 100%; }
+  .hero2-section { padding-top: 100px; padding-bottom: 60px; height: auto; min-height: unset; }
 }
 
 @media (max-width: 480px) {

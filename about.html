@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us — CycleElite</title>
+    <meta name="description" content="Learn about our mission to empower athletes." />
+    <link rel="icon" type="image/png" href="images/site_icon.png" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/home2_nexus.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+      (function() {
+        var SVG_SUN  = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
+        var SVG_MOON = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
+        var SVG_LTR  = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" y1="6" x2="3" y2="6"/><line x1="15" y1="12" x2="3" y2="12"/><line x1="17" y1="18" x2="3" y2="18"/></svg>';
+        var SVG_RTL  = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="12" x2="9" y2="12"/><line x1="21" y1="18" x2="7" y2="18"/></svg>';
+
+        function gs(k, d) { try { return localStorage.getItem(k) || d; } catch(e) { return d; } }
+        function ss(k, v) { try { localStorage.setItem(k, v); } catch(e) {} }
+
+        window._theme = gs('cycle-theme', 'dark');
+        window._dir   = gs('cycle-dir',   'ltr');
+
+        function applyAll() {
+          document.documentElement.setAttribute('data-theme', window._theme);
+          document.documentElement.setAttribute('dir', window._dir);
+          if (document.body) document.body.setAttribute('data-theme', window._theme);
+          document.querySelectorAll('[data-theme-icon]').forEach(function(el) {
+            el.innerHTML = window._theme === 'dark' ? SVG_SUN : SVG_MOON;
+          });
+          document.querySelectorAll('[data-rtl-icon]').forEach(function(el) {
+            el.innerHTML = window._dir === 'rtl' ? SVG_RTL : SVG_LTR;
+          });
+        }
+
+        window.toggleTheme = function() {
+          window._theme = window._theme === 'dark' ? 'light' : 'dark';
+          ss('cycle-theme', window._theme);
+          applyAll();
+        };
+
+        window.toggleDir = function() {
+          window._dir = window._dir === 'rtl' ? 'ltr' : 'rtl';
+          ss('cycle-dir', window._dir);
+          applyAll();
+        };
+
+        applyAll();
+        document.addEventListener('DOMContentLoaded', applyAll);
+      })();
+    </script>
+</head>
+<body class="home2-nexus">
+
+    <!-- NAVBAR -->
+    <nav class="nav" id="mainNav">
+      <div class="container nav-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon"><img src="images/site_icon.png" alt="CycleElite"></div>
+          <span>Cycle<span class="blue">Elite</span></span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="home2.html" class="nav-link">Nexus</a></li>
+          <li><a href="about.html" class="nav-link active">About</a></li>
+          <li><a href="programs.html" class="nav-link">Programs</a></li>
+          <li><a href="coaches.html" class="nav-link">Coaches</a></li>
+          <li><a href="analytics.html" class="nav-link">Analytics</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="btn-icon" onclick="toggleTheme()" aria-label="Toggle Theme"><span data-theme-icon></span></button>
+          <button class="btn-icon" onclick="toggleDir()" aria-label="Toggle RTL"><span data-rtl-icon></span></button>
+          <a href="login.html" class="btn btn-secondary btn-sm">Sign In</a>
+          <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MOBILE DRAWER -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="home2.html" class="mobile-nav-link">Nexus</a>
+      <a href="about.html" class="mobile-nav-link active">About</a>
+      <a href="programs.html" class="mobile-nav-link">Programs</a>
+      <a href="coaches.html" class="mobile-nav-link">Coaches</a>
+      <a href="analytics.html" class="mobile-nav-link">Analytics</a>
+      <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
+      <div class="mobile-drawer-actions">
+        <a href="login.html" class="btn btn-secondary btn-sm">Sign In</a>
+        <a href="signup.html" class="btn btn-primary btn-sm">Join Elite</a>
+      </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <header class="nexus-hero" style="min-height: 60vh; padding: 160px 0 80px;">
+        <div class="container">
+            <div class="section-badge"><i data-lucide="info" style="width:12px;"></i> Our Story</div>
+            <h1 class="nexus-hero-title">Fueling the<br><span>Revolution</span></h1>
+            <p class="nexus-hero-desc">We are a collective of athletes, engineers, and dreamers dedicated to pushing the boundaries of human performance through science and community.</p>
+        </div>
+    </header>
+
+    <!-- MISSION SECTION -->
+    <section class="nexus-section">
+        <div class="container">
+            <div class="nexus-grid-3">
+                <div class="nexus-card">
+                    <div class="nexus-card-icon"><i data-lucide="target"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>To provide every athlete with the tools, data, and coaching usually reserved for World Tour professionals.</p>
+                </div>
+                <div class="nexus-card">
+                    <div class="nexus-card-icon"><i data-lucide="users"></i></div>
+                    <h3>Our Community</h3>
+                    <p>A global network of over 120,000 cyclists sharing insights, routes, and pure passion for the sport.</p>
+                </div>
+                <div class="nexus-card">
+                    <div class="nexus-card-icon"><i data-lucide="cpu"></i></div>
+                    <h3>Our Tech</h3>
+                    <p>Proprietary AI models that learn from millions of data points to predict your best performance windows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION teaser -->
+    <section class="nexus-section" style="background: rgba(15, 23, 42, 0.4);">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title">Built by <span class="gradient-text">Athletes</span></h2>
+            <p class="section-desc" style="margin: 0 auto 60px;">Founded by former professional riders who knew that data was the missing link for enthusiast development.</p>
+            <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <div style="width: 120px; height: 120px; border-radius: 50%; border: 2px solid var(--nexus-primary); overflow: hidden; margin-bottom: 20px;">
+                        <img src="images/coach_sarah.png" alt="Founder" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h4>Sarah Mitchell</h4>
+                    <p style="font-size: 0.85rem; color: var(--nexus-primary);">Lead Performance Architect</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 120px; height: 120px; border-radius: 50%; border: 2px solid var(--nexus-primary); overflow: hidden; margin-bottom: 20px;">
+                        <img src="images/coach_jake.png" alt="CTO" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h4>Jake Roberts</h4>
+                    <p style="font-size: 0.85rem; color: var(--nexus-primary);">Chief Technology Officer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" style="background: var(--nexus-bg); border-top: 1px solid var(--nexus-border); margin-top: 100px;">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 CycleElite Nexus. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="about.html">About Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Toggle mobile drawer
+        const navToggle = document.getElementById('navToggle');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        if (navToggle && mobileDrawer) {
+            navToggle.addEventListener('click', () => {
+                mobileDrawer.classList.toggle('open');
+                navToggle.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

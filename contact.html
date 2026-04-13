@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us — CycleElite</title>
   <meta name="description" content="Reach out to the CycleElite team for support, partnership inquiries, or expert coaching guidance." />
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link rel="icon" type="image/png" href="images/site_icon.png" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/home2_premium.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
   <nav class="nav" id="mainNav">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo">
-        <div class="logo-icon"><i data-lucide="bike" style="width:20px;height:20px;"></i></div>
+        <div class="logo-icon"><img src="images/site_icon.png" alt="CycleElite"></div>
         <span>Cycle<span class="blue">Elite</span></span>
       </a>
       <ul class="nav-menu">
@@ -204,6 +204,45 @@
         </article>
       </div>
     </div>
+    <!-- FAQ SECTION -->
+    <section class="section faq-section" style="margin-top: 60px;">
+      <div class="section-header reveal">
+        <div class="section-badge"><i data-lucide="help-circle" style="width:12px; height:12px;"></i> Support FAQs</div>
+        <h2 class="section-title">Common <span class="highlight">Support Questions</span></h2>
+      </div>
+      <div class="faq-grid reveal">
+        <div class="faq-item">
+          <div class="faq-header" onclick="this.parentElement.classList.toggle('active')">
+            <span class="faq-title">How do I reset my password?</span>
+            <i data-lucide="chevron-down" class="faq-icon" style="width:18px;"></i>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">Go to the Login page and click "Forgot Password". You'll receive an email with a secure link to reset your credentials. If you don't see it, check your spam folder or contact support.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-header" onclick="this.parentElement.classList.toggle('active')">
+            <span class="faq-title">Do you offer educational discounts?</span>
+            <i data-lucide="chevron-down" class="faq-icon" style="width:18px;"></i>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">Yes! We offer a 25% discount for verified students and researchers in sports science fields. Send us a message with your academic credentials to apply.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER SECTION -->
+    <section class="section newsletter-section reveal">
+      <div class="newsletter-card">
+        <h2 style="font-size:2.5rem; font-weight:900; margin-bottom:16px;">The Support <span class="highlight">Brief</span></h2>
+        <p style="color:rgba(255,255,255,0.6); max-width:480px; margin:0 auto;">Stay updated with new platform features, maintenance schedules, and expert tips from our support team.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault()" style="display:flex; gap:12px; margin-top:32px; max-width:500px; margin-left:auto; margin-right:auto;">
+          <input type="email" class="newsletter-input" placeholder="Your performance email" style="flex:1; padding:12px 24px; border-radius:30px; border:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.05); color:#fff; outline:none;">
+          <button class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </section>
   </main>
 
   <!-- FOOTER -->
@@ -212,15 +251,15 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="nav-logo" style="justify-content:flex-start;">
-            <div class="logo-icon"><i data-lucide="bike" style="width:18px;height:18px;"></i></div>
+            <div class="logo-icon"><img src="images/site_icon.png" alt="CycleElite" style="width:16px;height:16px;"></div>
             <span>Cycle<span class="blue">Elite</span></span>
           </a>
           <p>The performance platform for serious cyclists and triathletes. Train with precision, race with confidence.</p>
           <div class="footer-social">
-            <a href="#" aria-label="Twitter"><i data-lucide="twitter" style="width:16px;height:16px;"></i></a>
-            <a href="#" aria-label="Instagram"><i data-lucide="instagram" style="width:16px;height:16px;"></i></a>
-            <a href="#" aria-label="YouTube"><i data-lucide="youtube" style="width:16px;height:16px;"></i></a>
-            <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" style="width:16px;height:16px;"></i></a>
+            <a href="#" aria-label="Twitter"><img src="images/twitter.png" alt="Twitter"></a>
+            <a href="#" aria-label="Instagram"><img src="images/instagram.png" alt="Instagram"></a>
+            <a href="#" aria-label="YouTube"><img src="images/youtube.png" alt="YouTube"></a>
+            <a href="#" aria-label="LinkedIn"><img src="images/linkedin.png" alt="LinkedIn"></a>
           </div>
         </div>
         <div class="footer-col">
