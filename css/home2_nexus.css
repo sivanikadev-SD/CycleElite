@@ -260,9 +260,17 @@
 
 [data-theme="light"] .home2-nexus .nexus-hero-bg img { opacity: 1; filter: none; }
 [data-theme="light"] .home2-nexus .nexus-hero-bg::after { background: linear-gradient(to bottom, rgba(248,250,252,0.1), #F8FAFC 80%); }
-[data-theme="light"] .home2-nexus .nexus-hero-title { color: #020617; }
-[data-theme="light"] .home2-nexus .nexus-hero-title span { filter: none; color: #2563EB; }
-[data-theme="light"] .home2-nexus .nexus-hero-desc { color: #475569; }
+[data-theme="light"] .home2-nexus .nexus-hero-title span { 
+    filter: none; 
+    background: none;
+    -webkit-text-fill-color: var(--primary); 
+    color: var(--primary); 
+}
+[data-theme="light"] .home2-nexus .nexus-hero-desc { color: #334155; }
+[data-theme="light"] .home2-nexus .hero-tag { 
+    background: rgba(37, 99, 235, 0.12); 
+    border-color: rgba(37, 99, 235, 0.3);
+}
 [data-theme="light"] .home2-nexus .nexus-card { background: #fff; border-color: rgba(0,0,0,0.08); }
 [data-theme="light"] .home2-nexus .nexus-card h3 { color: #020617; }
 [data-theme="light"] .home2-nexus .nexus-card p { color: #64748B; }
@@ -271,9 +279,9 @@
 [data-theme="light"] .home2-nexus .nexus-stat-box span { color: #475569; }
 [data-theme="light"] .home2-nexus .nexus-preview-wrap { background: #fff; border-color: rgba(0,0,0,0.08); }
 [data-theme="light"] .home2-nexus .section-badge { background: rgba(37,99,235,0.1); color: #2563EB; }
-[data-theme="light"] .home2-nexus .nexus-btn-glass { background: rgba(0,0,0,0.05); color: #020617; border-color: rgba(0,0,0,0.12); }
-[data-theme="light"] .home2-nexus h2, [data-theme="light"] .home2-nexus h3 { color: #020617; }
-[data-theme="light"] .home2-nexus p { color: #475569; }
+[data-theme="light"] .home2-nexus h2, [data-theme="light"] .home2-nexus h3 { color: #0f172a; }
+[data-theme="light"] .home2-nexus p { color: #334155; }
+[data-theme="light"] .home2-nexus .nexus-btn-glass { background: rgba(0,0,0,0.08); color: #0f172a; border-color: rgba(0,0,0,0.15); }
 [data-theme="light"] .home2-nexus footer { background: #F1F5F9; border-top: 1px solid rgba(0,0,0,0.08); }
 [data-theme="light"] .home2-nexus footer p, [data-theme="light"] .home2-nexus footer a { color: #475569; }
 

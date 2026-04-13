@@ -431,6 +431,13 @@ h1, h2, h3, h4, h5, h6 {
   transition: all var(--transition);
 }
 
+[data-theme="light"] .nav {
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
 .nav.scrolled {
   background: var(--nav-bg);
   backdrop-filter: blur(20px);
@@ -480,13 +487,17 @@ h1, h2, h3, h4, h5, h6 {
   filter: brightness(0) invert(1);
 }
 
+[data-theme="light"] .nav-logo .logo-icon img {
+  filter: brightness(0);
+}
+
 .nav-logo span.blue { color: var(--primary); }
 .nav-logo span.green { color: var(--secondary); }
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   flex: 1;
   justify-content: center;
 }
@@ -504,6 +515,73 @@ h1, h2, h3, h4, h5, h6 {
 .nav-link:hover, .nav-link.active {
   color: var(--primary);
   background: var(--primary-glow);
+}
+
+[data-theme="light"] .nav-link:hover, 
+[data-theme="light"] .nav-link.active {
+  color: #1d4ed8;
+  background: rgba(37, 99, 235, 0.15);
+}
+
+/* --- Nav Dropdown --- */
+.nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  min-width: 180px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 8px;
+  box-shadow: var(--shadow-xl);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition);
+  z-index: 100;
+  margin-top: 8px;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-3);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.nav-dropdown-item:hover {
+  background: var(--primary-glow);
+  color: var(--primary);
+}
+
+.dropdown-chevron {
+  transition: transform var(--transition);
+  opacity: 0.6;
+}
+
+.nav-dropdown:hover .dropdown-chevron {
+  transform: rotate(180deg);
+  opacity: 1;
 }
 
 .nav-actions {
