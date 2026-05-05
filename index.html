@@ -26,12 +26,12 @@
         <a href="index.html" class="nav-link active">Home <i data-lucide="chevron-down" class="dropdown-chevron" style="width:14px;height:14px;margin-left:4px;"></i></a>
         <div class="nav-dropdown-menu">
           <a href="index.html" class="nav-dropdown-item">Standard Home</a>
-          <a href="home2.html" class="nav-dropdown-item">Nexus Home</a>
+          <a href="home2.html" class="nav-dropdown-item">Pro Dashboard</a>
         </div>
       </li>
+      <li><a href="about.html" class="nav-link">About</a></li>
       <li><a href="programs.html" class="nav-link">Programs</a></li>
       <li><a href="coaches.html" class="nav-link">Coaches</a></li>
-      <li><a href="about.html" class="nav-link">About</a></li>
       <li><a href="analytics.html" class="nav-link">Analytics</a></li>
       <li><a href="pricing.html" class="nav-link">Pricing</a></li>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
@@ -39,7 +39,7 @@
     </ul>
     <div class="nav-actions">
       <button class="btn-icon" onclick="toggleTheme()"><span data-theme-icon></span></button>
-      <button class="btn-icon" onclick="toggleDir()"><span data-rtl-icon></span></button>
+      <button class="btn-icon" onclick="toggleDir()"><i data-lucide="arrow-left-right" style="width:18px;height:18px;"></i></button>
       <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
       <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
       <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
@@ -49,10 +49,10 @@
 
 <div class="mobile-drawer" id="mobileDrawer">
   <a href="index.html" class="mobile-nav-link active">Home</a>
-  <a href="home2.html" class="mobile-nav-link">Home 2 (Nexus)</a>
+  <a href="home2.html" class="mobile-nav-link">Pro Dashboard</a>
+  <a href="about.html" class="mobile-nav-link">About</a>
   <a href="programs.html" class="mobile-nav-link">Programs</a>
   <a href="coaches.html" class="mobile-nav-link">Coaches</a>
-  <a href="about.html" class="mobile-nav-link">About</a>
   <a href="analytics.html" class="mobile-nav-link">Analytics</a>
   <a href="pricing.html" class="mobile-nav-link">Pricing</a>
   <a href="contact.html" class="mobile-nav-link">Contact</a>
@@ -409,6 +409,25 @@
           <div class="faq-content">CycleElite connects with all ANT+ and Bluetooth Smart sensors including Power Meters (dual-sided supported), Heart Rate Monitors, Cadence sensors, and Core body temperature sensors.</div>
         </div>
       </div>
+      <div class="faq-item">
+        <div class="faq-header" onclick="this.parentElement.classList.toggle('active')">
+          <span class="faq-title">Can I switch plans mid-way through a block?</span>
+          <i data-lucide="chevron-down" class="faq-icon" style="width:18px;"></i>
+        </div>
+        <div class="faq-body">
+          <div class="faq-content">Yes, you can transition between Beginner, Intermediate, and Pro tracks at any time. The system will recalculate your TSS targets based on your current 6-week CTL.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-header" onclick="this.parentElement.classList.toggle('active')">
+          <span class="faq-title">Do I need a power meter to use CycleElite?</span>
+          <i data-lucide="chevron-down" class="faq-icon" style="width:18px;"></i>
+        </div>
+        <div class="faq-body">
+          <div class="faq-content">While a power meter unlocks our most advanced features like FTP progression and precise TSS targeting, you can still use our platform with a heart rate monitor to get estimated load and recovery metrics.</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

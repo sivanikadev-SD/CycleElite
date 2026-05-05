@@ -65,12 +65,12 @@
             <a href="index.html" class="nav-link">Home <i data-lucide="chevron-down" class="dropdown-chevron" style="width:14px;height:14px;margin-left:4px;"></i></a>
             <div class="nav-dropdown-menu">
               <a href="index.html" class="nav-dropdown-item">Standard Home</a>
-              <a href="home2.html" class="nav-dropdown-item">Nexus Home</a>
+              <a href="home2.html" class="nav-dropdown-item">Pro Dashboard</a>
             </div>
           </li>
+          <li><a href="about.html" class="nav-link active">About</a></li>
           <li><a href="programs.html" class="nav-link">Programs</a></li>
           <li><a href="coaches.html" class="nav-link">Coaches</a></li>
-          <li><a href="about.html" class="nav-link active">About</a></li>
           <li><a href="analytics.html" class="nav-link">Analytics</a></li>
           <li><a href="pricing.html" class="nav-link">Pricing</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
@@ -78,7 +78,7 @@
         </ul>
         <div class="nav-actions">
           <button class="btn-icon" onclick="toggleTheme()" aria-label="Toggle Theme"><span data-theme-icon></span></button>
-          <button class="btn-icon" onclick="toggleDir()" aria-label="Toggle RTL"><span data-rtl-icon></span></button>
+          <button class="btn-icon" onclick="toggleDir()" aria-label="Toggle RTL"><i data-lucide="arrow-left-right" style="width:18px;height:18px;"></i></button>
           <a href="login.html" class="btn btn-secondary btn-sm">Sign In</a>
           <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
         </div>
@@ -88,10 +88,10 @@
     <!-- MOBILE DRAWER -->
     <div class="mobile-drawer" id="mobileDrawer">
       <a href="index.html" class="mobile-nav-link">Home</a>
-      <a href="home2.html" class="mobile-nav-link">Home 2 (Nexus)</a>
+      <a href="home2.html" class="mobile-nav-link">Pro Dashboard</a>
+      <a href="about.html" class="mobile-nav-link active">About</a>
       <a href="programs.html" class="mobile-nav-link">Programs</a>
       <a href="coaches.html" class="mobile-nav-link">Coaches</a>
-      <a href="about.html" class="mobile-nav-link active">About</a>
       <a href="analytics.html" class="mobile-nav-link">Analytics</a>
       <a href="pricing.html" class="mobile-nav-link">Pricing</a>
       <a href="contact.html" class="mobile-nav-link">Contact</a>
@@ -103,8 +103,12 @@
     </div>
 
     <!-- HERO SECTION -->
-    <header class="nexus-hero" style="min-height: 60vh; padding: 160px 0 80px;">
-        <div class="container">
+    
+    <!-- HERO SECTION -->
+    <header class="nexus-hero" style="min-height: 60vh; padding: 160px 0 80px; background-image: url('images/coaches_hero_bg.png'); background-size: cover; background-position: center; position: relative;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(15,23,42,0.4)); z-index: 1;"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+
             <div class="section-badge"><i data-lucide="info" style="width:12px;"></i> Our Story</div>
             <h1 class="nexus-hero-title">Fueling the<br><span>Revolution</span></h1>
             <p class="nexus-hero-desc">We are a collective of athletes, engineers, and dreamers dedicated to pushing the boundaries of human performance through science and community.</p>
@@ -134,8 +138,18 @@
         </div>
     </section>
 
+    <!-- OUR STORY SECTION -->
+    <section class="nexus-section">
+        <div class="container" style="max-width: 800px; text-align: center;">
+            <div class="section-badge" style="margin: 0 auto 20px; display: inline-flex;"><i data-lucide="book-open" style="width:12px;"></i> The History</div>
+            <h2 class="section-title">How It All <span class="gradient-text">Began</span></h2>
+            <p class="section-desc" style="margin: 0 auto 30px;text-align: justify;">In 2018, our founders realized that amateur cyclists were training completely blind. While World Tour teams had access to millions of data points, metabolic testing, and AI-driven periodization, the everyday athlete was left guessing.</p>
+            <p class="section-desc" style="margin: 0 auto 30px;text-align: justify;">We set out to democratize elite performance. By combining deep-learning algorithms with thousands of hours of real-world coach feedback, CycleElite was born. Today, we process over 50,000 workouts daily, constantly refining the platform to help you break your personal records.</p>
+        </div>
+    </section>
+
     <!-- TEAM SECTION teaser -->
-    <section class="nexus-section" style="background: rgba(15, 23, 42, 0.4);">
+    <section class="nexus-section" style="background: var(--bg-2); padding: 80px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
         <div class="container" style="text-align: center;">
             <h2 class="section-title">Built by <span class="gradient-text">Athletes</span></h2>
             <p class="section-desc" style="margin: 0 auto 60px;">Founded by former professional riders who knew that data was the missing link for enthusiast development.</p>
@@ -158,18 +172,70 @@
         </div>
     </section>
 
-    <footer class="footer" style="background: var(--nexus-bg); border-top: 1px solid var(--nexus-border); margin-top: 100px;">
+    <!-- CTA SECTION -->
+    <section class="nexus-section" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 80px 0; text-align: center; color: #fff;">
         <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2026 CycleElite Nexus. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="#">Privacy</a>
-                    <a href="#">Terms</a>
-                    <a href="about.html">About Us</a>
-                </div>
-            </div>
+            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.2);">Ready to rewrite your limits?</h2>
+            <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Join the 120,000+ athletes who have already trusted CycleElite with their training journey.</p>
+            <a href="signup.html" class="nexus-btn" style="background: #ffffff; color: var(--primary); border: none; font-weight: 800; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">Start Your Journey</a>
         </div>
-    </footer>
+    </section>
+
+    <footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="justify-content:flex-start;">
+          <div class="logo-icon"><img src="images/site_icon.png" alt="CycleElite" style="width:16px;height:16px;"></div>
+          <span>Cycle<span class="blue">Elite</span></span>
+        </a>
+        <p>The performance platform for serious cyclists and triathletes. Train with precision, race with confidence.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter"><img src="images/twitter.png" alt="Twitter"></a>
+          <a href="#" aria-label="Instagram"><img src="images/instagram.png" alt="Instagram"></a>
+          <a href="#" aria-label="YouTube"><img src="images/youtube.png" alt="YouTube"></a>
+          <a href="#" aria-label="LinkedIn"><img src="images/linkedin.png" alt="LinkedIn"></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="programs.html">Training Programs</a></li>
+          <li><a href="coaches.html">Find a Coach</a></li>
+          <li><a href="analytics.html">Analytics</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Community</a></li>
+          <li><a href="#">API Docs</a></li>
+          <li><a href="#">Status</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 CycleElite. Premium Performance Platform.</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
     <script>
         lucide.createIcons();
@@ -183,14 +249,7 @@
         });
 
         // Toggle mobile drawer
-        const navToggle = document.getElementById('navToggle');
-        const mobileDrawer = document.getElementById('mobileDrawer');
-        if (navToggle && mobileDrawer) {
-            navToggle.addEventListener('click', () => {
-                mobileDrawer.classList.toggle('open');
-                navToggle.classList.toggle('active');
-            });
-        }
+        
     </script>
 </body>
 </html>

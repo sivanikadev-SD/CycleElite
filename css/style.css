@@ -62,13 +62,13 @@
 }
 
 [data-theme="dark"] {
-  --bg: #020617; /* Slate 950 - deeper than before */
-  --bg-2: #0f172a; /* Slate 900 */
-  --bg-3: #1e293b; /* Slate 800 */
-  --surface: rgba(15, 23, 42, 0.6);
-  --surface-2: #020617;
-  --border: rgba(255, 255, 255, 0.05);
-  --border-strong: rgba(255, 255, 255, 0.1);
+  --bg: #000000;
+  --bg-2: #111111;
+  --bg-3: #222222;
+  --surface: #111111;
+  --surface-2: #000000;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.15);
   --text: #f8fafc;
   --text-2: #e2e8f0;
   --text-3: #94a3b8;
@@ -111,6 +111,7 @@ html {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -140,7 +141,7 @@ ul, ol { list-style: none; }
 /* --- Typography --- */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.2;
   color: var(--text);
 }
@@ -1142,4 +1143,111 @@ h1, h2, h3, h4, h5, h6 {
 [dir="rtl"] .gradient-text {
   background-clip: text;
   -webkit-background-clip: text;
+}
+
+
+/* Ensure white text on primary/blue backgrounds in dark mode */
+[data-theme="dark"] .bg-primary, 
+[data-theme="dark"] .badge-primary, 
+[data-theme="dark"] .btn-primary, 
+[data-theme="dark"] .gradient-bg { 
+  color: #ffffff !important;
+}
+
+/* app-float-card-fix */
+@media (max-width: 480px) {
+  .app-float-card {
+    left: 10px !important;
+    right: auto !important;
+    transform: scale(0.85);
+  }
+}
+
+/* Force White Text in Hero Sections */
+.nexus-hero .nexus-hero-title,
+.nexus-hero .nexus-hero-desc,
+.std-hero,
+.std-hero .std-hero-desc,
+.hero2-section .hero2-title,
+.hero2-section .hero2-desc,
+.hero-section .hero-title,
+.hero-section .hero-desc {
+  color: #ffffff !important;
+}
+.std-hero-title{
+  color: var(--text) !important;
+}
+.nexus-hero .nexus-hero-desc,
+.std-hero .std-hero-desc,
+.hero2-section .hero2-desc,
+.hero-section .hero-desc {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.nexus-hero .section-badge,
+.std-hero .section-badge,
+.hero2-section .hero-badge,
+.hero-section .hero-badge {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+[data-theme="light"] .home2-nexus .nexus-hero-title span {
+  -webkit-text-fill-color: #ffffff !important;
+  color: #ffffff !important;
+  background: none !important;
+}
+
+
+/* Catch-all for dark hero sections */
+.nexus-hero *,
+.std-hero *,
+.hero2-section * {
+  /* Only apply to elements that typically inherit text color */
+}
+
+.nexus-hero h1, .nexus-hero h2, .nexus-hero h3, .nexus-hero p, .nexus-hero div, .nexus-hero span:not(.gradient-text):not(.pulse),
+.std-hero h1, .std-hero h2, .std-hero h3, .std-hero p, .std-hero div, .std-hero span:not(.gradient-text):not(.pulse),
+.hero2-section h1, .hero2-section h2, .hero2-section h3, .hero2-section p, .hero2-section div, .hero2-section span:not(.gradient-text-blue):not(.pulse-dot) {
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* subtle shadow for better readability */
+}
+
+/* Ensure features list is white */
+.hero2-feat {
+  color: #ffffff !important;
+}
+
+
+/* Global Hero Overlay Standardization */
+/* Ensure all hero backgrounds match the about page overlay */
+.nexus-hero-bg::after,
+.hero-bg-standard::after,
+.hero2-bg::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(15,23,42,0.4)) !important;
+  z-index: 1 !important;
+}
+
+/* For about page where it's applied inline, ensure standard hero styles */
+.nexus-hero {
+  position: relative;
+}
+
+/* Ensure the image behind the overlay is visible properly */
+.nexus-hero-bg img,
+.hero-bg-standard img,
+.hero2-bg img {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* Fix any stacking issues */
+.std-hero .container,
+.nexus-hero .container,
+.hero2-section .container {
+  position: relative !important;
+  z-index: 2 !important;
 }

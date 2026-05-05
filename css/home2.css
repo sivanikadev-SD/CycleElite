@@ -24,6 +24,14 @@
   background-repeat: no-repeat;
 }
 
+[data-theme="light"] .hero2-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
 .hero2-gradient {
   position: absolute;
   inset: 0;
@@ -51,6 +59,8 @@
   letter-spacing: -0.03em;
   line-height: 1.1;
   margin-bottom: 20px;
+
+  color: #ffffff;
 }
 
 .hero2-desc {
@@ -491,4 +501,13 @@
   .premium-cta-title { font-size: 1.8rem; }
   .premium-cta-card { padding: 20px; }
   .parallax-cta-title { font-size: 1.8rem; }
+}
+
+/* 360px fixes */
+@media (max-width: 360px) {
+  .hero2-dashboard { padding: 12px; }
+  .hero2-db-header { flex-direction: column; gap: 10px; align-items: flex-start; }
+  .hero2-db-stats { grid-template-columns: 1fr; }
+  .hero2-actions { flex-direction: column; gap: 12px; }
+  .hero2-actions .btn { width: 100%; justify-content: center; }
 }
