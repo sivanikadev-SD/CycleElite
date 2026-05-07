@@ -557,6 +557,28 @@ h4 {
   .h2p-hero-title {
     font-size: 2.5rem;
   }
+
+  .h2p-hero-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .h2p-hero-actions .h2p-btn {
+    width: 100%;
+  }
+
+  .coaches-filter {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+
+  .filter-group {
+    flex-wrap: wrap;
+  }
+
+  .filter-pills {
+    flex-wrap: wrap;
+  }
 }
 
 /* ===================================================
