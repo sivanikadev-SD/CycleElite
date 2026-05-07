@@ -1269,12 +1269,24 @@ h4 {
   transition: all 0.3s;
 }
 
+.cn-social-icon img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s;
+}
+
 .cn-social-icon:hover {
   background: var(--primary);
   border-color: var(--primary);
   color: #fff;
   transform: translateY(-3px);
   box-shadow: 0 8px 16px var(--primary-glow);
+}
+
+.cn-social-icon:hover img {
+  filter: brightness(0) invert(1) !important;
 }
 
 /* Map Section */
@@ -1644,6 +1656,24 @@ h4 {
 [data-theme="light"] .h2p-coach-details p {
   color: var(--text-2);
   opacity: 1;
+}
+
+[data-theme="light"] .cn-social-icon {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .cn-social-icon img {
+  filter: brightness(0);
+}
+
+[data-theme="light"] .cn-social-icon:hover img {
+  filter: brightness(0) invert(1) !important;
+}
+
+[data-theme="light"] .cn-social-bar span {
+  color: var(--text-2);
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
