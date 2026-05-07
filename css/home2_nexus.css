@@ -398,3 +398,59 @@
         margin: 0 auto;
     }
 }
+
+@media (max-width: 768px) {
+    .nexus-hero {
+        padding: 120px 0 60px;
+        text-align: center;
+    }
+    
+    .nexus-hero-desc {
+        margin: 0 auto 32px;
+    }
+    
+    .nexus-hero-actions {
+        justify-content: center;
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .nexus-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nexus-preview-wrap {
+        padding: 40px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nexus-hero-title {
+        font-size: 2.8rem;
+    }
+    
+    .nexus-stat-box {
+        padding: 24px;
+    }
+    
+    .nexus-stat-val {
+        font-size: 2.5rem;
+    }
+}
+
+/* Navbar Nexus Override */
+.home2-nexus .nav-toggle {
+    background: var(--nexus-glass) !important;
+    border: 1px solid var(--nexus-border) !important;
+    backdrop-filter: blur(10px);
+}
+
+.home2-nexus .nav-toggle span {
+    background: #ffffff !important;
+}
+
+.home2-nexus .nav-actions .btn-icon {
+    background: var(--nexus-glass) !important;
+    border: 1px solid var(--nexus-border) !important;
+    color: #ffffff !important;
+}

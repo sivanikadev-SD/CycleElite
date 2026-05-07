@@ -10,6 +10,14 @@
   <link rel="stylesheet" href="css/home2_premium.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('cycle-theme') || 'dark';
+      const dir = localStorage.getItem('cycle-dir') || 'ltr';
+      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('dir', dir);
+    })();
+  </script>
 </head>
 <body class="home2-premium">
 
@@ -17,61 +25,61 @@
 <div class="home2-light-beams"></div>
 
 <div class="home2-wrapper">
-  <!-- NAVBAR -->
-  <nav class="nav" id="mainNav">
-    <div class="container nav-inner">
-      <a href="index.html" class="nav-logo">
-        <div class="logo-icon"><img src="images/site_icon.png" alt="CycleElite"></div>
-        <span>Cycle<span class="blue">Elite</span></span>
-      </a>
-      <ul class="nav-menu">
-        <li class="nav-dropdown">
-          <a href="index.html" class="nav-link">Home <i data-lucide="chevron-down" class="dropdown-chevron" style="width:14px;height:14px;margin-left:4px;"></i></a>
-          <div class="nav-dropdown-menu">
-            <a href="index.html" class="nav-dropdown-item">Standard Home</a>
-            <a href="home2.html" class="nav-dropdown-item">Pro Dashboard</a>
-          </div>
-        </li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="programs.html" class="nav-link">Programs</a></li>
-        <li><a href="coaches.html" class="nav-link">Coaches</a></li>
-        <li><a href="analytics.html" class="nav-link">Analytics</a></li>
-        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
-        <li><a href="contact.html" class="nav-link active">Contact</a></li>
-        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
-      </ul>
-      <div class="nav-actions">
-        <button class="btn-icon" onclick="toggleTheme()"><span data-theme-icon></span></button>
-        <button class="btn-icon" onclick="toggleDir()"><i data-lucide="arrow-left-right" style="width:18px;height:18px;"></i></button>
+    <!-- NAVBAR -->
+    <nav class="nav" id="mainNav">
+      <div class="container nav-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon"><img src="images/site_icon.png" alt="CycleElite"></div>
+          <span>Cycle<span class="blue">Elite</span></span>
+        </a>
+        <ul class="nav-menu">
+          <li class="nav-dropdown">
+            <a href="index.html" class="nav-link">Home <i data-lucide="chevron-down" class="dropdown-chevron" style="width:14px;height:14px;margin-left:4px;"></i></a>
+            <div class="nav-dropdown-menu">
+              <a href="index.html" class="nav-dropdown-item">Standard Home</a>
+              <a href="home2.html" class="nav-dropdown-item">Pro Dashboard</a>
+            </div>
+          </li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="programs.html" class="nav-link">Programs</a></li>
+          <li><a href="coaches.html" class="nav-link">Coaches</a></li>
+          <li><a href="analytics.html" class="nav-link">Analytics</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="btn-icon" onclick="toggleTheme()"><span data-theme-icon></span></button>
+          <button class="btn-icon" onclick="toggleDir()"><i data-lucide="arrow-left-right" style="width:18px;height:18px;"></i></button>
+          <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
+          <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="home2.html" class="mobile-nav-link">Pro Dashboard</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="programs.html" class="mobile-nav-link">Programs</a>
+      <a href="coaches.html" class="mobile-nav-link">Coaches</a>
+      <a href="analytics.html" class="mobile-nav-link">Analytics</a>
+      <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+      <a href="contact.html" class="mobile-nav-link active">Contact</a>
+      <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
+      <div class="mobile-drawer-actions">
         <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
         <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
-        <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
       </div>
     </div>
-  </nav>
-
-  <div class="mobile-drawer" id="mobileDrawer">
-    <a href="index.html" class="mobile-nav-link">Home</a>
-    <a href="home2.html" class="mobile-nav-link">Pro Dashboard</a>
-    <a href="about.html" class="mobile-nav-link">About</a>
-    <a href="programs.html" class="mobile-nav-link">Programs</a>
-    <a href="coaches.html" class="mobile-nav-link">Coaches</a>
-    <a href="analytics.html" class="mobile-nav-link">Analytics</a>
-    <a href="pricing.html" class="mobile-nav-link">Pricing</a>
-    <a href="contact.html" class="mobile-nav-link active">Contact</a>
-    <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
-    <div class="mobile-drawer-actions">
-      <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
-      <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
-    </div>
-  </div>
 
   <!-- HERO SECTION -->
-  <header class="cn-hero">
+  <header class="cn-hero contact-hero">
 
     <div class="container" style="position: relative; z-index: 2;">
       <div class="cn-hero-grid">
-        <div>
+        <div class="cn-hero-content">
           <h1 class="h2p-hero-title">Let's Connect & <br><span class="gradient-text">Elevate Your Performance</span></h1>
           <p class="h2p-hero-desc">Have questions or need support? We're here to help you on your cycling & triathlon journey.</p>
           
@@ -169,11 +177,11 @@
         
         <div class="cn-social-bar">
           <span style="font-size: 0.9rem; color: var(--text-3); align-self: center; margin-right: 12px;">Follow us</span>
-          <a href="#" class="cn-social-icon"><i data-lucide="instagram" style="width:18px;"></i></a>
+          <a href="#" class="cn-social-icon"><img src="images/instagram.png" alt="Instagram" style="width:18px; height:18px; object-fit:contain; filter: brightness(0) invert(1);"></a>
+          <a href="#" class="cn-social-icon"><img src="images/twitter.png" alt="Twitter" style="width:18px; height:18px; object-fit:contain; filter: brightness(0) invert(1);"></a>
+          <a href="#" class="cn-social-icon"><img src="images/youtube.png" alt="YouTube" style="width:18px; height:18px; object-fit:contain; filter: brightness(0) invert(1);"></a>
+          <a href="#" class="cn-social-icon"><img src="images/linkedin.png" alt="LinkedIn" style="width:18px; height:18px; object-fit:contain; filter: brightness(0) invert(1);"></a>
           <a href="#" class="cn-social-icon"><i data-lucide="bike" style="width:18px;"></i></a>
-          <a href="#" class="cn-social-icon"><i data-lucide="youtube" style="width:18px;"></i></a>
-          <a href="#" class="cn-social-icon"><i data-lucide="facebook" style="width:18px;"></i></a>
-          <a href="#" class="cn-social-icon"><i data-lucide="twitter" style="width:18px;"></i></a>
         </div>
       </div>
     </div>
@@ -234,6 +242,42 @@
           </div>
           <div class="faq-body">
             <div class="faq-content">Yes! We offer a 25% discount for verified students and researchers in sports science fields. Send us a message with your academic credentials to apply.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-header" onclick="this.parentElement.classList.toggle('active')">
+            <span class="faq-title">How can I sync my Garmin or Wahoo devices?</span>
+            <i data-lucide="chevron-down" class="faq-icon" style="width:18px;"></i>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">You can connect your devices through the 'Sensors' section in your Dashboard. We support direct integration with Garmin Connect, Wahoo Cloud, and Strava.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-header" onclick="this.parentElement.classList.toggle('active')">
+            <span class="faq-title">Can I cancel my subscription anytime?</span>
+            <i data-lucide="chevron-down" class="faq-icon" style="width:18px;"></i>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">Absolutely. You can manage or cancel your subscription at any time through your account settings. You will retain access to premium features until the end of your current billing cycle.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-header" onclick="this.parentElement.classList.toggle('active')">
+            <span class="faq-title">How do I find the right coach for me?</span>
+            <i data-lucide="chevron-down" class="faq-icon" style="width:18px;"></i>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">Visit our 'Coaches' page to browse through elite professionals. You can filter by specialty (Road, MTB, Triathlon) and skill level. Most coaches offer a free 15-minute consultation.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-header" onclick="this.parentElement.classList.toggle('active')">
+            <span class="faq-title">Is there a mobile app available?</span>
+            <i data-lucide="chevron-down" class="faq-icon" style="width:18px;"></i>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">Yes, the CycleElite app is available for both iOS and Android. It features real-time data tracking, offline workout viewing, and direct messaging with your coach.</div>
           </div>
         </div>
       </div>

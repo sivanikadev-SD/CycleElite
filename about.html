@@ -77,9 +77,10 @@
           <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
         </ul>
         <div class="nav-actions">
-          <button class="btn-icon" onclick="toggleTheme()" aria-label="Toggle Theme"><span data-theme-icon></span></button>
-          <button class="btn-icon" onclick="toggleDir()" aria-label="Toggle RTL"><i data-lucide="arrow-left-right" style="width:18px;height:18px;"></i></button>
-          <a href="login.html" class="btn btn-secondary btn-sm">Sign In</a>
+          <button class="btn-icon" onclick="toggleTheme()"><span data-theme-icon></span></button>
+          <button class="btn-icon" onclick="toggleDir()"><i data-lucide="arrow-left-right" style="width:18px;height:18px;"></i></button>
+          <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
           <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
         </div>
       </div>
@@ -97,8 +98,8 @@
       <a href="contact.html" class="mobile-nav-link">Contact</a>
       <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
       <div class="mobile-drawer-actions">
-        <a href="login.html" class="btn btn-secondary btn-sm">Sign In</a>
-        <a href="signup.html" class="btn btn-primary btn-sm">Join Elite</a>
+        <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
+        <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
       </div>
     </div>
 
@@ -237,19 +238,9 @@
   </div>
 </footer>
 
+    <script src="js/main.js"></script>
     <script>
-        lucide.createIcons();
-        window.addEventListener('scroll', function() {
-            const nav = document.getElementById('mainNav');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-
-        // Toggle mobile drawer
-        
+        if (typeof lucide !== 'undefined') lucide.createIcons();
     </script>
 </body>
 </html>

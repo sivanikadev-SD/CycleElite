@@ -84,16 +84,8 @@
           <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
         </ul>
         <div class="nav-actions">
-          <button class="btn-icon" onclick="toggleTheme()" aria-label="Toggle Theme">
-            <span data-theme-icon>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-            </span>
-          </button>
-          <button class="btn-icon" onclick="toggleDir()" aria-label="Toggle RTL">
-            <span data-rtl-icon>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-align-left"><line x1="21" y1="6" x2="3" y2="6"/><line x1="15" y1="12" x2="3" y2="12"/><line x1="17" y1="18" x2="3" y2="18"/></svg>
-            </span>
-          </button>
+          <button class="btn-icon" onclick="toggleTheme()"><span data-theme-icon></span></button>
+          <button class="btn-icon" onclick="toggleDir()"><i data-lucide="arrow-left-right" style="width:18px;height:18px;"></i></button>
           <a href="login.html" class="btn btn-secondary btn-sm">Book a Coach</a>
           <a href="signup.html" class="btn btn-primary btn-sm">Start Training</a>
           <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
@@ -122,9 +114,9 @@
       <div class="container">
         <div class="cn-hero-grid">
           <div class="cn-hero-content">
-            <h1 class="std-hero-title" style="text-align: left; margin-top: 0;">Training <br><span class="gradient-text">Analytics</span></h1>
-            <p class="std-hero-desc" style="margin: 0 0 40px; text-align: left; max-width: 520px;">Deep performance metrics for serious athletes. Track power, heart rate, and metabolic efficiency with AI-driven precision indicators.</p>
-            <div class="h2p-hero-actions" style="justify-content: flex-start;">
+            <h1 class="std-hero-title" style="margin-top: 0;">Training <br><span class="gradient-text">Analytics</span></h1>
+            <p class="std-hero-desc" style="margin: 0 0 40px; max-width: 520px;">Deep performance metrics for serious athletes. Track power, heart rate, and metabolic efficiency with AI-driven precision indicators.</p>
+            <div class="h2p-hero-actions">
               <a href="signup.html" class="h2p-btn h2p-btn-primary">Connect Sensors</a>
               <a href="#stats" class="h2p-btn h2p-btn-outline">View Demo</a>
             </div>
@@ -616,13 +608,9 @@
   </div>
 </footer>
 
+  <script src="js/main.js"></script>
   <script>
     lucide.createIcons();
-
-    document.getElementById('navToggle').addEventListener('click', function() {
-        document.getElementById('mobileDrawer').classList.toggle('active');
-        this.classList.toggle('active');
-    });
 
     // Navbar scroll
     window.addEventListener('scroll', function() {

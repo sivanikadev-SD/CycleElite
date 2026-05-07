@@ -611,18 +611,43 @@ h1, h2, h3, h4, h5, h6 {
 .nav-toggle {
   display: none;
   flex-direction: column;
-  gap: 5px;
-  width: 28px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  padding: 4px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: all var(--transition);
+  padding: 0;
 }
 
 .nav-toggle span {
   display: block;
   height: 2px;
+  width: 18px;
   background: var(--text);
   border-radius: 2px;
   transition: all var(--transition);
+}
+
+.nav-toggle:hover {
+  background: var(--primary-glow);
+  border-color: var(--primary-light);
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 /* Mobile Drawer */
@@ -1250,4 +1275,84 @@ h1, h2, h3, h4, h5, h6 {
 .hero2-section .container {
   position: relative !important;
   z-index: 2 !important;
+}
+
+/* ===================================================
+   GLOBAL RESPONSIVENESS
+   =================================================== */
+
+/* Desktop / Large Tablet (1024px) */
+@media (max-width: 1024px) {
+  .nav-menu { display: none !important; }
+  .nav-toggle { display: flex !important; }
+  
+  /* Grid Adjustments */
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+/* Tablet / Mobile (768px) */
+@media (max-width: 768px) {
+  .section { padding: 60px 0; }
+  .section-sm { padding: 40px 0; }
+  
+  /* Full Stack Grids */
+  .grid-2, .grid-3, .grid-4 { 
+    grid-template-columns: 1fr !important; 
+    gap: 32px;
+  }
+  
+  .section-header { margin-bottom: 40px; }
+  .section-title { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+  
+  /* Footer Stack */
+  .footer { padding: 60px 0 32px; }
+  .footer-grid { 
+    grid-template-columns: 1fr !important; 
+    text-align: center;
+    gap: 40px;
+  }
+  .footer-brand { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+  }
+  .footer-brand p { margin: 16px auto 24px; }
+  .footer-social { justify-content: center; }
+  .footer-bottom { 
+    flex-direction: column; 
+    gap: 20px; 
+    text-align: center; 
+    padding-bottom: 20px;
+  }
+}
+
+/* Small Mobile (480px) */
+@media (max-width: 480px) {
+  .container { padding: 0 20px; }
+  
+  .nav { height: 64px; }
+  .nav-logo { font-size: 1.25rem; }
+  .nav-logo .logo-icon { width: 32px; height: 32px; }
+  
+  /* Hide Navbar CTA buttons on very small screens to avoid crowding */
+  .nav-actions .btn { display: none !important; }
+  
+  .mobile-drawer { top: 64px; padding: 24px 20px; }
+  
+  .section-title { font-size: 1.75rem; }
+  .section-desc { font-size: 1rem; }
+}
+
+/* Ultra Small Mobile (360px) */
+@media (max-width: 360px) {
+  .container { padding: 0 16px; }
+  
+  .nav-inner { gap: 10px; }
+  .nav-actions { gap: 6px; }
+  .btn-icon { width: 36px; height: 36px; }
+  
+  .section-title { font-size: 1.6rem; }
 }
