@@ -131,19 +131,21 @@
     <div class="container" id="stats">
       <!-- Filters/Tabs Row -->
 
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:60px; flex-wrap:wrap; gap:20px;">
-          <div class="h2p-tabs" style="display:flex; gap:12px; background:var(--surface-glass); padding:8px; border-radius:12px; border:1px solid var(--border); backdrop-filter: blur(10px);">
-            <button class="h2p-tab active" style="padding:10px 24px; border-radius:10px; border:none; background:var(--primary-glow); color:var(--text); font-size:0.9rem; font-weight:600; cursor:pointer; border: 1px solid var(--primary-light);">Overview</button>
-            <button class="h2p-tab" style="padding:10px 24px; border-radius:10px; border:none; background:transparent; color:var(--text-4); font-size:0.9rem; font-weight:600; cursor:pointer;">Performance</button>
-            <button class="h2p-tab" style="padding:10px 24px; border-radius:10px; border:none; background:transparent; color:var(--text-4); font-size:0.9rem; font-weight:600; cursor:pointer;">Heart Rate</button>
-            <button class="h2p-tab" style="padding:10px 24px; border-radius:10px; border:none; background:transparent; color:var(--text-4); font-size:0.9rem; font-weight:600; cursor:pointer;">Endurance</button>
+        <div class="analytics-filters-row">
+          <div class="h2p-tabs-wrap">
+            <div class="h2p-tabs">
+              <button class="h2p-tab active">Overview</button>
+              <button class="h2p-tab">Performance</button>
+              <button class="h2p-tab">Heart Rate</button>
+              <button class="h2p-tab">Endurance</button>
+            </div>
           </div>
           
-          <div style="display:flex; gap:12px; align-items: center;">
-            <div style="background: var(--surface-glass); border: 1px solid var(--border); border-radius: 12px; display:flex; gap:1PX;">
-               <button style="background:transparent; color:var(--text-3); padding: 10px 16px; font-size: 0.85rem; border:none; cursor:pointer; display:flex; align-items:center; gap:8px;"><i data-lucide="filter" style="width:14px;"></i> Filters</button>
-               <div style="width:1px; background: var(--border-subtle); margin: 10px 0;"></div>
-               <button style="background:transparent; color:var(--text-3); padding: 10px 16px; font-size: 0.85rem; border:none; cursor:pointer; display:flex; align-items:center; gap:8px;">Last 10 Weeks <i data-lucide="chevron-down" style="width:14px;"></i></button>
+          <div class="analytics-filters-actions">
+            <div class="filter-dropdown-wrap">
+               <button class="filter-btn"><i data-lucide="filter" style="width:14px;"></i> Filters</button>
+               <div class="filter-divider"></div>
+               <button class="filter-btn">Last 10 Weeks <i data-lucide="chevron-down" style="width:14px;"></i></button>
             </div>
           </div>
         </div>
@@ -259,46 +261,47 @@
       </div>
     </section>
     <!-- Main Performance Chart Section -->
-    <div style="margin-top:20px; margin-bottom:80px;" class="reveal">
-      <div class="h2p-mockup" style="padding:0; overflow:hidden; border:none; background:var(--surface-glass); border: 1px solid var(--border); transform:none;">
-        <div class="analytics-chart-header" style="padding:32px; border-bottom:1px solid var(--border-subtle);">
-          <div>
-            <div style="font-size:1.4rem; font-weight:700;">Weekly <span class="highlight">Performance</span></div>
-            <div style="font-size:0.9rem; color:var(--text-4);">Detailed power and speed tracking analysis</div>
+    <div class="analytics-main-chart-section reveal">
+      <div class="h2p-mockup chart-mockup">
+        <div class="analytics-chart-header">
+          <div class="chart-header-info">
+            <div class="chart-title">Weekly <span class="highlight">Performance</span></div>
+            <div class="chart-subtitle">Detailed power and speed tracking analysis</div>
           </div>
-          <div style="display:flex; gap:32px; align-items:center;">
-             <div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color: var(--text-3);">
-               <span style="width:10px; height:10px; border-radius:50%; background:var(--primary); box-shadow: 0 0 8px var(--primary-glow); display:inline-block;"></span> Performance
+          <div class="chart-header-actions">
+             <div class="chart-legend">
+               <span class="legend-dot"></span> Performance
              </div>
-             <div style="display:flex; align-items:center; gap:12px;">
-                <button style="background: var(--surface-glass); border: 1px solid var(--border); border-radius: 8px; color:var(--text-3); padding: 8px 16px; font-size: 0.8rem; cursor:pointer; display:flex; align-items:center; gap:8px;">
+             <div class="chart-period">
+                <button class="period-btn">
                    <i data-lucide="bar-chart-2" style="width:14px;"></i> Last 10 Weeks <i data-lucide="chevron-down" style="width:14px;"></i>
                 </button>
              </div>
           </div>
         </div>
-        <div style="height:450px; position:relative; padding:40px 10px 20px;">
+        <div class="chart-container-large">
           <canvas id="perfTimelineChart"></canvas>
-          <div style="position:absolute; top: 120px; left: 50%; transform: translateX(-50%); background: var(--primary-glow); border: 1px solid var(--primary-light); backdrop-filter: blur(10px); color: var(--text); padding: 12px 24px; border-radius: 12px; pointer-events: none; z-index: 10;">
-             <div style="font-size: 0.75rem; color: var(--text-4); margin-bottom: 2px;">Value at Peak</div>
-             <div style="font-size: 1.5rem; font-weight: 800;">76.5 <span style="font-size: 0.9rem; color: var(--text-4);">km</span></div>
+          <div class="chart-peak-indicator">
+             <div class="peak-label">Value at Peak</div>
+             <div class="peak-value">76.5 <span class="peak-unit">km</span></div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Endurance Stats Section -->
-    <div style="margin-top:60px; margin-bottom:80px;">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:32px;">
-        <h2 style="font-size: 2rem; font-weight: 800; margin:0;">Endurance <span class="highlight">Stats</span></h2>
-        <div style="display:flex; gap:12px;">
-           <div style="background: var(--surface-glass); border: 1px solid var(--border); border-radius: 12px; display:flex; gap:1PX;">
-               <button style="background:var(--primary-glow); color:var(--primary); border: 1px solid var(--primary-light); border-radius: 10px 0 0 10px; padding: 10px 20px; font-size: 0.8rem; font-weight: 600; cursor:pointer; display:flex; align-items:center; gap:8px;"><i data-lucide="layers" style="width:14px;"></i> Last 4 Weeks</button>
-               <div style="width:1px; background: var(--border-subtle); margin: 10px 0;"></div>
-               <button style="background:transparent; color:var(--text-4); padding: 10px 20px; font-size: 0.8rem; border:none; cursor:pointer; display:flex; align-items:center; gap:8px;">Last 10 Weeks <i data-lucide="chevron-down" style="width:14px;"></i></button>
+    <div class="analytics-endurance-header">
+      <div class="section-title-wrap">
+        <h2 class="endurance-title">Endurance <span class="highlight">Stats</span></h2>
+        <div class="endurance-actions">
+           <div class="action-toggle-group">
+               <button class="toggle-btn active"><i data-lucide="layers" style="width:14px;"></i> Last 4 Weeks</button>
+               <div class="toggle-divider"></div>
+               <button class="toggle-btn">Last 10 Weeks <i data-lucide="chevron-down" style="width:14px;"></i></button>
             </div>
         </div>
       </div>
+    </div>
       
       <div class="h2p-pricing-grid reveal">
         
@@ -478,7 +481,7 @@
         <div class="section-badge" style="margin-bottom:12px;"><i data-lucide="cpu" style="width:12px;"></i> AI Engine</div>
         <h2 class="section-title" style="margin:0;">Smart <span class="gradient-text">Performance Insights</span></h2>
       </div>
-      <div class="reveal" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px;">
+      <div class="analytics-insights-grid reveal">
         <div class="h2p-mockup-card" style="padding:28px; background:var(--surface-glass); border-color:var(--border); display:flex; flex-direction:column; gap:16px;">
           <div style="width:44px; height:44px; border-radius:12px; background:rgba(59,130,246,0.12); display:flex; align-items:center; justify-content:center; color:#3B82F6;"><i data-lucide="trending-up" style="width:22px;"></i></div>
           <div>
@@ -517,7 +520,7 @@
         <div class="section-badge" style="margin-bottom:12px;"><i data-lucide="trophy" style="width:12px;"></i> All Time Bests</div>
         <h2 class="section-title" style="margin:0;">Personal <span class="gradient-text">Records</span></h2>
       </div>
-      <div class="reveal" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px;">
+      <div class="analytics-records-grid reveal">
         <div class="h2p-mockup-card" style="padding:24px; background:var(--surface-glass); border-color:var(--border); text-align:center;">
           <div style="width:40px; height:40px; border-radius:10px; background:rgba(59,130,246,0.1); display:flex; align-items:center; justify-content:center; color:#3B82F6; margin:0 auto 16px;"><i data-lucide="zap" style="width:18px;"></i></div>
           <div style="font-size:2rem; font-weight:900; color:var(--text); letter-spacing:-0.03em;">312<span style="font-size:0.9rem; font-weight:500; color:var(--text-4);"> W</span></div>
