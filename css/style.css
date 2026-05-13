@@ -63,10 +63,10 @@
 
 [data-theme="dark"] {
   --bg: #000000;
-  --bg-2: #111111;
-  --bg-3: #222222;
-  --surface: #111111;
-  --surface-2: #000000;
+  --bg-2: #0a0a0a;
+  --bg-3: #121212;
+  --surface: #121212;
+  --surface-2: #0a0a0a;
   --border: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.15);
   --text: #f8fafc;
@@ -85,7 +85,7 @@
   --secondary: #06b6d4; /* Cyan 500 for that neon look */
   --overlay-bg: rgba(15, 23, 42, 0.9);
   --hero-gradient: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 20%, rgba(15, 23, 42, 0.4) 100%);
-  --space-bg: #050b14;
+  --space-bg: #000000;
   --surface-glass: rgba(15, 23, 42, 0.6);
   --border-subtle: rgba(255, 255, 255, 0.05);
   --aurora-1: rgba(37, 99, 235, 0.15);
@@ -144,6 +144,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   line-height: 1.2;
   color: var(--text);
+}
+
+p {
+  font-weight: 400;
 }
 
 .font-sora { font-family: 'Sora', sans-serif; }
@@ -335,6 +339,10 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   cursor: pointer;
   overflow: hidden;
+}
+
+[data-theme="light"] .btn-icon {
+  color: var(--text-2);
 }
 
 .btn-icon i,
@@ -1188,25 +1196,27 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Force White Text in Hero Sections */
+/* Force White Text only in Hero Sections with background images */
+.std-hero .std-hero-title,
 .nexus-hero .nexus-hero-title,
-.nexus-hero .nexus-hero-desc,
-.std-hero,
-.std-hero .std-hero-desc,
 .hero2-section .hero2-title,
-.hero2-section .hero2-desc,
-.hero-section .hero-title,
-.hero-section .hero-desc {
+.hero-section .hero-title {
   color: #ffffff !important;
 }
-.std-hero-title{
-  color: var(--text) !important;
-}
-.nexus-hero .nexus-hero-desc,
+
 .std-hero .std-hero-desc,
+.nexus-hero .nexus-hero-desc,
 .hero2-section .hero2-desc,
 .hero-section .hero-desc {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Default hero titles/desc should be theme-aware for pages without background images */
+.std-hero-title {
+  color: var(--text);
+}
+.std-hero-desc {
+  color: var(--text-3);
 }
 
 .nexus-hero .section-badge,
