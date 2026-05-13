@@ -630,6 +630,7 @@ p {
   border-radius: var(--radius);
   transition: all var(--transition);
   padding: 0;
+  margin: 0;
 }
 
 .nav-toggle span {
@@ -676,6 +677,8 @@ p {
   opacity: 0;
   pointer-events: none;
   transition: all var(--transition);
+  max-height: calc(100vh - 72px);
+  overflow-y: auto;
 }
 
 [data-theme="dark"] .mobile-drawer {
@@ -1350,7 +1353,7 @@ p {
   /* Hide Navbar CTA buttons on very small screens to avoid crowding */
   .nav-actions .btn { display: none !important; }
   
-  .mobile-drawer { top: 64px; padding: 24px 20px; }
+  .mobile-drawer { top: 64px; padding: 24px 20px; max-height: calc(100vh - 64px); }
   
   .section-title { font-size: 1.75rem; }
   .section-desc { font-size: 1rem; }
@@ -1358,11 +1361,61 @@ p {
 
 /* Ultra Small Mobile (360px) */
 @media (max-width: 360px) {
-  .container { padding: 0 16px; }
+  .container { padding: 0 12px; }
   
-  .nav-inner { gap: 10px; }
-  .nav-actions { gap: 6px; }
-  .btn-icon { width: 36px; height: 36px; }
+  .nav-inner { gap: 8px; }
+  .nav-actions { gap: 4px; }
+  .btn-icon { width: 34px; height: 34px; }
   
-  .section-title { font-size: 1.6rem; }
+  .section-title { font-size: 1.5rem; }
+  .section-desc { font-size: 0.9rem; line-height: 1.5; }
+  
+  .btn { padding: 10px 16px; font-size: 0.8rem; }
+  
+  .nav-logo { font-size: 1.1rem; }
+  .nav-logo .logo-icon { width: 28px; height: 28px; }
+
+  /* Grid & Spacing Refinements */
+  .grid-2, .grid-3, .grid-4 { gap: 16px; }
+  .section { padding: 40px 0; }
+  
+  /* Form & Card Refinements */
+  .cn-form-wrap, .cn-info-card, .h2p-mockup-card { padding: 16px !important; }
+  .cn-input { padding: 10px 14px; font-size: 0.9rem; }
+  .cn-pill-grid { gap: 10px; }
+  .cn-feature-pill { padding: 10px; }
+  .cn-hero-content h1 { font-size: 1.8rem !important; }
+  
+  /* Footer Refinements */
+  .footer-grid { gap: 32px; }
+  .footer-col h4 { font-size: 1rem; margin-bottom: 12px; }
+}
+
+/* Mobile Drawer Toggle Buttons Support */
+.mobile-drawer-toggles {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.mobile-drawer-toggles .btn-icon {
+  flex: 1;
+  height: 44px;
+  border-radius: var(--radius);
+  background: var(--bg-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .nav-actions .btn-icon,
+  .topbar-right .btn-icon {
+    display: none !important;
+  }
+  .auth-controls .btn-icon {
+    display: flex !important;
+  }
 }

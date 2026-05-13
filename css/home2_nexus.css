@@ -446,7 +446,7 @@
 }
 
 .home2-nexus .nav-toggle span {
-    background: #ffffff !important;
+    background: var(--text) !important;
 }
 
 .home2-nexus .nav-actions .btn-icon {
