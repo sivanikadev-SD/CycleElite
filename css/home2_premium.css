@@ -2050,6 +2050,33 @@ h4 {
     margin-bottom: 30px;
   }
 
+  .analytics-filters-row {
+    justify-content: center !important;
+    gap: 16px !important;
+    margin-bottom: 30px !important;
+  }
+
+  .h2p-tabs-wrap {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .h2p-tabs {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .h2p-tab {
+    padding: 8px 14px !important;
+    font-size: 0.8rem !important;
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
   .h2p-performance-matrix {
     grid-template-columns: 1fr !important;
   }
