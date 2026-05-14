@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support & Contact — CycleElite</title>
+  <meta name="description" content="Get help, browse FAQs, and contact the CycleElite support team directly from your dashboard." />
+  <link rel="icon" type="image/png" href="images/site_icon.png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+<div class="dashboard-layout">
+
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="sidebar-logo">
+        <div class="logo-icon"><img src="images/site_icon.png" alt="CycleElite" style="width:16px;height:16px;"></div>
+        <span>Cycle<span style="color:var(--primary)">Elite</span></span>
+      </a>
+      <button class="sidebar-close" id="sidebarClose" onclick="document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebarOverlay').classList.remove('show');">
+        <i data-lucide="x" style="width:18px;height:18px;"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Main</div>
+      <a href="dashboard.html" class="sidebar-link" id="nav-overview">
+        <i data-lucide="layout-dashboard" style="width:18px;height:18px;"></i>
+        <span>Overview</span>
+      </a>
+      <a href="dash-plans.html" class="sidebar-link" id="nav-plans">
+        <i data-lucide="route" style="width:18px;height:18px;"></i>
+        <span>Training Plans</span>
+      </a>
+      <a href="dash-upload.html" class="sidebar-link" id="nav-upload">
+        <i data-lucide="upload-cloud" style="width:18px;height:18px;"></i>
+        <span>Workout Upload</span>
+      </a>
+      <a href="dash-analytics.html" class="sidebar-link" id="nav-analytics">
+        <i data-lucide="bar-chart-2" style="width:18px;height:18px;"></i>
+        <span>Analytics</span>
+      </a>
+
+      <div class="sidebar-section-label">Goals</div>
+      <a href="dash-goals.html" class="sidebar-link" id="nav-goals">
+        <i data-lucide="target" style="width:18px;height:18px;"></i>
+        <span>Goals & Milestones</span>
+      </a>
+      <a href="dash-sessions.html" class="sidebar-link" id="nav-sessions">
+        <i data-lucide="video" style="width:18px;height:18px;"></i>
+        <span>Coach Sessions</span>
+      </a>
+
+      <div class="sidebar-section-label">Communication</div>
+      <a href="dash-messages.html" class="sidebar-link" id="nav-messages">
+        <i data-lucide="message-circle" style="width:18px;height:18px;"></i>
+        <span>Messages</span>
+        <span class="badge-count">3</span>
+      </a>
+
+      <a href="dash-support.html" class="sidebar-link active" id="nav-support">
+        <i data-lucide="help-circle" style="width:18px;height:18px;"></i>
+        <span>Support & Contact</span>
+      </a>
+      <a href="dash-settings.html" class="sidebar-link" id="nav-settings">
+        <i data-lucide="settings" style="width:18px;height:18px;"></i>
+        <span>Settings</span>
+      </a>
+      <a href="index.html" class="sidebar-link" style="color:var(--danger);">
+        <i data-lucide="log-out" style="width:18px;height:18px;"></i>
+        <span>Logout</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="avatar avatar-lg">
+          <img src="images/alex_profile.png" alt="Alex Johnson">
+        </div>
+        <div class="sidebar-user-info">
+          <div class="name">Alex Johnson</div>
+          <div class="role">Pro Athlete · 14 days left</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <div class="dashboard-main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="topbar-menu-btn" id="topbarMenuBtn">
+          <i data-lucide="menu" style="width:18px;height:18px;"></i>
+        </button>
+        <div class="topbar-welcome">
+          <h3>Support <span class="gradient-text-blue">Center</span></h3>
+          <p>How can we help you today, Alex?</p>
+        </div>
+      </div>
+      <div class="topbar-search">
+        <span class="search-icon"><i data-lucide="search" style="width:15px;height:15px;"></i></span>
+        <input type="text" placeholder="Search help articles..." />
+      </div>
+      <div class="topbar-right">
+        <button class="btn-icon" onclick="toggleTheme()" title="Toggle theme"><span data-theme-icon></span></button>
+        <button class="btn-icon" onclick="toggleDir()"><span data-rtl-icon></span></button>
+        <button class="notif-btn" title="Notifications">
+          <i data-lucide="bell" style="width:16px;height:16px;"></i>
+          <span class="notif-dot"></span>
+        </button>
+        <div class="topbar-profile">
+          <div class="avatar">
+            <img src="images/alex_profile.png" alt="Alex Johnson">
+          </div>
+          <div>
+            <div class="name">Alex J.</div>
+            <div class="role">Pro</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <main class="page-content">
+
+      <!-- Page Header -->
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Support & Contact</h1>
+          <p class="page-subtitle">Get expert help and find answers to common questions</p>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="btn btn-primary btn-sm" onclick="document.getElementById('ticket-form').scrollIntoView({behavior:'smooth'})">
+            <i data-lucide="message-square" style="width:14px;height:14px;"></i> Open a Ticket
+          </button>
+        </div>
+      </div>
+
+      <!-- Support Quick Cards -->
+      <div class="dash-grid dash-grid-4" style="margin-bottom: 32px;">
+        <div class="dash-card glass-card-premium" style="padding: 24px; text-align: center;">
+          <div style="width: 48px; height: 48px; background: var(--primary-glow); color: var(--primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+            <i data-lucide="book-open" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h4 style="margin-bottom: 8px;">Documentation</h4>
+          <p style="font-size: 0.8rem; color: var(--text-3);">Detailed guides on platform features.</p>
+        </div>
+        <div class="dash-card glass-card-premium" style="padding: 24px; text-align: center;">
+          <div style="width: 48px; height: 48px; background: var(--secondary-glow); color: var(--secondary); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+            <i data-lucide="users" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h4 style="margin-bottom: 8px;">Community</h4>
+          <p style="font-size: 0.8rem; color: var(--text-3);">Ask fellow athletes and coaches.</p>
+        </div>
+        <div class="dash-card glass-card-premium" style="padding: 24px; text-align: center;">
+          <div style="width: 48px; height: 48px; background: rgba(139,92,246,0.1); color: #8B5CF6; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+            <i data-lucide="video" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h4 style="margin-bottom: 8px;">Video Tutorials</h4>
+          <p style="font-size: 0.8rem; color: var(--text-3);">Visual walkthroughs of the dashboard.</p>
+        </div>
+        <div class="dash-card glass-card-premium" style="padding: 24px; text-align: center;">
+          <div style="width: 48px; height: 48px; background: rgba(245,158,11,0.1); color: var(--warning); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+            <i data-lucide="activity" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h4 style="margin-bottom: 8px;">System Status</h4>
+          <p style="font-size: 0.8rem; color: var(--text-3);">Check if all systems are operational.</p>
+        </div>
+      </div>
+
+      <div class="dash-grid dash-grid-32">
+        <!-- FAQ Section -->
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div class="dash-card-title">Frequently Asked Questions</div>
+          </div>
+          <div class="faq-list">
+            <div class="faq-item" style="border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 16px;">
+              <div style="display:flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
+                <h5 style="font-weight: 600;">How do I sync my Garmin or Wahoo devices?</h5>
+                <i data-lucide="chevron-down" style="width:16px;"></i>
+              </div>
+              <div style="display:none; margin-top: 12px; font-size: 0.9rem; color: var(--text-3);">
+                You can connect your devices through the 'Sensors' section in your Settings. We support direct integration with Garmin Connect, Wahoo Cloud, and Strava.
+              </div>
+            </div>
+            <div class="faq-item" style="border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 16px;">
+              <div style="display:flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
+                <h5 style="font-weight: 600;">How can I export my performance data?</h5>
+                <i data-lucide="chevron-down" style="width:16px;"></i>
+              </div>
+              <div style="display:none; margin-top: 12px; font-size: 0.9rem; color: var(--text-3);">
+                On the Analytics page, click the 'Export' button in the top right corner. You can download your data in .CSV, .FIT, or .TCX formats.
+              </div>
+            </div>
+            <div class="faq-item" style="border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 16px;">
+              <div style="display:flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
+                <h5 style="font-weight: 600;">Can I share my training plan with a coach?</h5>
+                <i data-lucide="chevron-down" style="width:16px;"></i>
+              </div>
+              <div style="display:none; margin-top: 12px; font-size: 0.9rem; color: var(--text-3);">
+                Yes, if you have a premium subscription, you can invite your coach via the 'Team' tab in Settings. They will then have read-access to your workouts and analytics.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div style="display:flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
+                <h5 style="font-weight: 600;">How do I cancel my subscription?</h5>
+                <i data-lucide="chevron-down" style="width:16px;"></i>
+              </div>
+              <div style="display:none; margin-top: 12px; font-size: 0.9rem; color: var(--text-3);">
+                Go to Settings > Billing & Plans. There you can see your current plan and find the option to cancel or downgrade.
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-ghost btn-sm" style="margin-top: 24px; width: 100%; justify-content: center;">
+            View All Help Articles <i data-lucide="external-link" style="width:14px; margin-left:8px;"></i>
+          </button>
+        </div>
+
+        <!-- Contact Info & Ticket Form -->
+        <div style="display:flex; flex-direction: column; gap: 20px;">
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <div class="dash-card-title">Contact Support</div>
+            </div>
+            <div style="display:flex; flex-direction: column; gap: 16px;">
+              <div style="display:flex; align-items: center; gap: 12px;">
+                <div style="width: 36px; height: 36px; background: var(--bg-2); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--primary);">
+                  <i data-lucide="mail" style="width:18px;"></i>
+                </div>
+                <div>
+                  <div style="font-size: 0.75rem; color: var(--text-4);">Email</div>
+                  <div style="font-size: 0.85rem; font-weight: 600;">support@cycleelite.com</div>
+                </div>
+              </div>
+              <div style="display:flex; align-items: center; gap: 12px;">
+                <div style="width: 36px; height: 36px; background: var(--bg-2); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--secondary);">
+                  <i data-lucide="phone" style="width:18px;"></i>
+                </div>
+                <div>
+                  <div style="font-size: 0.75rem; color: var(--text-4);">Phone</div>
+                  <div style="font-size: 0.85rem; font-weight: 600;">+1 (555) 987-6543</div>
+                </div>
+              </div>
+              <div style="display:flex; align-items: center; gap: 12px;">
+                <div style="width: 36px; height: 36px; background: var(--bg-2); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--warning);">
+                  <i data-lucide="clock" style="width:18px;"></i>
+                </div>
+                <div>
+                  <div style="font-size: 0.75rem; color: var(--text-4);">Hours</div>
+                  <div style="font-size: 0.85rem; font-weight: 600;">Mon–Fri, 9AM–6PM EST</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-card" id="ticket-form">
+            <div class="dash-card-header">
+              <div class="dash-card-title">Submit a Ticket</div>
+            </div>
+            <form style="display:flex; flex-direction: column; gap: 12px;">
+              <div>
+                <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-3); display: block; margin-bottom: 6px;">Subject</label>
+                <input type="text" class="cn-input" placeholder="What is the issue?" style="width: 100%; padding: 10px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px; color: var(--text);">
+              </div>
+              <div>
+                <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-3); display: block; margin-bottom: 6px;">Department</label>
+                <select style="width: 100%; padding: 10px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px; color: var(--text);">
+                  <option>Technical Support</option>
+                  <option>Billing & Plans</option>
+                  <option>Coaching Inquiries</option>
+                  <option>Feature Requests</option>
+                </select>
+              </div>
+              <div>
+                <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-3); display: block; margin-bottom: 6px;">Message</label>
+                <textarea rows="4" style="width: 100%; padding: 10px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px; color: var(--text); resize: none;" placeholder="Describe your problem..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 8px;">Send Ticket</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
+<script>
+  lucide.createIcons();
+</script>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="justify-content:flex-start;">
+          <div class="logo-icon"><img src="images/site_icon.png" alt="CycleElite" style="width:16px;height:16px;"></div>
+          <span>Cycle<span class="blue">Elite</span></span>
+        </a>
+        <p>The performance platform for serious cyclists and triathletes. Train with precision, race with confidence.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter"><img src="images/twitter.png" alt="Twitter"></a>
+          <a href="#" aria-label="Instagram"><img src="images/instagram.png" alt="Instagram"></a>
+          <a href="#" aria-label="YouTube"><img src="images/youtube.png" alt="YouTube"></a>
+          <a href="#" aria-label="LinkedIn"><img src="images/linkedin.png" alt="LinkedIn"></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="programs.html">Training Programs</a></li>
+          <li><a href="coaches.html">Find a Coach</a></li>
+          <li><a href="analytics.html">Analytics</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Community</a></li>
+          <li><a href="#">API Docs</a></li>
+          <li><a href="#">Status</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 CycleElite. Premium Performance Platform.</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
