@@ -227,6 +227,7 @@ h4 {
 
 .h2p-btn-outline:hover {
   background: var(--border-subtle);
+  color: #fff;
 }
 
 .h2p-hero-actions {
@@ -763,6 +764,27 @@ h4 {
   color: #3B82F6;
   flex-shrink: 0;
   margin-top: 2px;
+}
+
+/* ── Aligned colon layout ── */
+.pg-card-features li {
+  align-items: baseline;
+}
+
+.feat-label {
+  min-width: 110px;
+  flex-shrink: 0;
+}
+
+.feat-colon {
+  flex-shrink: 0;
+  margin-right: 6px;
+  color: var(--text-3);
+}
+
+.feat-desc {
+  flex: 1;
+  color: var(--text-2);
 }
 
 .pg-btn {
